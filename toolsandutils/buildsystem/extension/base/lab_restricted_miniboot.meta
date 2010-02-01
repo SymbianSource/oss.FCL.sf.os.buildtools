@@ -1,0 +1,10 @@
+# Meta information for the lab_restricted_miniboot extension template
+#
+# Copyright (c) 2005 Symbian Software Ltd.  All rights reserved.
+#
+
+platform	win32
+makefile 	gnumake
+techstream	base
+
+

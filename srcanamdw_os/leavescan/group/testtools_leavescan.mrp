@@ -1,0 +1,11 @@
+component	testtools_leavescan
+source	\sf\os\buildtools\srcanamdw_os\leavescan
+binary	\sf\os\buildtools\srcanamdw_os\leavescan\group	all
+
+binary	\epoc32\release\tools\rel\leavescan.exe
+
+notes_source	\component_defs\release.src
+
+
+ipr T 
+

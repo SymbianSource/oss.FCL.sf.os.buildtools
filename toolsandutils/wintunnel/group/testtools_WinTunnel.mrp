@@ -1,0 +1,10 @@
+component  testtools_wintunnel
+source \sf\os\buildtools\toolsandutils\wintunnel
+binary \sf\os\buildtools\toolsandutils\wintunnel\group all
+exports \sf\os\buildtools\toolsandutils\wintunnel\group
+
+notes_source \component_defs\release.src
+
+
+ipr T 
+

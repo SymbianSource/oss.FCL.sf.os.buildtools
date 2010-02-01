@@ -1,0 +1,46 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+#ifndef __REMOVABLEFEATURES_IBY__
+#define __REMOVABLEFEATURES_IBY__
+
+#define SYMBIAN_EXCLUDE_FAX
+#define SYMBIAN_EXCLUDE_PRINT
+#define SYMBIAN_EXCLUDE_MMC
+#define SYMBIAN_EXCLUDE_RTP_RTCP
+#define SYMBIAN_EXCLUDE_PC_CONNECTIVITY_EXCEPT_SECURE_BACKUP
+#define SYMBIAN_EXCLUDE_INFRARED
+#define SYMBIAN_EXCLUDE_BLUETOOTH
+#define SYMBIAN_EXCLUDE_OBEX
+#define SYMBIAN_EXCLUDE_USB
+#define SYMBIAN_EXCLUDE_DRM_AGENT_PLUGINS
+#define SYMBIAN_EXCLUDE_IPSEC
+#define SYMBIAN_EXCLUDE_QOS_PROTPLUGINS
+#define SYMBIAN_EXCLUDE_DHCP
+#define SYMBIAN_EXCLUDE_MOBILEIP
+#define SYMBIAN_EXCLUDE_LOCATION
+#define SYMBIAN_EXCLUDE_SIP
+#define SYMBIAN_EXCLUDE_OFFLINE_MODE
+#define SYMBIAN_EXCLUDE_MTP
+#define SYMBIAN_EXCLUDE_VIBRA
+#define SYMBIAN_EXCLUDE_AMBIENT_LIGHT_SENSOR
+#define SYMBIAN_EXCLUDE_COVER_DISPLAY
+#define SYMBIAN_EXCLUDE_KEYPAD_NO_SLIDER
+#define SYMBIAN_EXCLUDE_LOCATION_MANAGEMENT
+#define SYMBIAN_EXCLUDE_CS_VIDEO_TELEPHONY
+#define SYMBIAN_EXCLUDE_EMERGENCY_CALLS_ENABLED_IN_OFFLINE_MODE
+#define SYMBIAN_EXCLUDE_DRIVE_MODE_CAN_RESTRICT_MT_CALLS
+
+#endif

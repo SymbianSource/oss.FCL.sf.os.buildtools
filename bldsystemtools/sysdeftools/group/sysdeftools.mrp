@@ -1,0 +1,7 @@
+component	sysdeftools
+
+source	\sf\os\buildtools\bldsystemtools\sysdeftools\
+notes_source	\component_defs\release.src
+
+
+ipr T 

@@ -1,0 +1,9 @@
+component	tools_autotest
+source	\sf\os\buildtools\toolsandutils\autotest
+binary	\sf\os\buildtools\toolsandutils\autotest\group	all
+exports	\sf\os\buildtools\toolsandutils\autotest\group
+notes_source	\component_defs\release.src
+
+
+ipr T 
+

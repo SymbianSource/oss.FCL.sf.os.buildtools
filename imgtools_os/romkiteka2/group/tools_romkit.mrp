@@ -1,0 +1,11 @@
+component	tools_romkit
+source	\sf\os\buildtools\imgtools_os\romkiteka2
+binary	\sf\os\buildtools\imgtools_os\romkiteka2\group all
+exports	\sf\os\buildtools\imgtools_os\romkiteka2\group
+
+-export_file	\sf\os\buildtools\imgtools_os\romkiteka2\tools\buildrom.txt	\epoc32\engdoc\romkit\buildrom.txt
+notes_source	\component_defs\release.src
+
+
+ipr T 
+

@@ -1,0 +1,8 @@
+#ifndef __AUTOTEST_IBY__
+#define __AUTOTEST_IBY__
+
+REM For components that use the Autotest framework
+
+file=ABI_DIR\BUILD_DIR\autotest.dll   System\Libs\autotest.dll
+
+#endif

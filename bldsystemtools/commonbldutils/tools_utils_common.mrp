@@ -1,0 +1,12 @@
+#build tools
+component	tools_utils_common
+
+source	\sf\os\buildtools\bldsystemtools\commonbldutils
+
+notes_source	\component_defs\release.src
+
+
+ipr T 
+ipr G \sf\os\buildtools\bldsystemtools\commonbldutils\lib
+ipr O  \sf\os\buildtools\bldsystemtools\commonbldutils\lib\xml
+

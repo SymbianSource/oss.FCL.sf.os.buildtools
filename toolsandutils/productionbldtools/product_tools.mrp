@@ -1,0 +1,7 @@
+# Tools for generating Symbian production builds
+component	product_tools
+
+source	\sf\os\buildtools\toolsandutils\productionbldtools
+
+notes_source	\component_defs\release.src
+ipr T 

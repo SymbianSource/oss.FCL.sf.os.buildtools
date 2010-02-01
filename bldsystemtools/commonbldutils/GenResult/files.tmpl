@@ -1,0 +1,64 @@
+[@--# Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of the License "Eclipse Public License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description:
+# Template processed by GenDiamondsXml.pm
+# 
+#--@]
+<?xml version="1.0" encoding="utf-8"?>
+<diamonds-build>
+  <schema>[@--$ENV{DiamondsSchemaNum}--@]</schema>
+	[@--
+	my $Path = "";
+	if($ENV{BuildSubType} eq "Daily")
+	{
+			$Path = 'file://///builds01/devbuilds/'.$ENV{Type}.'/logs/'."$ENV{BuildNumber}";
+	}
+	elsif($ENV{BuildSubType} eq "Test")
+	{
+			$Path = 'file://///builds01/devbuilds/'.'Test_builds/'.$ENV{Type}.'/logs/'."$ENV{BuildNumber}";
+	}
+	$OUT .="
+  <files>
+		<file>
+			<name>GT stage summary</name>
+			<url>$Path/GT.summary.html</url>
+			<type>log</type>
+		</file>
+		<file>
+			<name>TV stage summary</name>
+			<url>$Path/TV.summary.html</url>
+			<type>log</type>
+		</file>
+		<file>
+			<name>ROM stage summary</name>
+			<url>$Path\\techviewroms"."$ENV{BuildNumber}.log</url>
+			<type>log</type>
+		</file>
+		<file>
+			<name>CBR stage summary</name>
+			<url>$Path/$ENV{BuildNumber}"."_cbr.summary.html</url>
+			<type>log</type>
+		</file>
+		<file>
+			<name>CDB stage summary</name>
+			<url>$Path/$ENV{BuildNumber}"."_cdb.summary.html</url>
+			<type>log</type>
+		</file>
+		<file>
+			<name>BUILD stage summary</name>
+			<url>$Path/$ENV{BuildNumber}".".summary.html</url>
+			<type>log</type>
+		</file>
+	</files>"; 
+	--@]
+</diamonds-build>

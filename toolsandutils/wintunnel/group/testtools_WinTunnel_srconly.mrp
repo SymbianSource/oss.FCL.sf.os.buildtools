@@ -1,0 +1,8 @@
+component  testtools_wintunnel
+source \sf\os\buildtools\toolsandutils\wintunnel
+
+notes_source \component_defs\release.src
+
+
+ipr T 
+

@@ -1,0 +1,85 @@
+[@--# Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of the License "Eclipse Public License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description:
+# Template processed by GenDiamondsXml.pm
+# 
+#--@]
+<?xml version="1.0" encoding="utf-8"?>
+<diamonds-build>
+  <schema>[@--$ENV{DiamondsSchemaNum}--@]</schema>
+  [@--
+  use myutils;
+  use FaultsData;
+  my $iDir = &myutils::getiDir();
+  my $iSnapshot = &myutils::getiSnapshot();
+  my $iProduct = &myutils::getiProduct();
+  my $iLinkPath = &myutils::getiLinkPath();
+  my ($errorCount,$warningCount,$AdvNotesCount) = (0,0,0);
+  my @temp = FaultsData::stageSummary($iDir, $iSnapshot, $iProduct, $iLinkPath, $iStage);
+  my @tempArr;
+  if( -e "faultCount")
+  {
+    open(FAULTCOUNT,"<faultCount") or warn "FAULTCOUNT:$!";
+    @tempArr = <FAULTCOUNT>;
+    close(FAULTCOUNT);
+	$errorCount = trim ($tempArr[0]);
+	$warningCount = trim ($tempArr[1]);
+	$AdvNotesCount = trim ($tempArr[2]);	
+  }
+  else
+  {
+    @tempArr = (0,0,0);
+  }
+  
+  $OUT .= "<faults>";
+  if ($temp[0][0])
+  {
+    foreach my $t (@temp)
+    {
+      $OUT .=
+        "
+          <component>
+          <name>@$t[0]#$iStage</name>
+        ";
+      if (@$t[1]) {$OUT .= "  <total severity=\"error\">@$t[1]</total>\n";}
+      if (@$t[3]) {$OUT .= "  <total severity=\"warning\">@$t[3]</total>\n";}
+      if (@$t[5]) {$OUT .= "  <total severity=\"advisory_notes\">@$t[5]</total>\n";}
+      $OUT .= "          </component>\n";
+   
+      $errorCount = @$t[1] + $errorCount;
+      $warningCount = @$t[3] + $warningCount;
+      $AdvNotesCount = @$t[5] + $AdvNotesCount;
+    }  
+  }
+  $OUT .= "  <total severity=\"error\">$errorCount</total>\n";
+  $OUT .= "  <total severity=\"warning\">$warningCount</total>\n";
+  $OUT .= "  <total severity=\"advisory_notes\">$AdvNotesCount</total>\n";
+  $OUT .= "  </faults>";
+  
+	#save the error numbers until now
+    open(FAULTCOUNT,">faultCount") or warn "FAULTCOUNT:$!";
+    print FAULTCOUNT "$errorCount\n";
+    print FAULTCOUNT "$warningCount\n";
+    print FAULTCOUNT "$AdvNotesCount\n";
+	close (FAULTCOUNT);
+
+sub trim
+{
+        my $string = shift;
+        $string =~ s/^\s+//;
+        $string =~ s/\s+$//;
+        return $string;
+}
+  --@]
+</diamonds-build>
+

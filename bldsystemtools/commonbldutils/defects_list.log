@@ -1,0 +1,3205 @@
+########################################################################################### 
+Defect list run on //epoc/main/... in period Hurricane 0003 - 0017 (Mainline 00506-00567) - changelists 117787 136099
+###########################################################################################
+
+134227
+	Fix of defect APY-54VG2Z - Memory leak in SSLUtil
+133631
+	Fix defect ROS-54VLQ3 "Bluetooth code depends on order of expression evaluation..."
+133186
+	PAS-53FE77 "BTCOMM panic on IPC writing data to client, due to descriptor overrun (fixed in 6.1)"
+
+133186
+	HOS-54PELW "Host Resolver is inefficient at performing Name Requests"
+
+133186
+	BRY-53NG7J "RDebug::Print statements interfere with COMM Port 0"
+
+133186
+	HOS-54FF3L "RFCOMM will only forward non-RFCOMM Ioctls when an RFCOMM connection exist"
+
+133157
+	EDNMREK-4NCLRE
+133123
+	JON-538CKJ
+133123
+	LIG-53JD35
+133123
+	ALM-52VD3Q
+133123
+	PEN-528HVG
+133123
+	NEO-53MKER
+133123
+	NEO-52GD9E
+133123
+	SIK-4VHC3G
+133123
+	OKA-53DDHR
+133123
+	PEN-53LGN6
+133123
+	KAN-53TEN2
+133123
+	LIG-53VFS5
+132832
+	Fixed BAR-4YRCST (Unnecessary stack usage,) by changing EnsurePathL() in UF_DICT.CPP.
+132832
+	Hurricane : ROS-534E69: DBMS should use CleanupArrayDeletePushL()
+132799
+	KAN-537GCY   HWR work strange or not at all..
+132769
+	WHE-53SJYP MIDletExecutor should use wait/notify in waitForCompletion
+132769
+	WHE-54QJ7Y MIDP unit tests cannot be built
+132769
+	BRT-54EJ3N "SelectedIndex state of ChoiceGroup is lost when ChoiceGroup is appended to a form."
+132769
+	PLD-52BKPD "The same Form doesn't always have the same layout"
+132769
+	PLD-54JFPC: (KVM only) The midp.rsc file isn't installed by abld build, only abld test build
+132769
+	WHE-52XF3P itemStateChanged called after every change is made to TextField
+132769
+	WHE-53BDTB "Problems with key events"
+132769
+	PLD-54BNJ8: The VM deadlocks if the UI event thread blocks on IO
+132769
+	HOS-544PQQ "api/javax_microedition/lcdui/Font/index.html#GetFont test fails"
+132769
+	PLD-549RZ8: The MIDlet infrastructure is dangerously fragile to startup failures
+132769
+	WHE-542GL6 "rms ThreadTests doesn't run on kvmmidp"
+132769
+	PLD-52BKPD "The same Form doesn't always have the same layout"
+132769
+	WHE-53BDUY "drawRect draws 1 pixel too few pixels in width and height dimension"
+132769
+	HOS-544NPM: api/javax_microedition/lcdui/Font/index.html#CharsWidth test fails
+132769
+	PLD-542M5K: (KVM only) KVM should wait without a timeout when blocked on external events
+132769
+	LES-53LLYW: Known Problem In ARM KVM Loop
+132478
+	Fix defect DUG-54PENW "Migrate 6.1 fixes to Versit" by integrating 6.1 code.
+132478
+	DUG-53CQ4N "Descriptor overflow panic in FoldEncodeAndWriteValueToStreamL()"
+132478
+	DUG-53CQ9Q "Regression in Versit behaviour"
+132462
+	Fix for PAL-542D3V "Disconnect does not work. It does not prompt the user and does not disconnect"
+132462
+	Fix for PAL-548FJD "Code change in Email Editor's CEmailEdReadWriteInterface class"
+132462
+	Known problem; DOT-54NFGN "BIOMsg should not export a registration file to GT build"
+132462
+	 DOO-547HJX - "Messaging application crash when creating new account in TechView"
+132462
+	 DOO-547HJX - "Messaging application crash when creating new account in TechView"
+132400
+	Fix defect ROS-54MGXX "WINSCW builds enable C++ exceptions and RTTI"
+132280
+... //EPOC/Main/developerlibrary/doc_source/ToolsAndUtilities/DevTools-ref/Tool_Ref_RSS-file-format.guide.xml#1 branch
+132075
+		2)	Fixed CAN-547HD3 (Controller panics when no events to handle.)
+132075
+		3)	Further cleanup work following deconfiguration on USB client SIN-535KPU
+132075
+		4)	Propagated fix for PBN-4TKJ7J "Bluetooth panics with HCI error 23".
+132075
+		1)	Fixed FID-53YD58 (Bootstrap doesn't dump all MMU
+132075
+		1)	Fixed ALM-53LHP4 (Fixed Calibration settings are not saved).  Assabet only defect, 
+132075
+		2)	Fixed FOD-54MET2 (Display bytesPerLine calculated as bits not bytes).  Fixed the problem 								in template port + integrator.
+132075
+		1)	Fixed DOM-4XWC5P (Medlfs driver  is not reliable) This problem was concerned with 
+132075
+		2)	Fixed FID-53YDJC (Error LFFS driver SetupWrite() function) Semi implemented 
+132075
+		1)	Implemented change request JMET-544FUM - "Change RTransferWindow::MapInBuffer() to
+132075
+		1)	Fixed MOU-543FVR HAL attribute ECaseSwitch returns wrong value for Assabet.
+132075
+			Fixed FRS-534EWW T_SERIAL fails on Assabet. The following files were
+132075
+			b) Added "const TUint16 KUsbVendorId_Symbian = 0x0E22;" to usb.h (USB-IF assigned
+132075
+		1)	Fixed PEN-52ZM5A (Function doesn't do what it says.)  Changed comment
+132075
+		2)	Fixed FID-4W5BYE (Ambiguous error message in LFFS.)  Changed
+132075
+		1)	Fixed defect MAY-4ULHBH (B_OPEN crashes the file server on LFFS) by increaseing 
+132075
+		2)	Fixed defect FID-537HQA (LFFS: increase reclaim thread stack size) by doubling 
+132075
+		1)	Fixed defect DON-4WXDHK "RFs::RemoveFileSystem does not return correct
+132075
+		2)	Fixed defect THY-4WKD5P "gobble (in eshell) can delete existing files". If
+132075
+		1)	Fixed MOU-543FVR HAL attribute ECaseSwitch returns wrong value for Assabet.
+132075
+			Fixed FRS-534EWW T_SERIAL fails on Assabet. The following files were
+132075
+		1)	Fixed MET-53LG56 (Minor inconsistancies in T_TSCAN.CPP.)  Changed
+132075
+		1)	Fixed defect ROS-53FLTJ "F32TEST T_LDLL doesn't build for WINSCW". Fixed
+131970
+	GUN-523NES, Resource file structs lacks useful comments
+131970
+	OEL-52V97J, EPOC.ini should not name old hardware
+131969
+	ROS-4YBDWJ, Mishandling of QUARTZSPLASH semaphore
+131969
+	ALM-4Z8BAT, UI spec error? According to the UI spec the System information has the wrong look
+131969
+	ANN-53UFZY, QSyncML is populated in the wrong Folder...
+131969
+	MAT-528FL7, AppLauncher should use new AppArc functionality
+131964
+	ROS-4YBDWJ, Mishandling of QUARTZSPLASH semaphore
+131964
+	PAA-4Y6JMK, CAppickerView::RunPrefDialog can leave but has no trailing L
+131964
+	SIK-4ZVBVF, Icon not changed for the app when changed for the first time.
+131941
+	EXT-53RAFP ""Access denied" time to time with communications to outside world".
+131906
+	Fixed defect TRN-54JEDN.
+131865
+	BEN-525ASKA change in email account affects email preferences
+131840
+	BEN-54AHB6 Messaging crashes when tapping a mail when busy
+131840
+	XTJ-54HLZT Find in Messaging doesn't stop when a leave occurs
+131840
+	LIG-549EAD KERN-EXEC crasch when opening Messaging menu.
+131550
+	defect fix for DOT-53MLUJ
+
+131550
+	fix for defect  ANN-547HFG
+
+131550
+	defect fix for: MOR-54JAXU
+
+131491
+	ROS-548K8G "Panic JOTTER 10 switching views in RefUI Jotter"
+131454
+	APY-53NC2V - Memory leak in ECom Server
+131454
+	KRN-53SL4Q - TLS is shared when simulating two processes under WINS causing bad handle panic
+131454
+	APY-53DGQ5 - ListImplementationsL leaves incorrectly when no implementations
+131454
+	EVS-53YF6S - __PROFILE_ECOMSERVER__ makes code difficult to read.
+131454
+	APY-52NK8X - ECom includes should be <ecom/...>
+131454
+	Added a unit test for defect KRN-53SL4Q (using ECom multi-threaded)
+131437
+... //epoc/main/generic/application-protocols/http/Test/T_HttpRegression/t_CLE-4Y5LC9.cpp#3 integrate
+131416
+	ALM-4VPGZR, A beep should notify the user of the fact that the virtual keyboard could not be launched.
+131416
+	BEN-53BGCE, Text in VK caption doesn't get truncated
+131416
+	EDNABEN-4MDCBT, Do-it not functions in VK.
+131416
+	LIG-54EHGY, Incorrect caption on VK.
+131416
+	PIA-544MK7, Incorrect behaviour when Previous and Next buttons are tapped on VK.
+130666
+	ROS-54EG6Z - Corrected in-source documentation of CBitmapContext::BitBltMasked()
+130666
+	ROS-54GEPA - Removed redundant lines.
+130664
+	Fix defect THY-54BG7T "Error when invoking GNU make directly"
+130664
+	Fix defect PLD-54FQ6U "Recompiling for ARM after making source changes results in link failures"
+130659
+	TUR-543C9X      Hardware keys not available on the ARM Integrator
+130659
+	PEN-53C9UQ   Impossible to test slim Quartz on the Integrator
+130649
+	Defect fix for: PRX-54GB3G "Failure to reset member variable to 0 after deleting."
+130489
+	Fix defect THY-54HKY9 (Remnants of linda4 variant are still 
+129678
+	Fix for defect PER-53TC85: "Apparc tests TServ and TServ_2 fail due to Emime changes"
+
+129678
+	- Fixed JON-53RMTR ("When closing applications on mainline build Error message appears").
+
+129678
+	- Change UIKON.IBY to use EIKCORE.DLL from DEBUG_DIR (i.e. udeb) rather than BUILD_DIR (i.e. urel) because CONE.DLL goes into the ROM as DEBUG_DIR (i.e. udeb). The _DEBUG-only code in CCoeEnv's constructor makes a HAL call which allocates some memory on the heap which never gets freed (it is not orphaned though, so it is not a bug). The problem for applications is that the CCoeEnv-derived-class object gets created inside a heap-mark/heap-mark-end - the heap-mark-end will therefore "notice" the HAL's lingering heap-cell as a memory-leak. EIKCORE.DLL gets around this by making a _DEBUG-only HAL call to pre-allocate this heap-cell before the heap-mark/heap-mark-end, hence why we need a DEBUG_DIR EIKCORE.DLL if we have a DEBUG_DIR CONE.DLL.
+
+129678
+	PLD-53LFUN - REikAppUiSession.Connect() sometimes returns -1 during emulator startup.
+
+129678
+	Defect Fix:  ROS-54EHCX "WINSCW emulator problems with FEPCHINA"
+129665
+	Defect number:  CAH-52RLXZ Audio streaming Open(settings) : settings are ignored
+129665
+	Defect Number:  CAH-52SLAA: Audio streaming server doesn't return volume & rate settings.
+129333
+	ANN-53VAQC Selection tab stays on applauncher icon when a MIDlet is started
+129333
+	DAN-53ZBRB Tapping on a MenuBar without any items in the pane results in division by zero.
+129333
+	DAN-54BCEK Kamikaze MIDlet works poor in Quartz
+129333
+... //EPOC/main/Quartz/midp/kvmmidp/tools/emulator/META-INF/distribution.policy#1 branch
+129333
+... //EPOC/main/Quartz/midp/kvmmidp/tools/emulator/META-INF/MANIFEST.MF#1 branch
+129308
+	Defect fix (No: AHD-52ZGGL):
+129131
+	PAA-549MMV, Emulator crashes when switching color schemes and opening agenda
+129030
+	SEF-549F5F "BT Stack initialisation doesn't fail when BT.ESK is not present"
+
+128883
+	- fix defect WHE-52VKNF
+
+128775
+	Defect fix: (Defect No: AHD-52ZGGL)
+128446
+	JON-53RJCD Cannot open received BIO messages.
+128446
+	KAN-549EVW Messaging panics when you leave an email and have about 150 mails in the inbox
+128194
+	Fixed defect ROS-52QL64 "Calculator digits are drawn incorrectly in WINSCW emulator" by
+128189
+	Warning: The fix for EXT-52AGT3 includes API changes. The affected components are updated and included in this release:
+128189
+			EXT-52AGT3 "No possibility to inform remote OBEX client if e.g. file received over Bluetooth is not able to be received "
+128189
+			CAL-4Z7LY4 "KSOReadBytesPending socket option asserts if there are zero bytes pending"
+128189
+			DAS-4ZTMVK "CObexBaseObject::GuessTypeFromExtL sets incorrect MIME type for vCalendar (& should this method even exist?)"
+128189
+			PAS-522HSG "UPF 6: (Nokia) OBEX Connect packets with 0x0000 Max packet length"
+128189
+			JON-4YSJ7M "Obex does not strip nullterminator from type string"
+128189
+			DIN-4U7ND2 "OBEX should ensure Type headers are sent with ZeroTerminator"
+128189
+			DIN-4YSLSC "OBEX shouldn't send NULL terminator on zero length Unicode strings"
+128189
+		Fix for defect EXT-52F9ME
+128097
+	Fixed defect FIR-53TN43
+128089
+	ALM-53SH8G
+128089
+	ALM-4Z7AGE
+128089
+	ALM-53JF66
+128089
+	ALM-53JFOW
+128080
+	JON-549L6F Send attachment dialog is NOT supposed to appear when having only one attachment
+127825
+	<Integration to the mainline of some changes to distribution.policy files, to correct the categorisation of the WINCRYPTO binaries and header files in the mainline. Only the distribution.policy files have been changed, to fix the defect WBAG-525J7Z: "Correct categorisation for WINCRYPTO binaries".>
+127805
+	Fix for defect JUA-54zkz9 -  
+
+127805
+	Fix for defect PER-543GHW: "Spanetest is test code and should not be included in mainline builds"
+
+127805
+	Defect Fix: CHM-543LCK "Need a change in behaviour of EnableServerEventTimeOut"
+127666
+	<Corrected categorisation of WINCRYPTO code in mainline as per CR number WBAG-525J7Z>
+127654
+	QUN-53VGMP "BTCOMM panics when closing (using TBTTerm)"
+
+127654
+	MEN-4XLDZ6 "Status response with error not supported"
+
+127654
+	EXT-53BFYG "Authentication (PIN code) cancelling results an error when the link is already disconnected"
+
+127654
+	MEN-4V4MGZ "Two frame timeouts in RFCOMM can cause Panic"
+
+127654
+	QUN-53TL8J "6.1 L2Cap defect which didn't make it into 6.2"
+
+127654
+	EXT-53BHBT "Command status event with Error code "Command Disallowed" is not handled"
+
+127654
+	EXT-4XWF9Y "BT SDP server crashed when construction phase leaves in WINS"
+
+127654
+	ROS-534EJ9 "CBTLinkManagerApp::GetACLLinks() needs to use CleanupArrayDeletePushL()"
+
+127654
+	PUN-4YSK9M "SDP client crash when baseband abortively disconnected"
+
+127654
+	FRU-52SK4W "String length calculation error in sdp test validation code."
+
+127654
+	ROS-52PK6X "Bluetooth crashes mainline Quartz emulators"
+
+127654
+	MEN-4XLDZ6 "Status response with error not supported"
+
+127654
+	FRU-52GEQ7 "FCOn/FCOff with CBFC: logic reversed"
+127064
+	KAN-53RJL6
+127064
+	ALM-53BEEB
+127064
+	NEO-53BH7Q
+127064
+	NEO-52GCSC
+127064
+	ALM-53NBQR
+127064
+	ROS-53LJEL
+127064
+	GUN-4WDCNT
+127064
+	JON-53TB6U
+127064
+	ALM-53SG23
+127064
+	REK-4WUFST
+127025
+	Fix defect FOD-53SN8N "Can't pass more than 1024 characters into ar"
+126710
+	Defect Fix DAS-53VBEL:"App Threads can be renamed earlier"
+
+126710
+	Defect Fix WEP-52ZH8D:"CEikEdwin::MinimumSize() returns height which is too short!"
+
+126710
+	Defect Fix MAT-529HJA:"StatusPane window background color not updated"
+
+126710
+	Defect fix :LAG-53YEW2
+
+126693
+		MOU-53RF6J - Trying to install big files and swith to other app panics the viewserver.
+126499
+	WAN-543CA : Port Clashing issues between Bluetooth, IR and Symbian Connect
+126496
+	BOY-543KLQ : PLP uisng incorrect number of stop bits causing failure on Integrator
+126416
+	Fixed defect ROS-53NGK3 "screendriver uses depreciated UserHal::MachineInfo call" by switching to using HAL functions.
+126286
+		LEQ-4YQJ8X - jar file now deleted if download fails.
+126191
+	WHE-53FJB6: Problem with menu redraw when running Canvas repaint test
+126191
+	WHE-53BC7D: Cannot alter Gauge value by -1/+1
+126191
+	WHE-53BDA4: Cannot include "+" in PhoneNumber TextField
+126191
+	WHE-53FJW8: Panic if no descriptor
+126191
+	WHE-53LK5G: (kvm only) muFrac MIDlet fails to connect
+126191
+	WHE-53FMMW: Panic when exiting Sokoban
+126108
+	DOT-53sdxw : EStrayEvent.
+126040
+	3)	Fixed FID-4ZKEKQ (Inefficient memfill in MMC driver.)  Use Mem::Fill()
+126040
+	1)	Fixed THY-52WJTE (DLL static data support doesn't
+126040
+		Additionally it is not created for ROM-based DLLs as
+126040
+	2)	Fixed generic bootstrap defect FID-53BKSD (920T
+126040
+	3)	Fixed kernel defect THY-53FE32 (Confusion between
+126040
+	4)	Fixed generic bootstrap defect THY-53LC9Y (crash when
+126040
+	5)	Fixed generic bootstrap defect FID-53LKTG (Bootstrap
+126040
+	1)	Fixed WIR-53FANN (RArrayBase::HeapSort makes assumption about max iEntrySize value)
+126040
+	2)	Fixed MOS-53FLUF (HAL attribute ordering incorrect).  Moved EPenState from
+126040
+	3)	Fixed MOS-53RHP3v(Screen width and height returned by HAL are constant).  Added func
+126040
+	2)	Fixed BAN-52BKKC Physical device driver for serial port have a defect and
+126040
+	1) Fixed PAS-4WRMQS: "Requeing a read() after PowerOn Panics the Driver/Kernel".
+126040
+	2) Fixed SCE-534GAE: "Problems with Serial Comms LDD power handling"
+126040
+	3) Fixed SCE-52YHQE: "Serial change notifier problems".
+126040
+	1)	Fix defect ROS-53TDGG "Access Violation in CreateFirstDllRefTable" by allowing for
+126040
+		only be included into ASSP-specific builds.  See \e32\release.txt.
+126040
+	1)	Added tests to T_TIME to verify defects FER-4XGDVT and FER-4XDK9G
+126040
+	1)	Fixed MOS-53LEVN t_lfsdrv uninitialised var on WINS.
+126040
+	1) Fixed SCE-534FSY "Serial power handling tests disabled in T_SERIAL"
+126040
+	2) Fixed PAS-4WRMQS "Requeing a read() after PowerOn Panics the Driver/Kernel"
+126040
+	3) Fixed MAY-4ZGH8S: "t_serial shoots itself in the foot, and can never pass".
+126040
+	1) Fixed PAS-4WRMQS "Requeing a read() after PowerOn Panics the Driver/Kernel"
+126040
+	1)	Fixed 6.1 defect DON-52SC7L (Disk space notification does unnecessary
+126040
+		included in ASSP-specific builds.  See \e32\release.txt.
+125979
+	defect fix for BAR-53BEZ6 "Need to delete app-services\wlddatabasekit\tools\WLD_ISO.DAT"
+125706
+	ALM-53EF93Not possible to open the Find dialog from a message opened from the Found dialog.
+125650
+	Fix improvement for: SIK-52VGRE - MinimumSize() returns TSize(0,0) until StartDisplayingMenuPane() is called.
+125650
+	Defect Fix CHM-53KPSL "Uikon could use a better way of determining the foreground app"
+125601
+	Fix Defect JUA-53ULTP "abld reallyclean wins" waits for the user input in order to finish execution"
+125316
+	JON-53RFVC Messaging crashes when scroll and then switch to other folder.
+125316
+	GUN-4WDCWU Uses depricated methods
+125221
+	Fix defect ROS-53TDGG "Access Violation in CreateFirstDllRefTable"
+125176
+	ALM-4YR9YM, Wrong dialog is displayed when trying to install from a removed memory card.
+125176
+	ANN-65NM4J, Missing text in dialog.uninstall.SoftwareNoneAppVersion
+125176
+	LIN-4ZUETQ, Dialog text in App Installern is not wrapped.
+125176
+	ANN-65NH2G, The _epoc_drive_j variable in epoc.ini stops appinstaller from working correctly
+124983
+	defect fix for BAR-53BEVC "The Wldtools component still refers to "Psion" in a number of its source files"
+124938
+	KRN-53EGYF  Missing target uri error when synching multiple messages with IBM
+124938
+	KRN-53EH2E  Crash in reference toolkit when syncing multiple messages #
+124938
+	KRN-53LE8H  The engine should set the charset type in the transport adapter
+124938
+	KRN-53NH8Z  base64 Nonce values do not decode when they are in binary format
+124938
+	KRN-53RJYL  Delete from openwave causes a Warning failed to delete record in EPOC
+124938
+	KRN-53RE2W  AddItemL Function in contacts DBA needs to removed UID from versit item
+124672
+	MREK-4YQMK9 : Allow listboxes to have customizable scrollbehaviour
+
+124672
+	CHM-52VPCS : Allow status panes to report their exact size
+
+124611
+	JON-535KBL Delete button in To do detail view is not dimmed if new entry is opened from detail view.
+124574
+	is now off (since CR MMAT-52VFBC were rejected).
+124532
+		ROS-53LMAW - http is now included in ROM as required by certman.
+124488
+	TUR-53CE6C Calculator crashes when exceeding max numbers and adding
+124488
+	TUR-53BJZNpasting max. chars from jotter generates incorrect response
+124488
+	TUR-53CF2UClearing a negative number from calc display only requires 1 "<--" button press
+124488
+	DOO-53BE95Calc display turns red with underline.
+124470
+	WBAG-525HXY crypalg except random and tsrc moved from "B Export Restricted" to 
+124470
+	WBAG-525J29 random from "B Export Restricted" to "EExport Restricted" 
+124470
+	WBAG-525HEV certman from "D" to "E"
+124470
+	WBAG-525J7Z wincrypto from "B Export Restricted" to "D Export Restricted"
+124469
+	ROS-53KHNF Incremental link option now disabled in Microsoft Visual C++ v6.0 
+124441
+	 PEN-53CB6A        Quartz is turned 90 degrees on the Integrator
+124427
+	FSJN-4Y3FTPChange default behavior for viewers
+124388
+	XTJ-53RKLQ Erroneous info print in Beam received dialog
+124387
+	WEP-53DCQL Beamed Inbox not visible in Messaging base view.
+124387
+	XTJ-53RKFW Tapping cancel on entry in VCalViewer deletes entry in Beam received list
+124386
+	NIN-52CEEU default service unknown when SwitchToMessage() called
+124378
+	INEO-4Y3ETF Agenda, truncation of entries' description in Day View
+124367
+	LIG-53BES8, Installer application hangs in Installing software dialog.
+124268
+	Fix for defect BRY-53DPN9: WAP Stack can't handle more than one connection per session.
+124047
+	Defect Fix for BRY-53NG7J 
+
+124037
+	Defect fix for CHM-53ML7W - "EikSRv startup fails on Quartz".
+123758
+	Fix defect ROS-52XGQY "fixupsym.pl is broken by recent MAKMAKE changes"
+123712
+	fixes defect EDNKPLD-4KCP3R by ending pending call to receive on a closed socket.
+123462
+	Fix defect BRN-52KL2Y "\epoc32\localisation\*.rpp and *.info files are not reported by the build tools as releaseables"
+123449
+	Fixed defect BAR-53DCT6 ("The use of a segmented buffer causes a problem when compiling certain databases").
+123435
+	- Fixed PIA-4ZKLBG - T_IMCM06 panics
+123320
+	Fix for defect APY-52PBYB. New resource struct has been added to allow binary data in default_data and opaque_data.
+123320
+	Added test for defect EVS-4Z9BPG.  Check use of TLS in a plug-in.
+123311
+	JON-53BF2S Email and Fax are saved to wrong folder when selecting Send as.
+123284
+	HAN-4YALGX "Errors not propegated from versit"
+123284
+	WAG-53KJNV "Possible memory leak because C class is mistaken as T class"
+123284
+	WAG-53KK8C "Passible memory leak because a leaving function is a parameter of the allocating function"
+123213
+	MOU-53KFNR, Clicking in help title pane results in crash
+123213
+	EDNMREK-4NCLRE, Help appears behind the Menubar
+123209
+	WEP-53FBT6 Not found dialog when you try to download IMAP headers
+123120
+	Fix for defect BAD-52VE28 Zero-width on break space (OxFEFF) is not zero width.
+123028
+	WAN-53DHFN, Agenda: Hung in Set Repeat Dialog
+122989
+	Fix for defect SAE-53CMAP Form's RScreenDisplay::SetGraphicsDeviceL does not roll back on leave
+122772
+	Defect fixed:   ROS-53FKEG  Jotter problems in mainline 00528
+122754
+	defect fix: EXT-4X3EFX for Calypso 
+122752
+	CRZ-4WYGV7Scheduled fetch for dial up does not show that it fails when already connected through gprs
+122752
+	BEN-4YXFY5Failed scheduled fetch freezes the screen for several minutes
+122751
+	JON-4X8KV3: Default button missing in CertDeletedDialog
+122658
+	EXT-4U4FVE: Support for message waiting indications specified in CPHS Phase 2 spec
+122586
+	MOU-53EF2W
+122585
+	MOU-53ED7Z
+122537
+	update to defect fix  ROS-534DBB "Use of new[] needs checking in ConArc_plugins"
+122533
+	Defect Fix: ROS-534DBB "Use of new[] needs checking in ConArc_plugins"
+122522
+	Fixed defect PEN-536JJ7
+122488
+	JLID-52FF2l change request: Add support for Priority to KeyCapture
+122411
+	BEN-52HH8S Program closed when tapping cancel in Get&Send in Messaging base view
+122388
+	Hlpmodel defect fixed: MOU-537G9Y
+122271
+	Fix defect ROS-53ECQY "Can't disable WINSCW builds in PRJ_PLATFORMS"
+122166
+	ARL-4T5AK2
+122166
+	JON-4VVEYJ
+122166
+	MOR-4VQ9FZ
+122166
+	KAA-4WK8MY
+122166
+	LIG-4X7G3P
+122166
+	OAY-4X3K2K
+122166
+	KAN-4XLJK9
+122166
+	JON-4YDC8T
+122166
+	OTS-4VBFX4
+122166
+	LIG-4T9CAB
+122166
+	OEL-4VGJ9J
+122166
+	OEL-4VGJ8H
+122166
+	CAD-4UUKV7
+122166
+	SLR-4V8FNA
+122166
+	MOR-4VPAWS
+122076
+	LIG-4W4JZS
+122076
+	MAT-4X7LA2
+122076
+	SIK-4VQAPP
+122076
+	LIG-4VPK7X
+122076
+	LIG-4VWB2K
+122076
+	KAA-4WCAB8
+122076
+	CVN-4VPGSE
+122076
+	EKD-4W5G3M
+122075
+	KAN-4YXEQX
+122075
+	KAN-4ZDCR4
+122075
+	KAN-4ZDCHY
+122075
+	BEN-4ZSFV3
+122018
+	Fix for BAD-535DWS: Bidirectional ordering in TBidirectionalState does not work
+122017
+	DUG-4ZLLGG "Lock server should use global message pool"
+
+122017
+	EXT-52WGT8 "CContactViewBase async events panic"
+
+122017
+	EXT-52YGDT "CContactLocalView works incorrectly with some preferences" 
+
+122017
+	EXT-4ZZH86 "Non-leaving functions call leaving functions in RContactRemoteView class"
+
+122017
+	EXT-52JGUG "RContactRemoteView::ContactsMatchingCriteriaL() is not OOM-safe"
+122007
+	WHE-53BCSB OOM running Swirl2 MIDlet
+122007
+	WHE-4TZEP9 MIDlet doesn't have focus after foreground MIDlet closed
+122007
+	WHE-52QH2A (pjava only) Froggy splashscreen not displayed
+122007
+	DAN-4YTE8C Items don't get ItemStateChanged for pointerevents events above clientrect/2 in X-led.
+122007
+	EXT-52G68W Multiple alerts don't seem to work if they are triggered using a timer.
+122007
+	DAN-523HCW Wrong index passed on to Java from CMIDForm::HandleControlEventL() (always 0)
+122007
+	EXT-52Q8BJ midlet with no user interface does not exit properly
+122007
+	Additional fix for ALN-4YGJTU F1 (menu key) key events are incorrectly passed through to Java
+122007
+... //EPOC/main/generic/midp/kvmmidp/tools/emulator/META-INF/distribution.policy#1 branch
+122007
+... //EPOC/main/generic/midp/kvmmidp/tools/emulator/META-INF/MANIFEST.MF#1 branch
+121982
+	Fix defect BRN-52RCVD "Evalid doesn't work correctly when run from a directory more than one level deep."
+121944
+	ALM-4WMFR3
+121944
+	JON-4YYHWW
+121936
+	DUG-534M86 "Straightforward ROM size reduction for AGSVEXE.EXE"
+121912
+	BEN-52CDAP
+121864
+	JON-4Y4FNG
+121863
+	PEN-4X6C8N
+121847
+	Fix for defect KRN-52GGEY: Secure Socket Panic -14
+121785
+	Fixed KAA-4YKDCB
+121784
+	THE-4YSLPM
+121784
+	CRZ-4WTHYS
+121784
+	CRZ-4WTHXD
+121730
+	Fixed defect MAT-52CH8M
+121725
+	Defect Fix: DOO-52VKFU "You cannot copy a Directory containing files to the C drive".
+121701
+	AMS-4WZBW7
+121701
+	AMS-4WZC7Z
+121701
+	NEO-4UND6Q
+121701
+	CRZ-4XHGAL
+121701
+	JON-4WRC2Y
+121701
+	KAN-4Y4DVT
+121701
+	EKD-4YKAU9
+121701
+	KAA-4YKD97
+121701
+	JON-4YJH5H
+121701
+	KAN-4YTFCM
+121701
+	ALM-528EKV
+121694
+	Defect Fix: PER-53BGW2 "Abld test build fails for Apparc"
+121571
+	Changed IPR category of form/inc/... from Category A to E as per SCCR NSAE-4ZTLMF
+121538
+	WEP-52ZFET Not found dialog appears when you tap Yes button in incomplete messages dialog.
+121538
+	XTJ-53BC3T Returning to listview when replying to incomplete message crashes.
+121500
+		1)	Port defect fix for defect ALM-4VQB5V Ditizer freezes (was: The Brutus
+121500
+		1)	Fixed FID-4ZWDMZ (MMC program poll is too slow to be useful.)
+121500
+		1)	Fixed defect FER-4XDK9G - "Assabet timers go off at strange intervals."
+121500
+		2)	Fixed defect MET-52AF29 - "Power off/on may freeze Assabet/Brutus"
+121500
+			This helps fix defect MAY-4XWM9Q - "e32 does not build in an IPR-E OCK".
+121500
+		1)	Fixed BAN-52BKTN (CAsyncCallBack ctor TCallBack& could be const). Made
+121500
+		2)	Fixed BAN-52BKV2 (Should inline TInt RSubSessionBase::SubSessionHandle() be
+121500
+		3)	Fixed THE-52WJR6 (Equality operators for TThreadId and TProcessId should be
+121500
+		2)	Fixed FID-52HBTA: USB driver not leave safe
+121500
+		3)	Fixed ROS-534EAV: usbdma.cpp mixes new[] and delete
+121500
+		1)	Fixed  PAR-52CLSB (920T bootstrap code is Cat D it should be Cat E).  Changed
+121500
+			categorisation to E after source code recategorisation CR - CMOS-52WJ5V
+121500
+		1)	Fixed DON-4ZKDKK (Moving a directory leads to incorrect parent directory
+121500
+		1)	Fixed defect DON-4ZSLL9 "CMountCB::ControlIO cannot be called when
+121500
+		2) 	Fixed defect DON-52FJDQ "RFs::ReadFileSection() does not alway return
+121500
+		1)	Fixed ROS-4Y3CUU (T_MATH and T_FLOAT rely on the compiler generating denormal constants)
+121500
+		2)	Fixed MOS-52BH6B (t_math loop problem)
+121500
+		1)	Added t_mvdr to test fix DON-4ZKDKK (Moving a directory leads to
+121500
+		1)	Fixed defect MAY-4ZMMZY "F32Tests for LFFS require Cat-A code to build"
+121500
+			and MAY-4ZMMXC "F32test server\t_dspace cannot be built by
+121443
+	defect fixing ROS-534F3D, ROS-534F5K, ROS-534FFB, ROS-534G3C,  ROS-534FM3,  ROS-534FNZ, about arrays created with new but deleted with "delete" instead of "delete[]".
+
+121443
+	ROS-534F3D BITGDI test code mixes new[] and delete
+
+121443
+	ROS-534F5K WINSCW array of objects problems in FBSERV
+
+121443
+	ROS-534FFB GDI TRGB.CPP code mixes new[] and delete
+
+121443
+	ROS-534G3C mm-server mixes new[] and delete
+
+121443
+	ROS-534FM3 PDRSTORE mixes new[] and delete
+
+121443
+	 ROS-534FNZ screendriver mixes new[] and delete
+121440
+	fix defect Number:  ROS-534FTF
+
+121244
+	Defect Fixing TOU-535J4S
+121211
+	Fix for defect SHH-536LMR ECOM IPR Categorisation needs to change
+121211
+	Change the ECom Source code Distribution classification from category A to Category D as required, and Authorised by CR CWAK-52NLCK
+121204
+	BOX-537AER "OOM safety problems in fntstore" - TRAPed offending call to a leaving function and added an explicit delete.
+121122
+	Defect Fix WEP-52ZHKU "UIKON: Crash removing Picture Factory from CEikonEnv"
+121118
+	Defect Fix MAT-52SHZK: "UnblankScreen() crashes when closing down EikSrv".
+121043
+		MREK-525BV5 Add a dialog to the parsers
+121039
+	IHUN-4XTN8VAdd clipboard support to Quartz virtual keyboard
+120989
+	TUR-535DVQ    ARM Integrator: Hurricane build refreshes itself every 2 seconds.
+120971
+	Fixed REK-4ZDHZW
+120970
+	ADN-52HCPR defect fixing: T-notify now won't crash
+120914
+	OEL-52XDEZ Application launcher looks ugly and contains lots of empty space in thin config
+120912
+	WEP-534D9T Not found dialog when you select New in SMS menu
+120912
+	WEP-52ZFQM Not found dialog when you try to open a received SMS
+120740
+	Etel: Fix defect DOE-4Z6C6Y - Provide an API for ETel clients to know how many clients in total have an handle open on a call object
+120713
+	A defect fix has also been fixed ROS-534ESX "WINSCW problems in PLP"
+120696
+	ANN-52ZF5G, Selecting Send As from Agenda or Contacts result in a Not Found dialogue.
+120695
+	KAA-4WZENK, Incorrect duration on day view
+120682
+	PAD-52PCV9 Statusbar not working properly (No icon visible)
+120283
+	Fix defect ROS-52XF6E "ROMBUILD produces incorrect S-Record checksums"
+120283
+	Fix defect ROS-52ZED7 "ROMBUILD crashes if section 1 overflows in 2 section ROMs"
+120230
+	Fixed defect UDN-4YCJ76. Fixed thttp test harness as it got broken from the changes made to the phttp file locations
+120196
+	Fix for defect EGA-4ZMNKM.
+120192
+	       PIA-4XNHS5 - V3: EDNTHYN-4V3FW2 - IMAP4 move and copy inefficient
+120192
+	       KAI-4YKHLL - EDNMULH-4XWBQ5-Investigate not storing MIME envelope when doing an IMAP syn
+120192
+	       KAI-4YKJEC - EDNTHYN-4XUCKK-IMAP: move should not delete mail if copy fails
+120192
+	       KAI-4YKHNW - EDNMULH-4YBCCY-Enhancement: Investigate IMAP fetch block size
+120192
+	       HOL-4V8HZX - IMAP4: downloading 800 message headers
+120192
+	       RAN-4XUEP7 - Charset UID not stored in CImMimeHeader : IMAP
+120192
+	       PIA-4XLDE9 - V3: Problems downloading from OpenMail Server.
+120192
+	       PIA-4W5HV9 - V3: IMPS, POPS should stop synching on low memory
+120192
+	       ANN-4WSCF9 - IMAP doesn't work
+120192
+	       RAN-4VBJ2R - IMAP doesnt decode encoded subject line
+120192
+	       HOL-4V8KL4 - CImCacheManager does not delete child entries of email messages
+120192
+	       HOL-4V8KBA - Some messages cause IMAP synchronisation to fail        
+120192
+	       Fix for defect PIA-4YBCTG V3: EDNEWIH-4XPDDY - CSendAs::CreateMtmArrayL not leave safe        
+120192
+	       KAI-4XPGQH - "Shouldn't be allowing SetVersion in EmailBaseSettings",
+120192
+	       IQL-4YGH33  - "Some comments on msg\impcmtm and msg\impssrc need cleaning"
+120192
+	       PIA-4W5H83 - V3: Sending word document as mail ---> application panic
+120192
+	       MEA-4TWG82 - "URI resolving should exclude irrelevant message entries"
+120192
+	       KAI-4YKJUT - "V3:EDNSKAI-4Y49ZQ-Cannot edit mail account settings after mail sending"
+120192
+	       EDNNBAT-4NVDY4 -"Misleading error when trying to send to an SMTP serve on a different domain" 
+120192
+	       KAI-4XPGQH - "Shouldn't be allowing SetVersion in EmailBaseSettings   
+120192
+	       HAR-4UMFTJ - The fax mtm should leave fax resolution alone
+120192
+	       SVN-4VBK2J "Sending vcal, vcard, to entry as fax fails".
+120192
+	       BUN-4WREDW Messaging does not have #defines to allow logging code and text to be removed from builds     
+120192
+	       REK-4XVJP2 Messaging should have it's own ini-file
+120192
+	       ALR-4XHKS8 v3: CMsvOperation::Cancel is broken in the message server
+120192
+	       EXT-4VMCLR "MsvStore Error 1"
+120192
+	       GUY-4YCNER CMsvEntry::SetSortTypeL is not leave safe
+120192
+	       GUY-4Y3DSJ Message server startup ignores return code of create semaphore
+120192
+	       GUY-4Y3HNE Message server should change messages to suspended on startup.
+120192
+	       PIA-4XLGY7 V3: EDNTDAS-4WYFRU - Mailinit fails with "not enough memory" when initialising for the first time on WINS
+120177
+	Defect Fix: MAT-528LXB "Scrollbar window background color not updated"
+120066
+	Fix for defect GAL-4ZPDY5: Copyright not acknowledged in PPP/DES.
+120049
+... //EPOC/Main/developerlibrary/doc_source/Common/ToolsAndUtilities/DevTools-ref/Tool_Ref_RSS-file-format.guide.xml#3 delete
+120027
+	       EDNCWIN-52GFF2 defect fixed (for  v3.0 database)
+120027
+	       HOE-52JC3F defect fixed (for  v4.0 database)
+120004
+... //epoc/main/epocconnect/Installation/MS-Files/README-GER.txt#3 branch
+119997
+	MREK-525BV5 Add a dialog to the parsers
+119907
+	Improved tbackup test code in order to reproduce the first defect (STE-52XE4L).
+
+119907
+	STE-52XE4L - No notification will occur if the backup operation aborts.
+
+119907
+	DOT-52SJGD - CEikMenuBar should expose its title array.
+
+119907
+	SIK-52VGRE - MinimumSize() returns TSize(0,0) until StartDisplayingMenuPane() is called.
+119850
+	GsmTsy: Fix for PAS-522JCA and PAS-522JGF
+119659
+	FER-52SL57 "WSERV needs to TRAP calls to the key click plugin" - added TRAPS as recommended.
+119659
+	ROS-52QG2V "Incorrect use of delete in CMdaPixelWrite::Reset()" - added [] when deleting arrays.
+119659
+	CHM-52CKMH "Various Graphics _Ls can be replaced by _LIT" - replaced, for the most part, _Ls with _LIT.
+119659
+	KLN-52XENW "Missing semicolons at the end of lines in gdi.h" - added semicolons.
+119578
+	- Updated the IBY files accidentally omitted from changelist 119221 to complete the fix to AHD-52NCVA ("EPOC CONVERTOR(cnf) files not built during the overnight build process").
+119508
+Change 119508 by AndrewJ@LON-ENGBUILD17_local_mainline on 2001/09/25 17:21:30
+119498
+	Additional testcode to verify HAN-4XNDX5 'Can't delete an entry if its the last in the stream'
+119404
+	TVersit EGA-4ZPL4S
+119363
+	CHM-52CKGA Various uses of _L can be replaced by _LIT
+119362
+	CHM-52CKGA, various uses of _L can be replaced by _LIT
+119361
+	CHM-52CKGA _Ls replaced by _LIT
+119360
+	CHM-52CKDB _Ls replaced by _LIT
+119256
+	TIN-528CPY  syncmlclient.iby file causes a couple of warnings in mainline ROMs
+119221
+	- Fixed AHD-52NCVA ("EPOC CONVERTOR(cnf) files not built during the overnight build process").
+119170
+Change 119170 by MathiasM@RON-MATHIASM on 2001/09/24 10:11:04
+119170
+	"Make the possibility of multiple selection clearer in listboxes" (MMAT-4ZDGPR) 
+119122
+Change 119122 by GeorgeS@LON-ENGBUILD17_local_mainline on 2001/09/21 17:08:48
+119069
+	MOEL-4WRJPN, "Architectural brake of comms dependency in status bar (QSBCTL)"
+119037
+	- Fixed MAT-52QNXP ("Deleting a CCoeControl object in a CRichText parser causes access violation").
+118973
+	PIA-4W5HV9 - V3: IMPS, POPS should stop synching on low memory
+118893
+	Defect Fix: MAT-528LXB "Scrollbar window background color not updated"
+118841
+	Port defect fix for defect ALM-4VQB5V Ditizer freezes (was: The Brutus
+118758
+	Defect Fix CHM-52QG88: "ErrorResGt shouldn't build wap errors"
+118754
+	Defect Fix CHM-52CJJY "Various uses of _L can be replaced by _LIT"
+118688
+Change 118688 by UmaA@LON-UMAA_LOCKIT6.1 on 2001/09/19 12:11:46
+118688
+	This contributes to fixing defect AHD-4ZFBYF "change required to the rom building process".
+118652
+	CAD-4YKJB4  "Disable next and previous while recording a voice note"
+118607
+	Fix for Defect Number:  DUG-4WCDLH
+
+118574
+	Fix for defect Number:  HAN-4XNDX5
+
+118568
+	- Fixed CHM-52CEXC ("Unnecessary code in EMime").
+118509
+	JCAD-4WCHNB - Thin Quartz problems in dialogs
+118408
+	MAT-528HEU : Colors need to be initialized before system bitmaps
+118408
+	MMAT-4ZDGPR : Make the possibility of multiple selection clearer in listboxes
+118364
+	TTextView.cpp - expanding test harness (CHM-4Z5EJJ)
+118299
+Change 118299 by UmaA@LON-UMAA_LOCKIT6.1 on 2001/09/17 11:08:30
+118299
+	This contributes to fixing defect AHD-4ZFBYF "change required to the rom building process".
+118142
+	DUG-52BK8U - "Selecting 'New File' causes EPanicInvalidParameter panic"
+118118
+	- defect fixings : EDNFNWO-4MBM2C, EDNJALN-4GCE8S, EDNJHOS-4MRL3X, THS-4TJJEN
+
+118110
+	PEN-528FZS - Wrapping of labels doesn't work.
+
+118110
+	JUA-524MS8 - CEikSoundSelector doesn't store the dimmed state properly.
+
+118110
+	STE-52CC79 - The cursor on a choice list control is not hidden properly.
+
+118110
+	NEO-52CEMM - Wrapping labels crashes ... 
+
+118110
+	NEO-52CETP - Wrapping labels don't wrap.
+
+118100
+	This contributes to fixing defect AHD-4ZFBYF "change required to the rom building process".
+118077
+	Defect Fix BAR-529BBJ"CCoeScreenDeviceChangeDefaultHandler::Self is not currently exported".
+118045
+	CAD-4YKJB4  "Disable next and previous while recording a voice note"
+118041
+	   Creating library \EPOC32\BUILD\INFRA-RED\IRDA\GROUP\BTIROBEX\WINS\UREL\IROBEX.lib and object \EPOC32\BUILD\INFRA-RED\IRDA\GROUP\BTIROBEX\WINS\UREL\IROBEX.exp
+
+118041
+	   Creating library \EPOC32\BUILD\INFRA-RED\IRDA\GROUP\BTIROBEX\WINS\UREL\IROBEX.lib and object \EPOC32\BUILD\INFRA-RED\IRDA\GROUP\BTIROBEX\WINS\UREL\IROBEX.exp
+
+118034
+	Defect Fix MAT-4ZSJ2U "CEikDirContentsListBox icons not masked correctly."
+117971
+	Fixes for EXT-52F9ME, DIN-4WBKKT and DAS-4Z8E8A
+
+117971
+	fix for defect DAS-4Z8E8A, the change was made exactly as the defect suggests
+
+117971
+	Implemented suggested fix for defect DIN-4WBKKT
+
+117967
+	Defect fix DOO-4WBDYN "Unity app interferes with Extras Bar."
+117960
+	- Fixed defect BAR-52HG8N ("BAFL has a constant for "ellipsis" which is in Code Page 1252 rather than Unicode").
+117911
+	TIN-528CPY  syncmlclient.iby file causes a couple of warnings in mainline ROMs
+117911
+	TIN-529BRZ All references to @since 6.2 to be replaced with @since 7.0
+
+135809
+	Fix for defect DUG-54PEZE: Migrate 6.1 changes for SysAgent
+135808
+	Fix for DUG-54PERY "Migrate 6.1 fixes for Schsvr"
+135808
+	This includes the 6.1 fix WIR-4Z7J5T "Main, KERN-EXEC, 3" and integrates the useful file logging from 6.1
+135488
+	Integrate missing fixes from 6.1 to fix DUG-54PF8E "Migrate 6.1 fixes for SHENG". 
+135488
+	EDNBPAL-4WBLNN "CShgFormulaViewer::ConstructL() needs to fill in the 
+135488
+	EDNHLJT-4RH9PT "Worksheets are not correctly updated if one is deleted"
+135487
+	Fix for defect DUG-54PF6N "Migrate 6.1 fixes for DAMODEL" 
+135487
+	This release migrates the fix for EDNSCHM-4PXLE7:
+135484
+	ROS-54MFNV "RefUI calculator +/- button is incorrect"
+135484
+	LAG-54QFG3 "Calc app does not handle a colour scheme change"
+135465
+	DevKit - update of KSA to test fixes for defects HET-54VPA3, HET-54VNWS, HET-54VP77, HET-54VP3S, HET-54VNZW and HET-54VNQT135434
+	KAN-537KP9 Zoom settings are applied on the wrong view if you task away..
+135434
+	LIG-538CAE Wrong text in queryDialog.messaging.disconnect.
+135434
+	JON-53RHKK queryDialog.sendMultipleSMS should not have a default button.
+135434
+	ALM-53RHKH The space between the colon and the Email account name has disappeared.
+135434
+	JON-549L46 Highlighting missing in Send attachment dialog.
+135434
+	ALM-54BJ34 Wrong dialog is displayed when tapping an attachment (IMAP)
+135434
+	PAU-54VKVD When selecting a Zoom level and tasking away, the selected setting is not confirmed.
+135434
+	PEN-54XC2N Emulator startup report errors with mailinit
+135386
+	Fixed WHE-52VECT "Panic in CContactDatabase::AddNewContactL"
+135386
+	Revised fix for EXT-52YGDT "CContactLocalView works incorrectly with some preferences"
+135386
+	Fixed EXT-53RJ4S "A groups only local view crashes when contacts are deleted" caused
+135386
+	Fixed EXT-53JGEN "CContactDatabase::GroupCount() crashes when called to a brand 
+135385
+	ROS-54MF3M EIKON-LISTBOX 44 and 45 panics in RefUI Contacts
+135364
+	WAN-54VLHUAdd new device on Bluetooth screen causes application panic
+135316
+	WHE-53SJYP MIDletExecutor should use wait/notify in waitForCompletion
+135316
+	WHE-54QJ7Y MIDP unit tests cannot be built
+135316
+	BRT-54EJ3N "SelectedIndex state of ChoiceGroup is lost when ChoiceGroup is appended to a form."
+135316
+	PLD-52BKPD "The same Form doesn't always have the same layout"
+135316
+	PLD-54JFPC: (KVM only) The midp.rsc file isn't installed by abld build, only abld test build
+135316
+	WHE-52XF3P itemStateChanged called after every change is made to TextField
+135316
+	WHE-53BDTB "Problems with key events"
+135316
+	PLD-54BNJ8: The VM deadlocks if the UI event thread blocks on IO
+135316
+	HOS-544PQQ "api/javax_microedition/lcdui/Font/index.html#GetFont test fails"
+135316
+	PLD-549RZ8: The MIDlet infrastructure is dangerously fragile to startup failures
+135316
+	WHE-542GL6 "rms ThreadTests doesn't run on kvmmidp"
+135316
+	PLD-52BKPD "The same Form doesn't always have the same layout"
+135316
+	WHE-53BDUY "drawRect draws 1 pixel too few pixels in width and height dimension"
+135316
+	HOS-544NPM: api/javax_microedition/lcdui/Font/index.html#CharsWidth test fails
+135316
+	PLD-542M5K: (KVM only) KVM should wait without a timeout when blocked on external events
+135316
+	LES-53LLYW: Known Problem In ARM KVM Loop
+135316
+	DAN-53UHHJ Interactive Gauge doesn't dynamically change
+135316
+	WIM-54GEAJ Title component does not conform to UI specification
+135316
+	WIM-54VPDK Menubar title should be MIDlet name, not "Commands"
+135316
+	WIM-54VPLH Text in Lists do not conform to UI specification
+135316
+	DAN-54XJB5 Displayables don't follow ColorSchemeChanges 
+135059
+	MSIK-52F9FF - Add grammar to URL and Mail parsers.
+135039
+	BAR-52VJ6L Problems importing Html into Refui (Word)
+135039
+	BAD-54QFFJ Charconv not using "Lang sc" in resource files
+135039
+	LID-543M28 Generated files should go to Epoc32\Build
+135039
+	Fix for BAD-53MMH4 : Word can not paste image/sketch from paint
+135039
+	Form/inc/ from category A to E: CR NSAE-4ZTLMF
+
+########################################################################################### 
+Defect list run on //epoc/main/generic/... in period Hurricane 7.0D - 0020 
+Changelist scope 138840 142864 
+Mainline 00573 - 00586
+###########################################################################################
+
+142820
+	1) Fixed BEU-55ENHL 
+142820
+	BEU-55ENHL - T_HttpRegression test panics running CLE-4Y5LC9_2
+142773
+	Fix defect ROS-55BM2X "ar failure with very large components"
+142490
+	FER-557KF7 "Link warnings in Agenda Model Test code"
+142490
+	WEP-55JA37 "CDaUserDbDesc contains EXPORT_C in header file"
+142490
+	FER-557PTK "Some Agenda Model test code that does not run/pass with the automatic script"
+142490
+	SAE-55CGJT "The System Agent wastes memory by unnecessarily using global variables"
+142490
+	CUN-53VMKJ "Getting Panic during RAgendaServ::AddEntryL(...)"
+142490
+	TOU-55UJDR "Cannot find system path stated in TSMSTEST.mmp"
+142490
+	TOU-55UJ48 "Warnings from TStore of Hlpmodel"
+142490
+	DUG-54RFVR "LB411: PDA freezes when new city has been added in Clock application"
+142490
+	DUG-54WHPH "City name Tampere cannot be selected in the Home city view"
+142435
+	Fix for Defect SKN-55MG8R
+142422
+	fix for defect "AlarmServer causes emulator deadlock on multi-processor machine" ROS-563MUZ
+142206
+	Fix for defect: OVL-55HKJR 	Panic on SSL Tests 
+142205
+	Fix for APY-55AFNH 	CSslAdaptorSend and CSslAdaptorReceive do not Cancel in Dtor
+142191
+	1) Fix for HAD-55LFN2 - Session events do not permit error values to be sent.
+142191
+	2) Fixed Defect SAM-55LEQQ. Added ContentLanguage to switch statement in CanDecode() method
+142191
+	3) Fix for defect HAR-55JJX8 (HTTP Public header files are not consitent in the way they include other header 
+142191
+	4) Fix for defect CUO-55MDRR - WSP Protocol Handler does not send an event when the Server Message size is blown.
+142191
+	5) Fix for defect SAM-55HM7Z (CProtocolHandler.h is in privateinc and not exported)
+142191
+	6) Fixed defect SAM-55HHZH
+
+142179
+	* Fix the defect WAG-55EPJS "Time offset is not handled correctly"
+142179
+	* Fix the defect DUG-4VWMK9 "ResetAndDestroyArrayOf* methods should be public"
+142179
+	* Fix the defect FER-557JYW "Bad versit data causes panic in ConArc"
+142164
+... //EPOC/main/generic/midp/kvmmidp/tools/emulator/META-INF/distribution.policy#2 edit
+142155
+	DUG-542GK2 "FindInTextDef performance is degraded with new contacts model"
+142155
+	ROE-55CET4 "Performance issue: Contacts deletion is very slow on Calypso hardware"
+142155
+	MAT-555JQ2 "Missing ItemRemoved event when removing Own card"
+142155
+	COY-555GVG "CLockSrvClient::InitL() uses a bitwise comparison for database file names" 
+142820
+	1) Fixed BEU-55ENHL 
+142820
+	BEU-55ENHL - T_HttpRegression test panics running CLE-4Y5LC9_2
+142773
+	Fix defect ROS-55BM2X "ar failure with very large components"
+142490
+	FER-557KF7 "Link warnings in Agenda Model Test code"
+142490
+	WEP-55JA37 "CDaUserDbDesc contains EXPORT_C in header file"
+142490
+	FER-557PTK "Some Agenda Model test code that does not run/pass with the automatic script"
+142490
+	SAE-55CGJT "The System Agent wastes memory by unnecessarily using global variables"
+142490
+	CUN-53VMKJ "Getting Panic during RAgendaServ::AddEntryL(...)"
+142490
+	TOU-55UJDR "Cannot find system path stated in TSMSTEST.mmp"
+142490
+	TOU-55UJ48 "Warnings from TStore of Hlpmodel"
+142490
+	DUG-54RFVR "LB411: PDA freezes when new city has been added in Clock application"
+142490
+	DUG-54WHPH "City name Tampere cannot be selected in the Home city view"
+142435
+	Fix for Defect SKN-55MG8R
+142422
+	fix for defect "AlarmServer causes emulator deadlock on multi-processor machine" ROS-563MUZ
+142206
+	Fix for defect: OVL-55HKJR 	Panic on SSL Tests 
+142205
+	Fix for APY-55AFNH 	CSslAdaptorSend and CSslAdaptorReceive do not Cancel in Dtor
+142191
+	1) Fix for HAD-55LFN2 - Session events do not permit error values to be sent.
+142191
+	2) Fixed Defect SAM-55LEQQ. Added ContentLanguage to switch statement in CanDecode() method
+142191
+	3) Fix for defect HAR-55JJX8 (HTTP Public header files are not consitent in the way they include other header 
+142191
+	4) Fix for defect CUO-55MDRR - WSP Protocol Handler does not send an event when the Server Message size is blown.
+142191
+	5) Fix for defect SAM-55HM7Z (CProtocolHandler.h is in privateinc and not exported)
+142191
+	6) Fixed defect SAM-55HHZH
+142179
+	* Fix the defect WAG-55EPJS "Time offset is not handled correctly"
+142179
+	* Fix the defect DUG-4VWMK9 "ResetAndDestroyArrayOf* methods should be public"
+142179
+	* Fix the defect FER-557JYW "Bad versit data causes panic in ConArc"
+142155
+	DUG-542GK2 "FindInTextDef performance is degraded with new contacts model"
+142155
+	ROE-55CET4 "Performance issue: Contacts deletion is very slow on Calypso hardware"
+142155
+	MAT-555JQ2 "Missing ItemRemoved event when removing Own card"
+142155
+	COY-555GVG "CLockSrvClient::InitL() uses a bitwise comparison for database file names" 
+141122
+... //epoc/main/generic/APP-SERVICES/SCHSVR/TEST/SMSTEST/DISTRIBUTION.POLICY#2 edit
+141097
+	MOU-556KRF - Erronous wrapping functionality in CEikLabel.
+141097
+	REK-54YGMK - CEikLabel crashes if space is not enough.
+140856
+	1) Fixed defect CUO-55HGL9, now handles quoted strings in NextL()
+140820
+	Fixed CLE-55KPGD
+140815
+	HOL-55DM9P - The content-type value in the MIME headers is incorrectly decoded
+140815
+	MOO-55DMDF - The MMS decoder panics if a message is truncated in the middle of a string field
+140815
+	HOL-55EFBU - Codec doesn't build for Codewarrior
+140815
+	HOL-55EM8A - CWspHeaders can leak open strings, causes panic...
+140815
+	RAN-55HFAU - Doxygen comments missing from codec header files.
+140815
+	BAN-55JLVM - Array index could get out of bounds in ExtractMimeHeadersL
+140815
+	HOL-55ENFR - Some HTTP headers make their way up to the MMS code...
+140815
+	BRN-55JC7N - The test server do not respond as it should to a send
+140815
+	MOO-55ELL8 - Cancelling send operation sometimes hangs
+140815
+	RUD-55HH7V - MMS Server MTM reports warning during during Arm4 build
+140815
+	HOL-55HNNG - CMmsSession doesn't cancel any active objects...
+140815
+	BLN-55DJW7 - CMmsHeaders::ExternalizeRecipientArrayL panics
+140815
+	BLN-55DLG7 - CMmsRecipient::~CMmsRecipient() does not exist
+140814
+	1) Fixed defect SAM-55BRRH - Changed WspHeaderUtils to be C class and all required architectural changes required. Changed wsp protocol handler to use codec to resolve header names.
+140783
+	Fix for defects ERN-55DFL8 and BOY-55AJNN.
+140763
+	1. Fixed defect  SAM-54WFUN : " String pool does not return an error when a string cannot be found in a string table using StringF() method "
+140763
+	Fixed defect BEU-55CND8 "using the CStringPoolImplementation from an empty string causes an access violation "
+140763
+	Fixed defect CLE-536M4D "String pool comparison operators should ASSERT_DEBUG check for use of multiple table "
+140751
+	CHM-54QQCD - Most new Bitgdi exports are missing in-source docs
+140751
+	CHM-54QQJC - New Screendriver exports are missing in-source docs
+140751
+	CHM-54QQMK - All Hurricane WServ additions are missing in-source docs
+140751
+	ROS-54QLPM - Use of __MSVC__ define in WSERV?
+140751
+	LOZ-555G4N - GIF Encoder writes last Data Block size two bytes larger than it should be!
+140751
+	ROS-54VDXH - Opportunity for small code reuse
+140751
+	ROS-54VH8B - WSERV should allow clients to specify their buffer size
+140751
+	ROS-55DHND - Media Server can hang if it gets a truncated audio file
+140751
+	ROS-55JN8B - Possible access violation in PdrStore
+140751
+	ROS-55JN9L - Possible access violation in media server
+140535
+	* Fixed defect  SAM-54WFUN : " String pool does not return an error when a string cannot be found in a string table using StringF() method "
+140535
+	* Fixed defect BEU-55CND8 "using the CStringPoolImplementation from an empty string causes an access violation "
+140535
+	* Fixed defect CLE-536M4D "String pool comparison operators should ASSERT_DEBUG check for use of multiple table "
+140521
+	HOG-557NGU Certificate ID not correct in CCtCertInfo
+140521
+	BAG-55CGPC CCTTokenTypeInfo::ListL(...) causes problems with its default parameter
+140521
+	GUN-553JKJ Filtering not working when listing user certificates
+140521
+	GUN-554JRN Invalid behaviour when loading URL certificates
+140521
+	HOG-557LWZ Referral certificate time-to-wait field incorrectly parsed
+140521
+	HOG-557MK3 Panic when url length is 255 (or greater)
+140521
+	HOG-557MRP Double tapping in quick succession on a cert causes the recognizer code to panic
+140521
+	HOG-55HFJW CertResponse subject and issuer hash values parsed incorrectly in certuiutil addcertmanager
+140521
+	JON-557HWD Small Security API change needed
+140521
+	LEQ-557L3V Cancel fcts not implemented
+140521
+	BAG-55CG8M WAPCertStore panics if directory isn't found
+140521
+	GUN-54UPC2 Bad Error returned when calling SetTrustersL with an unknown application
+140521
+	HOG-557LAQ Subject and Issuer hash values in User certificates aren't used.
+140521
+	GUN-54UF49 Incorrect behaviour when trying to add certificates with an uninitialised UnifiedCertStore
+140521
+	JON-55CC7L Improve robustness of Unified Keystore
+140489
+	 BEU-55DJG3 "4 test harnesses panic with KWapMsgPanicDescriptor "
+140489
+	 BEU-55DKCJ "Under mem leak testing: ALL the  test harnesses commit an Access Violation"
+140489
+	 BEU-55HNAZ "T_WDPFullySpec has got 3 resources leaked under OOM testing"
+140489
+	 BEU-55HG9S "Bad Handle panic  running T_WDPFullySpec OOM  test "
+140457
+	Fix defect ROS-55KJ4U "RCOMP fails if epoc32\tools not on the path"
+140455
+	ROS-53LMD8 - HTTP.DLL links to IMUT.DLL
+140455
+	SAM-55HMBB - Text mode header codec has code to encode more headers than the codec states in CanEncode()
+140455
+	APY-55JLNE - CTextModeRxData::ReleaseData can leave
+140455
+	CUO-54WGLP - Leave's should be __ASSERT_DEBUG's
+140455
+	SAM-55HM5F - CHeaderReader now derives from CBase
+140388
+	1) Fixed defect SAM-55BRGZ by adding new API method AddShortLengthL()
+140388
+	2) Fixed defect SAM-55BRLV. Modified code in CWspHeaderEncoder::EndValueLengthL() for correct functionality
+140388
+	3) Fixed defect CUO-4YYE3M by changing class name of textutils to inetprottextutils. TextUtils.h has been replaced
+140335
+	Fix for WHE-55HHQF GNUMakefile problems
+139618
+	Fix defect JOE-52ZJP3 "Conditional #includes in resource files".
+139618
+	Fix defect ROS-55AN6D "fixupsym.pl fails immediately".
+139611
+	Defect fixes for BOY-55CFLR and BEN-55EP2N.
+
+########################################################################################### 
+Defect list run on //epoc/main/generic/... in period Hurricane 0020 - 00604 
+Changelist scope 142863 148984 
+Mainline 00586 - 00604
+###########################################################################################
+
+148663
+	Defect Fix QUN-4VPH9K (Changelist 140347)
+148627
+	Changes to PSDAGX, GENCONN and PPP test code. Includes fix for BRE-56AK9Z
+148610
+	HOL-56TEUF Well known encodings are not used when encoding MIME headers
+148610
+	BLN-56EKWP WspHdrField Code Review improvements
+148610
+	BLN-56EKYN MmsDecoder: Remove unused code
+148610
+	BLN-56EL22 MmsEncoder.cpp CodeReview issues:
+148610
+	DOT-56EJPY MMSUTILS exported to system\libs
+148312
+	TUR-4YJJRR "The alarm pop-up is always launched twice in Agenda and Todo"
+148312
+	BUR-54UFPJ "Application Panic when setting new date and switching application
+148312
+	TUR-53DBD3 "13 phone (w) fields in a contact"
+148312
+	DUG-56GJT9 "Problem with TemplateRefId"
+148312
+	FER-557KF7 "Link warnings in Agenda Model Test code"
+148312
+	To fix defect TUR-53DBD3, an extension makefile has been added to contacts 
+148312
+	ALM-56DJSM "Strange behaviour when turning an alarm off"
+148312
+	PEN-55HDL6 "Cannot add 3'rd party help files"
+148312
+	TUR-56TJYX "help model tests fail"
+148258
+	MAT-56TNWR - InfoMsg border color not updated when changing color scheme.
+148258
+	DUG-555KQZ - EIKON 6 panic on Assabet in TimeW.
+148258
+	WEP-54BDN7 - scrolling a quartz menu (CEikMenuPane) with 20 items and a separator causes a crash/panic
+148258
+	LEQ-56NNGU - Crash when installing testembed1lvl.sis
+148258
+	JAA-56AM9K - Fixed a panic that was occuring on viewing the directory of an application with an AIF file which had set the field num_items to 0.
+148258
+	FUR-56NKXN - "CONARC test tb64cnv Panics on winscw"
+148258
+	BAR-563HUZ - "[Carried over from 6.0] Possible access violation in print preview under OOM").
+148258
+	REK-563DZ6 ("Unnecessary global mutex in CONE").
+148251
+	CR: MTET-56FM2X Provide the means for click plug-ins to determine the current screen-mode
+148069
+	The update fixes the defect AHD-56VM7G.
+147985
+	Fix for defect NAM-569LCT cannot connect wia sereal cable
+147905
+	Required to fix defects AHD-56UL34 and AHD-56VFQL.
+147842
+	fixed defect GAA-56UDQY
+147754
+	Fix for defects WOS-555J6P, ROS-56VDU7, and other test code for esock.
+147745
+... //EPOC/main/generic/messaging/mms/TESTHARNESS/SCRIPTS/RECEIVE-FAKEPUSH/distribution.policy#1 branch
+147547
+	Fixed defect RES-563FH5 - WSP Encoder does not offer the functionality to add data to a header without 	formatting it.
+147513
+	This update fixes the defects AHD-56QML4 and AHD-56TEKL.
+147247
+	Submission to fix TUR-4WJGNV
+147206
+	fix defect THS-56LLU4
+147080
+	LUI-56NLFY  The IR stack does not close FIR when changing baudrate to SIR range
+147080
+	LUI-56LFM2  IR stack negotiates work IrLap parameters
+147080
+	LUI-56NLK4  IR stack defect 2
+147076
+	Fixed ROS-56MFAX by forcing component sample factors to 1 in line with the jpeg spec, as suggested in the original report.
+147076
+	Fixed ROS-56GMFB by skipping scans that encounter locked drives.
+147076
+	Fixed a problem with SMS-OTA bitmaps where black and white were being reversed.
+147073
+	Fix defect ROS-56QP3D "Problem with EPOCSTACKSIZE when generating CW IDE Projects"
+147066
+	CL136992undoing the changes for CL136399 (Defect QUN-54JDQ4), the defect status has been changed back to under investigation
+147066
+	CL136399 Incorrect fix Fix for QUN-54JDQ4, see line above
+147066
+	CL133999improves defect fix for defect HOS-54-PELW.
+147066
+	FRU-56AFQFCL143374 Integ up from SDP 6.1
+147066
+	FRU-56AFQFCL143374 Integ up from SDP 6.1
+147066
+	DIN-4QNRDTCL139155 l2cap: fix for defect DIN-4QNRDT "L2CAP connection can hang during configuration phase"
+147066
+	HOS-54XLB9CL138068/143488 host resolver: refinement of defect fix (CL133999) "Name lookups by host resolver can fail"
+147066
+	HOS-55BL42CL137797/137795 link layer: "HCI frame code can improve use of descriptors".
+147066
+	HOS-54XLT9CL134352/CL136799 area: "RFCOMM Ioctl forwarding hits ASSERT"
+147066
+	HOS-54PELWCL135717 hci: further to fix for defect HOS-54PELW, previous fix had issues with authentication
+147066
+	HOS-54XLFLCL135717 "Link manager derefs NULL if HC lies about NumberCompleted packets"
+147066
+	HOS-54NEDVCL135717/136419 "Stack cannot be advised of HCI packet type to send to transport"
+147066
+	DIN-535KUECL142969new hurricane compatible version - still only the one modem, but that's hurricane stuff
+147066
+	SEF-4WREEQCL142969
+146826
+	reorganisation of euser source for CR GBON-567RCZ
+146820
+	Fixed defect ROS-542GYS
+146815
+	HAR-557J5c
+146815
+	HED-567L6A
+146815
+	            LES-566MKN
+146815
+	           MAO-557KMQ
+146815
+	           SLO-55JKSM
+146815
+	           CHA-55AM99
+146815
+	           DIN-563GE5
+146813
+	Fix of IPv6 Name Resolving issues in messaging, defects UDN-55MK6C, PAL-56PNTQ
+146774
+	fix for defect ALM-56DJSM "Strange behaviour when turning an alarm off"
+146691
+	Fix for defect WEP-567KG3 CRichText::GetParaFormatL/CParaFormatLayer::SenseEffectiveL 
+146691
+	Fix for MEA-55QFR2: MHTML Email from "Peter Gregory" freezes editor when email is opened
+146691
+	Fix for defect  WEP-567K9C Form panics when pictures are aligned on the bottom and then selected. FIxed defect and added some test in TTextView to test the defect.
+146656
+	Fix of HED-55CJDS - Ericsson 520m doesn't work with mmtsy
+146652
+	Update of splash to fix defect CHN-567JYU.
+146516
+	Defect fixes for PPP (SLO-55JKSM)
+146516
+	and genconn (BMS-568LVL)
+146480
+	Undo part of original fix for MAO-556KMQ
+146319
+	- Integrated defect fix from 6.1 : KAI-53VJPV BioMsg is storing IAP in the wrong place146190
+	Add subsystem product documentation for SER-COMMS
+146138
+	Fix SMS defect PEN-569EAP Send SMS UDH Fax Waiting notification with 2 Faxs results in wrong result
+146118
+	revert fix for defect CDM-56DJGT "Missing choice list Day when selecting Weekly in Set alarm dialog"
+146118
+	ROS-56FE6K "Sketch is no longer available for embedding"
+146118
+	HAR-567LNR "Possible access violation in agenda model under OOM"
+146118
+	fix for defect CDM-56DJGT "Missing choice list Day when selecting Weekly in Set alarm dialog"
+146118
+	fix for defect TUR-56HLLT "alarm sounds don't re-start at end of alarm sound pause period"
+146118
+	fix for defect WAG-56FGKT "Emulator crashes when copy-paste an entry from Agenda to Todo"
+145841
+	Fix for CHA-557N7M and GAL-564GV4
+145827
+	BAA-56AF6V   "Deactivate IPSec fails"
+145827
+	CUS-56GFDG   "KERN-EXEC in IKE"
+145827
+	HED-567JJT   "shell app not starting when IPSec notifiers are in ROM"
+145770
+	Fix for defect MAO-557KMQ
+145756
+	Fixes related to BRE-56AH82
+145736
+	- Fixes to MemoryAcceptanceTest- added instructions, removed obsolete test, fixed Assabet KERN-EXEC 3 bug, set correct test identifiers.
+145692
+	Fix for defect UDN-55MK6c
+145605
+	CUO-567NMA: Adjusted default dns timeouts
+145297
+	Fix for defect CHM-54PPJ9 Form missing In-source docs for Hurricane API additions.
+145297
+	Fix for WEP-55BHBF: EikLabels index out of bounds!!!!
+145297
+	Added test to TTagmaImp to expose defect WEP-55BHBF: EikLabels index out of bounds!!!!
+145276
+	Fix for PIN-55NMNA - BaflUtils::FolderExists() says a folder exists when it doesn't
+145276
+	Fix for defect: MAT-55UMWS - Missing MEikEdwinSizeObserver event when minimum size shrinks
+145276
+	Fix for defect: REK-55TNRE - Menu pane access violation
+145276
+	Fixed defect REK-556HY5 - MS converter has IMPORT_C inline funcitons
+145204
+	Lockit fix for defect SKN-55MG8R
+145028
+	Fix for defect: HUE-56DFM2
+145000
+	Fixed SIK-56AGGY by adding sanity checks to .bmp header processing.
+145000
+	Fixed WEP-56FEG8 by adding a new exported function to CMdaImageDataReadUtility which exposes the RMdaSourceClipPort in a non-const way to enable clients to call ResourceConfigL() on it to get image format details.
+144986
+	PLD-56DQKA: CallVoidMethod only works on a limited set of signature patterns - Generalise CallVoidMethod to handle all signature shapes.
+144986
+	PLD-56EKK2: Sun's WTK rejects our finalize methods    - Registered finalizer methods must now be called registeredFinalize()
+144986
+	SWT-55KDW4: New TCK test to check for defect SWT-55KDW4 (AM-PM problem)
+144986
+	WHE-566JZ7: Additional fix for WHE-566JZ7 midp subsystem contains unused sourceRemoved pjava specific code from midrun.cpp and recjavamid.cpp. Also includes fix to glueStubs dependencies in GNUmakefile to prevent 'unresolved external symbol' link error when add native methods.
+144986
+	PLD-56DQKA: CallVoidMethod only works on a limited set of signature patterns    - Generalise CallVoidMethod to handle all signature shapes.
+144986
+	SWT-55KDW4 Fixed problem of DateField displaying 'AM' after 1300.
+144986
+	WHE-53LJ4Z Updated MIDPMan so this problem does not show up again. Defect was in MIDlet not MIDP.
+144986
+	WHE-566JZ7 midp subsystem contains unused source
+144986
+	WHE-53MBUW Defect fix for WHE-53MBUW part 1
+144986
+	BRT-55LEW3 t_kmidp -killpeers now kills MIDlets and CLDC classes.
+144986
+	WHE-55HHQF GNUMakefile problems
+144976
+	Software install now supports cookies (CR AHOH-53JHDP)
+144976
+	LEQ-569EM6 HUE-55JN2V LEQ-55AQNV LEQ-567NE4
+144937
+	1. (WAG-55KEQK) Fix the defect "Wrong  parsing result when properties TZ and DAYLIGHT come together"
+144937
+	3. (MAT-563JC3) Fixed bug which means cutting and pasting of contacts does not now add a space at the start of the data
+144937
+	4. (WAG-56AG4T) Fixed bug which bad Base64 data does not cause a crash.
+144937
+	5. (WAG-56AF6L) Fixed bug which means that empty parameters does not casue a crash.
+144937
+	7. (DUG-56AFB9) Export all test files for code warrior test too.
+144937
+	Fix the defect DUG-567DU3 "Migrate missing 6.0 fixes in AGNMODEL"
+144937
+	DUG-56AFFJ "Automated test failures for CHTMLTOCRTCONV"
+144937
+	DUG-568GUN "AlarmServer testcode warnings in ARM4" - additional fix
+144937
+	DUG-568GST "CodeWarrior warning in CHTMLTOCRTCONV testcode"
+144937
+	DUG-568GXS "TimeW testcode warnings in ARM4"
+144937
+	DUG-568GUN "AlarmServer testcode warnings in ARM4"
+144937
+	Fixing  FER-557PNF "Some Contacts Model test code that does not pass with the automatic script"
+144937
+	FER-557PNF "Some Contacts Model test code that does not pass with the automatic script"
+144937
+	DUG-568GMT "CodeWarrior warning in LogEng"
+144937
+	DUG-568GQ2 "CodeWarrior warnings in SCHSVR"
+144937
+	DUG-568GWF "Hlpmodel testcode warnings in ARM4"
+144937
+	FER-557KF7 "Link warnings in Agenda Model Test code"
+144937
+	EXT-54EKP9 "Phone number matching does not match Fax field" 
+144937
+	DUG-542GK2 "FindInTextDef performance is degraded with new contacts model"
+144937
+	COY-567J99 "Phone number matching does not match Fax field" + associated test code.
+144937
+	COY-567J99 "Phone number matching does not match Fax field" + associated test code.
+144937
+	DUG-54RFVR "LB411: PDA freezes when new city has been added in Clock application" + new test code.  Original fix incorrect.
+144937
+	COY-567J99 "Phone number matching does not match Fax field"
+144286
+	Defect fixes: GAL-567N8R, GAL-55KKZJ, OAY-562FTW, HAU-554HY8 (partial)
+144240
+		4)	Fixed FID-54YK2B (MEDMMC buffer not DMA-safe.)  Pages of physically
+144240
+			- 6.0 defect EDNMDON-537CZA "Directory creation in FAT causes unnecessary
+144240
+			- 6.0 defect EDNGLAY-53UCDG "Unnecessary flushing of the fat when writing
+144240
+			- 6.0 defect EDNGLAY-53UCLA "Unnecessary metadata writes when creating entry
+144240
+		1)	Fixed FRS-54YG25 T_SERIAL fails on Assabet.
+143912
+	fix defect: MOU-55LJDN -- Using AddKeyRect stops pointer events for the entire window.
+143209
+	Small improvement on a previous defect fix: REK-54YGMK - CEikLabel crashes if space is not enough.
+143072
+	Fixed ROS-55MF75 by moving to the new HAL display driver functions.
+
+########################################################################################### 
+Defect list run on //epoc/main/generic/... in period Hurricane 00604 - 00610 (7.0E ) 
+Changelist scope  148984 150675
+###########################################################################################
+150657
+	Fix for defect PAU-56HLCU
+150544
+	to help fix defect ROS-56PHFA "Can't build Quartz resource files with CodeWarrior IDE".
+150347
+	Fixed defect BEN-56WKTJ "vCal causing a panic in Agenda"
+150347
+	Changes to implement Change Request PSTN-566M35.
+150347
+	BEN-56WJSY "Panic following a SyncML contacts session"
+150347
+	FER-56DE89 Fix for the bug to do with internalising Shift-JIS data with Yen 
+150347
+	Fixed defect BAD-56VLDN "Exported headers #include "" non-exported headers".
+150347
+	Revised fix for defect TUR-56HLLT "alarm sounds don't re-start at end 
+150223
+	change the call code for CHMAC::Newl() for defect MUN-56PGQY
+150063
+	Fix for HOL-56TEUF Well known encodings are not used when encoding MIME headers
+149933
+	Partial fix for ROS-56PHFA - Can't build Quartz resource files with CodeWarrior IDE.
+149802
+	FUR-56NLTD - APPARC test t_cmdln fails on winscw.
+149802
+	TUR-56NHLZ - WINS cannot input max value in Twips box - TDialg0 unit test, Fixed screen.
+149802
+	TUR-56WDUP - CEikSoundSelector::SetSound(const TDesC& aSound) restriction on aSound length"
+149802
+	CHM-55ENAL - Bafl defines the wrong location for default sounds'
+149802
+	FUR-572FGM - Backup server leaks a thread handle causing processes to multiply"
+149802
+	TUR-56NFJP - WINS. Constructed by App menus crash emulator."
+149794
+	Fix for defect FER-56TGQY Character Set Name recognition could/should be optimised.
+149786
+	Fixed  OVL-56VHZV Rewritten WSPDecoder and WSPEncoder test code. There is now 1 test program t_wspcodec which
+149786
+	Fixed RES-56UMF8 by changing __ASSERT_ALWAYS to __ASSERT_DEBUG In WSP Codec code and also
+149655
+	1) CR CLCT-55JENG. Modified \e32\include\d32usbc.h & \e32\include\d32usbc.inl
+149655
+	1)	Fix for defect FID-563G8A - "TPckgBuf cannot return a const reference"
+149655
+	2)  Fix for defect PAR-56MGEB - "Generic EDISP driver lives in the wrong place."
+149655
+	4)	Fix for defect THY-4XPH4C - "T_CURRENCYFORMAT fails from time to time"
+149655
+	5)	Fix for defect MET-56UJ35 - "Unhandled Leave in Kernel Server"
+149655
+	6)	Fix for defect MET-56VJY6 - "Session creation can crash machine under OOM conditions"
+149655
+	1)	CR JPAR-54XMZD: ROM building and run time configuration of debug port
+149655
+	1)	Euser source reorg for ipr categorisation CR GBON-567RCZ
+149655
+	1)	Fixed FID-562G4V (App can kill F32 by attempting to mount filesystem on
+149655
+	3)	Fixed FID-566G8P (Bug in comparison with "ELOCAL" in AddFileSystem) by
+149655
+	1)	Fixed defect BEN-4YRGKV "Ecom not recognising plugins once unplugged and
+149655
+	1)	Extended T_FSYS to check fix FID-562G4V (App can kill F32 by attempting
+149655
+	2)	Fixed FID-556JEX (T_PROC tries to use drive D:)  T_PROC now uses the
+149655
+	1)	Modified T_NOTIFY to test fix for defect BEN-4YRGKV "Ecom not recognising
+149641
+	SAM-56UMWE - The IMPORT_C macro was moved to be in the correct place in CHttpTcpCli. 
+149641
+	RES-56WNZK - Modified the session's filter initialisation to correctly search the data type field of a filter for the appropriate protocol. 
+149641
+	KRN-56DKMT - all active object priorites and changing them to be CActive::TPriority based rather than TThreadPriority based. 
+149641
+	CUO-55JMJQ - WSP Protocol Handler - should not handle S-Resume.cnf with same function as S-Connect.cnf.  In fact this bit remains the same, but ensured that the client preferences are upto-date. 
+149641
+	RES-56QP8Y - Access violation with zero length data response body in WSP Call to notify the rx data object observer that the response is complete is now done as the last thing in the fx data function. 
+149641
+	CUO-55JMAK (WSP Transport Handler could use an enum to pass supported WSP services) 
+149641
+	CUO-55JMF7 (Change function name in MWspSessionHeadersProvider API) 
+149641
+	CUO-55MDZF (Change the signature of MWspCOSessionCallback::DisconnectInd) 
+149641
+	APY-56NKMC - Leak in CProtocolHandler 
+149641
+	KRN-56DKMT. CActive priorites are now set using enums from CActive 
+149641
+	SAM-568F24, Textmode PH should use LF as a field separator
+149544
+	This release of the security subsystem contains fixes for the following defects : LEQ-54PED7, ANN-53TG4k, ANN-53TFUV, LIG-54XBDN, ANN-53THPK, CLE-56XLFG, MUN-572MZE, HOG-557MD9, GAL-564NFB, LEQ-56FKT2, MUN-56LLAC, GUN-56LMDT, LEQ-56MHVG.
+149542
+	Buildpkg.pl and createpkgsrc.pl have been changed so that the defect HET-574DE2 is fixed.149321
+	Additional Fix for MEN-569LNA TextBox with a "\n" in it doesn't display a new line
+149321
+	Defect Fix PLD-56WPB2 "Memory leak in lcdui"
+149321
+	Additional Fix for EXT-4YWC5A "MIDP ticker implementation will drain battery when screen switched off"
+149321
+	WHE-572LF2 GetObjectArrayElement should be added to jni subset
+149321
+	Defect Fix TUR-56XFPY "winscw. cannot install jar/jad files."
+149321
+	WHE-572F9Z Cannot compile MIDP for TechView
+149321
+	CTUS-535D6G CR for allowing default MIDlet size to be changed from midp.rss.
+149321
+	HOS-56UK47 Fixed test code
+149321
+	Defect Fix EXT-4YWC5A "MIDP ticker implementation will drain battery when screen switched off"
+149321
+	Defect fix BIA-56LFS6 "ChoiceGroup panics when setSelectedIndex is called on Empty ChoiceGroup"
+149321
+	Added TextBoxMIDlet to TestMIDlets to test for MEN-569LNA "TextBox with a "\n" in it doesn't display a new line" defect.
+149321
+	Defect Fix HOS-56GLTZ "Font.STYLE_UNDERLINED doesn't work"
+149321
+	Defect Fix MEN-569LNA "TextBox with a "\n" in it doesn't display a new line"
+149321
+	Further fix for WHE-53MBUW - "rms TCK failures"
+149227
+	EVS-54RM7L - ECom should export codes for the ErrorResolver.
+149227
+	HAD-56FLJH - ECOM should only return KErrNotFound or KErrNoMemory when a plugin cannot be instantiated.
+149227
+	FOT-56ULPM - ECOM not closing plugin libraries during alloc testing.
+149227
+	Added a unit test for defect FOT-56ULPM.
+149217
+	1) GUY-56XKUK: wapmessage.h gives an error when building for codewarrior
+149217
+	2) TRK-56QNNB: Unnecessary code
+149217
+	3) AUT-567HGB: access violation when receiving
+149217
+	4) SHH-55DGA2: CWapFullySpecCLPushService_Connect_UnitTest failed a pre/post condition validation check
+149203
+	Release of cryptalg to fix defects : BAG-572KGD, BAG-572KEM, BAG-572KBS.
+149100
+	PRX-54GC4L - Missing cleanupstack protection in messaging /msg /mtursrc/mtudbas.cpp
+149100
+	KAI-56UFXA - Email "Failed" flag is not properly reseted when resending once failed message.
+149100
+	KAI-56TMRK - Replied and forwarded mail messages have wrong date
+149100
+	KAI-56VF7M - Testutils should generate log file containing text "WINSC" for code warrior
+
+########################################################################################### 
+Defect list run on //epoc/main/TechView/... in period Hurricane 00604 - 00610 (7.0E ) 
+Changelist scope  148984 150675
+###########################################################################################
+
+150232
+	Resized bluetooth and Internet account dialogs. Fixed PAL-555P3G (Emulator panics when scrolling to new IAPs using pointer) by Hassan Ali (@146697)
+150027
+	Fix defect DOT-56UNZZ (sms message print problem).
+
+########################################################################################### 
+Defect list run on //epoc/main/... in period Hurricane 7.0.1 - 7.0.2  
+Changelist scope  160981 162931
+###########################################################################################
+
+162906
+	Fixed defect WAG-58NK5B - Memory leak in Agenda form handler.
+162784
+	       o PLD-58LMK9: Native code must be able to issue callbacks while the UI event thread is blocked
+162478
+	Fix for defects BAG-58TFP6, LEQ-58LM42, LEQ-58UFUJ, ARG-57ZPQC, EXT-585HBE, LEQ-58TEAM, JON-58UHDL, SKN-58VGVX.
+162469
+	Defect fix: o PLD-58LMK9: Native code must be able to issue callbacks while the UI event thread is blocked
+162454
+	- Defect Fix : FUR-58TJYB "[Carried over from 6.1] Sending vCalendar with EPOC word application object fails."
+162428
+	BEU-58FL8U - T_Client doesn't handle RunL Leaves (there's not runErrorfunction)162428
+	CLE-58EEDC - TechView Design and User documents out-of-date in Perforce 162428
+	TUR-58ND5H "int. creating second folder invokes MCentre USER 23 panic"162428
+	DOT-58NMQY "Email errors not always displayed"162428
+	BAT-58DGPE "Send MMS causes unknown error"162428
+	Defect number: DOT-57YEZK162419
+	FER-58LPN2 "versit needs to export VObserv.H"
+162419
+	EGA-58FEN9 "Successfuly importing a file in Agenda results in a crash"
+162419
+	CDM-58CJCA "Program close: When setting back time in Control Panel"
+162401
+	KRN-58MMG9 - Engine should send a Results command when requested with a Get command from a server
+162401
+	KRN-58VDA4 - Authorisation failure counter should only be incremented on a Chal SyncML Command
+162401
+	PEN-58MCEN - smlcontroller.rsc reported as missing when building ROM.
+162264
+	fix defect PLD-58DP4x and DAN-58UBKJ
+162260
+	Fix for APY-58LM4N - Trailer test case not validated properly
+162259
+	Fixed defect SHY-58GK86 "T_TELWATCH doesn't work if pushwatcher is present"
+162205
+	BEN-588JPU -IMAP account cannot handle attachment properly on Delivery failed mail
+162205
+	KAI-587DM4 - Commit/Revert not working
+162205
+	KAI-58LLFR - Cannot forward embeded msg in IMAP
+162205
+	KAI-58MLZK - GetValidAlias returns whole string as an alias when alias is only one character
+162205
+	LIG-58GDLP -Inbox spellt with capital letters in Found dialog.
+162205
+	RAN-58FHV2 -message/delivery-status MIME parts needs to be processed 
+162205
+	WIN-56VGNR - V3: .eml attachments are not forwarded
+162205
+	OHF-57AJZE - Unnecessary disconnection when receiving and sending 
+162159
+	HET-58DKAT: Mainline integration of defect fix.
+162136
+		1)	Fix for BAD-58CDM4: Locale change has no effect on contact filtering.
+162136
+		1)	Fix for MOS-58EJ8V (Integrator calibration doesn't work properly)
+162136
+		2)	Fix for CAR-57RETM (WINSCW UDEB Emulator crashes when launched in console mode)
+162136
+		3)	Fix for TAR-58LEUV (Emulator title - variant indication) CR ref MTAR-58LDG2
+162136
+		4)	Fix for SHY-58GGR5 (Test case that leads to unhandled exception
+162136
+		1)	Fixed defect THY-588MLT (Integrator board with ARM926
+162136
+		1) 	Fixed defect JON-58DHHP where Assabet lffs media driver has an error in 
+162136
+		1)	Fixed CAN-58GG5E (MEDMMC is not leave-safe.)  Used non-leaving new in
+162136
+		1)	Fixed defect BRY-58DQ8A "RDebug::Prints in F32".
+162136
+		2)	Fixed defect BRY-58DPTJ "RDebug::Print in cl_parse.cpp".
+161903
+	Fix for APY-58LK5R - Test files missing from Perforce (and bld.inf)
+161903
+	Fix for defect RES-58LLBQ - Incorrect definition of the Trailer header in the HTTP string table.
+161453
+	Additional Fix for WHE-53MBUW rms TCK failures
+161453
+	HOS-58GQUK RMS tests can panic standalone MidletAgent
+161430
+	Fixed defect PUE-58MKMQ (BSP Builder perl script is out of date on mainline 640 build)
+161429
+	BAD-58CHVR Parser system panics in debug mode when Word is closed
+161429
+	SIK-55EB2T Problem when parser merges two recognized segments if separated by space char. 
+161429
+	NIN-586C3C Parser, finds higher precedence when not existing
+161429
+	Fix for BUR-58FGE8: Int: Application panic when selecting, Select All from the edit menu
+161423
+	fix defect BRT-58DJK8 and AUT-58KDCN.161414
+	DAN-58LBTN "CMIDForm propagates pointerevents when it shouldn't"
+161399
+	        MOR-53KG7N      CEikDialogPageSelector needs to call "SetComponentsToInheritVisibility(ETrue);"
+161399
+	        TET-58FMTY      CEikDialog::ExitSleepingDialog() should move the dialog to the background
+161399
+	        JON-58MHTC      Jotter crashes when lot of text and many parsers are added in an entry.
+161399
+	        CRZ-573H52 Resource file has to be checked against localisation checklist
+161399
+	        ALM-58LJP3 After deleting an entry in Jotter another entry is hightlighted in the list view.
+161399
+	        ALM-58LJRA Wrong behaviour when closing a New empty entry in Jotter - Nothing should be highlighted.
+161399
+	        SBG-57XFCR  Changing daily repeated event to weekly event repeats the event on wrong day
+161399
+	        BEN-58KLA3 Crash when tasking away when searching
+161399
+	        BEN-57JKH8 Password dialog appears when Send as to an unbonded device
+161399
+	        OHF-58KDP6  Wrong text in dialog.securityInformation
+161399
+	        SOD-58MKXJ BT send as dont work after tasking away from a sending operation that fails
+161399
+	        OHF-58EBM9  help icon in dialog. internetsetup
+161399
+	        BEN-58B27B Sending a mail every other time without Internet acount hangs Messagin
+161399
+	        JON-58LLQM Wrong behavior with 2 and 4-way HW buttons in Messaging Found dialog.
+161399
+	        CDM-58LAU5 Viewer.webViewer.bookmark  doesn't match its UI Spec
+161399
+	        PAD-58LJFX Extra char in dialog text.
+161399
+	        ALM-58LDJVPaste doesn't work correctly in Contacts
+161399
+	        PIA-58GEM7INT:  Contacts not updated correctly when changes are made in Javaphone Address book
+161399
+	        BEN-57PRPJSyncML: Contact can not handle a synced emailaddress
+161399
+	        OHF-58GD6T Not all corrupt voice files are removed at the same time
+161396
+	Change helps fix PUE-58MKMQ BSP Builder perl script is out of date on mainline 640 build161390
+	Fixed FID-54RHAD (mmc driver checks primecell id) by changing pa_mmc_controller.cpp as recommended in Defects database.
+161369
+	Fixed CHY-572NP4 (warnings when building a rom); added #define NO_POWER_EXTENSION to int.oby and used it in BASE.IBY.
+161311
+	Fix for defects TUR-58FEDN, LEQ-588LGB, CRZ-588LLX, CLE-588JQZ, LEQ-588N92, WEP-588FUH, RON-58GMVM.
+161309
+	MOS-586BYY : MINT has mouse and digitizer drivers loaded in ROM.
+161207
+	Implemented change request #LPEN-587GRJ
+161194
+	Fixed defect KAI-58DMS7.
+161172
+	Defect fix: BRY-58DQJU - RDebug::Prints in deblogsr.cpp.
+161172
+	Fixed defect BAR-4YXJK7 ("Application start-up and Eiksrv start-up have a number of OOM-defects").
+161172
+	fix for defect STE-58KKUB "RDebug::Print on cone should be replaced with ShowTrace()."
+161172
+	Defect Fix MAT-58EGYF: "LafListItemDrawer::BaseLineOffset() not used to fetch listbox text baseline"
+161016
+		BEN-58KLA3 Crash when tasking away when searching
+161016
+		BEN-57JKH8 Password dialog appears when Send as to an unbonded device
+161016
+		BEN-58BTN5 Dialog "In use" is displayed in App launcer on start up
+161016
+		NIN-58KF6QPhone parser recognises invalid numbers.
+161016
+		 CDM-58LAU5 Viewer.webViewer.bookmark  doesn't match its UI Spec
+161016
+		OHF-58GCLD Wrong file removed when voice note is corrupt
+161016
+		JON-58LEQJ Help crashes applications or freezes the device...
+161016
+		OHF-58DGNZ - Incorrect files are listed in dialog.redundantDataFound
+161016
+		BEN-58FNEJ Send as highlights text in desc/notes for a moment and moves scroll bar
+161016
+		BEN-58FPYG New entry remembers scrollbar from last entry
+161016
+		BEN-58GJMC Folder belonging is saved after beaming it shouldn't
+161016
+		ALM-58KDHJ Entry in To do gets highlighted when the date changes.
+161016
+		JON-58LCPV Strange behavior of 4-way buttons and highlighting in Jotter Found dialog.
+161016
+		JON-58LD8E Strange behaviour of 2-way buttons in Jotter Found dialog.
+161016
+		PIA-58GFDV INT: Javaphone Address Book application panics when opened
+161016
+		MAT-58GEC7 QMidp's toolbar looks different from CQikToolbar
+161016
+		MAT-58GHMV QMidp's form component needs to use the control context
+161016
+		MAT-58GHQL Massive flicker when switching between QMidp forms 
+161016
+		MAT-58GHTN QMidp list causes action on pen down instead of pen up
+161016
+		MAT-58GHYP Components in a QMidp form reacts to pen actions outside the control
+161016
+		BEN-58B27B Sending a mail every other time without Internet acount hangs Messaging
+161016
+		CDM-58CHCX The finding process searching forever or at least 5 minutes.
+161016
+		PAD-58LJFX Extra char in dialog text.
+
+
+########################################################################################### 
+Defect list run on //epoc/release/7.0/... in period Hurricane 7.0.3 - 7.0.5  - changelists 164554 169201
+###########################################################################################
+
+169201
+	Defect GAL-59CJB6
+169177
+	MPO-5A4HGJ
+169177
+	EXT-59BDV3
+169127
+	   LYN-59ZLX4 T_SMSPDUDB test case 6 fails
+169127
+	   FID-59CDDK  CSmsCommand data encode routine is wrong
+169127
+	   FID-59ZD5X SMS Stack automatically deleting SIM-stored SMSs
+169118
+	PRX-59H5NX: Unproper localization of mediaserver component169118
+	EXT-59QTHH: CMdaBuffer iFlags not being reset from KMdaBufferDataEnd and CMdaAudioDstDatatype iMarkConsumerBufferEnd not reset
+169075
+	DUR-59FK76          Access violation in in_net.cpp 
+169075
+	MUN-59PJAJ          strange (wrong) number of security dialogs for some secure pages
+168951
+	Fix defect ROS-59BGYN "engbuild.oby is not a GT file and should move to RefUI"
+168899
+	Defect GAL-59CJB6
+168788
+	NAM-58ZCGS  Cannot use more then 1 dialup account in commdb 
+168788
+	HOY-58CHFQ  Panic when server/gateway failure                                                                                        
+168788
+	MKY-59YBBP  TCPIP6 mmp file unneeded include path
+168767
+	Fix defect PAL-59YHRT "Build errors not being reported in summary files"
+168767
+	Fix defect ROS-595LHD "abld -what problems with very long pathnames" 
+168767
+	Address defect CHN-58WEZ3 "EPOCRC.PL fails in VC6 IDE builds with long paths"
+168764
+	BEN-59HF86  - Find doesn't search in IMAP headers
+168764
+	LID-59VHA8 - Wrong error message for 550: Relaying not allowed
+168764
+	KAI-58WHFH - Connecting to..." text displayed when undeleting messages offline
+168764
+	GUY-59SFUP - imps panic
+168764
+	GUY-59CBPK -IMAP flags fetched after NOOP
+168764
+	GUY-59CCEW -Disconnect when gprs suspend hangs mce application
+168764
+	LIG-59SHGL - Tapping on Mail-to link and nothing happens.
+168764
+	EXT-599M9V -The message engine igonres errors on attempting to load HTML convertors.
+168692
+	Fix for defect - SAM-5A4MKN - "Incorrect default data type field in ECom resource files in HTTP"
+168402
+		Fixed defects: DAO-59WGWH Loading notifiers needs performance improvement
+168402
+		ALM-59NJZU "Removing all text from an entry displayed in Unfiled folder results in program closed: DBMS-Server, no 3."
+168402
+		BAT-59QJUM ToDo not reflecting sync'ed changes without switching out and back
+168402
+		HEM-59WCS7  Pressing HW-buttons once/twice in an empty listview = crash
+168402
+		PRX-59Q4YD Wrong use of resource file in UIQ contact ui
+168402
+		LIN-59WGTM Member pointer pushed to cleanupstack
+168402
+		BEN-59MN3C Contacts list view displays wrong entries
+168402
+		DAS-59PEQ7 "filesession handle leak"
+168402
+		DOS-57KL7U IN: Switching to month view in Agenda needs performance improvements
+168402
+		OEL-588SBB Opening entry in agenda needs performance improvement
+168402
+		Fixed defects: DAO-59WGWH Loading notifiers needs performance improvement
+168402
+		LIG-598C2K No Pop up list when tapping parser in Messaging detail view.
+168402
+		REK-59RJM8"non-translateable strings shouldn't be in rls file"
+168402
+		LIG-59VG76  No Select language dialog is displayed.
+168320
+	Fix for defect APY-59PEX5 - Test bed mmp files should be relative instead of absolute
+168273
+	MKY-59KJWT  TCPIP Bug fix has introduced a performance problem
+168238
+	FER-59HMLP "Empty EXDATE property crash Agenda Model"
+168238
+	DUG-59JEH3 "New API proposal for CContactViewBase"
+168238
+	TUR-59YLCR "CContactDatabase::RecoverL() does not forward errors to caller"
+168238
+	TUR-59YD47 "CContactLocalView hangs when Contact DB is recovered"
+168238
+	EXT-59PJ5N "Panic in RWorldServer::Find"
+168064
+	Fixes for defects EXT-59BDSF and LEQ-59SH7A.
+168061
+	EXT-59BCNC:  App Engines potential access violations 168061
+	PAL-59YHL2:  Errors in MRouterClientUI when building ROMS168061
+	PAL-59YHC9:  MRouter is not getting built on HRB and Mainline releases
+167995
+		1)	Fix for MET-59CLM2 (TLex::Val() should not give error for missing exponent)
+167995
+		1)	Fixed defect JON-598DLR	Where Segment write failure are not handled
+167995
+		2)	Fixed defect FID-59HHUP Bug in filesystem mounting in ESHELL
+167995
+		3)	Fixed defect FID-59HJNL File System mounting in ESHELL issumes FAT
+167995
+		1)	Fixed defect JON-59BC75 "Subst Drives not functioning correctly".
+167995
+		2)	Fixed defect DON-59QCPS "RFs file server session crashes with null pointer
+167995
+		1)	Modified T_SESS and T_FSRV to test fix for defect JON-59BC75 "Subst Drives
+167995
+		2)	Fixed defect FID-59AKHR "T_SESS can stop for keypresses". The test now fails
+167995
+		3)	Modified T_MISC to test for fix to defect DON-59QCPS "RFs file server
+167992
+	BUS-598CX3   ISP details from RGenericAgent::ServiceChangeNotification() change unexpectedly 
+167992
+	BRN-59NN3G   There are two copies of t_tabdef.h in CommDb           
+167992
+	BRN-59NMPH   Not possible to reproduce CommDb binaries
+167981
+	Defect fix- AMS-59BEBG "Lockit "Do caption" command is thrown by Chinese captions"
+
+
+167836
+	HOS-59PDZS - Midp test source should be located in tsrc and tapps directories - Additional fix
+167647
+	        BEN-58WG67 SyncML and Agenda: Change repeat dialog when sync repeated entries
+167647
+	        OHF-59GCJ6 "Jotter closed down when folder is changed"
+167647
+	        BEN-59KBEJ Program closed after syncing To Do entries
+167647
+	        BEN-595JRR List view updates/scrolls a couple of times when no entry is saved
+167647
+	        LIG-58VB25 Wrong behaviour when using HW buttons.
+167647
+	        BEN-595HMY Entry not correct dispayed in list view if the phone number reach maximum characters
+167647
+	        JCAD-57SG2P Add option to add an email adress and phone number to Contacts (the part in Contacts only)
+167647
+	        Part of CR MPEN-57HC9Z - Change viewer delete behavior
+167647
+	        BEN-59HCAN Find in baseview does n't work after tapping
+167647
+	        OHF-58LGCV Save to Contact info print missing
+167647
+	        BEN-59GE9X Small font size displays To:line centered.. Now purfekt alignment in all zooms
+167647
+	        BEN-59GE9X Revert of "fix"
+167647
+	        BEN-59KFZT Should not store empty contact
+167647
+	        JON-57XL99 A beamed bookmark is saved to Beamed list view when select Open...
+167647
+	        Defect fix: OHF-5929TX Progress bar displays % from the last process before new download starts
+167647
+	        Defect fix: OHF-592A8J Progress bar does not always show correct % when loading site
+167647
+	        PEN-598L3E Redraw problem when using list of frames
+167647
+	        PEN-598LEZ Focus problem when using list of frames
+167647
+	        EKD-59NKEG Web crashes after a while
+167647
+	        TAR-59CT4S \QComms\Connectivity\QSyncMl\group\extmake.mk has incorrect 'releasables'
+167647
+	        ROS-59KNBU Qsyncml attempts to rebuild GT resource files
+167647
+	        BEN-599FAT SyncML: Task name is highlighted by default it shouldn't be
+167647
+	        BEN-599D3K SyncML: Username and Server address is highlighted by default in Settings
+167647
+	        BEN-59GP3Y - Dialog.messaging.address/multiple.address doesn't close when tapping new message icon
+167647
+	        PEN-59HM3B - Unable to disconnect from mms view, new mms
+167647
+	        BRN-59HAM4 - OOM defects
+167647
+	        LIG-59GEHR - Strange behaviour when deleting a email account
+167647
+	        JON-59N9H6 - Program closed on Messaging when trying to open BIO messages
+167647
+	        BEN-59GJWL Cannot scroll with HW buttons in Found dialog
+167647
+	        JON-58VCQM BIO detail view has the wrong text when the message contains a vCard.
+167647
+	        BEN-59FF2T Wrong behaviour if tasking away during receiving dialog
+167647
+	        WEP-59GBJ4 AgentDialog (QConnDlg) Test Harness panics
+167647
+	        MPEN-57HC9Z Change viewer delete behavior
+167647
+	        MOEL-57ZH4F Web should download .sis files into the mediafiles/unfiled directory
+167647
+	        MICD-59JCPB Certificate information option in the Web menubar should be removed
+167647
+	        Additional error handling for previously fixed defect PEN-56QFXJ
+167647
+	        SWT-582J8P Canvas doesn't pick up colour of parent frame.
+167647
+	        ANN-58NDMF [Do-it] problems in a multiple choice list
+167647
+	        MOEL-57ZM2G  Appinst should delete installed files
+167647
+	        Implemented changerequests:CR MPEN-57HC9Z
+167647
+	        SVG-59NEY9 MMHF: Unrecognised viewer panics when you tap [Save]
+167632
+	Defect number ROS-59GBWP: Cancelling image utility save operations can cause exceptions167632
+	Defect number ROS-59NDF5: Media Server is over-zealous in recognising files
+167472
+	This change fixes the defect: HET-59RKL6.
+167470
+	MDL-59AJ7N     Wrong panic raised by CCommsDbTableView         
+167470
+	MDL-599JD4     Possible memory leak in Commdb                                                          
+167470
+	MDL-59ADBN     CCommDbOverrideSettings::TParamList isn't really used sensibly                      
+167470
+	MKY-58VD4F     CED hard coded attribute                                                                
+167470
+	MKY-594HUS     CED creation of Special baud rate                                                       
+167470
+	MUN-592H6J     TLS panics on OOM                      
+167470
+	MKY-594N5F     NTRASTSY does not configure serial port correctly                                      
+167470
+	PEN-58FHQB     NTRASTSY is (partly) included in a ROM                                                  
+167470
+	CHY-595FYM     missing files in techview rom build    
+167470
+	EXT-59BDJW     Networking potential access violations
+167422
+	LUD-599HUU
+167422
+	PIA-586KGE
+167422
+	LYN-59HHGq
+167422
+	LYN-59PD2R
+167422
+	MIY-58ZM9S
+167422
+	ROS-595HN4
+167422
+	WEP-59JFLV
+167403
+	SVG-59NEY9 MMHF: Unrecognised viewer panics when you tap [Save]167352
+	Fix for defects WEP-59GBUD, OLD-59JFK3, JON-58UHDL, SKN-58VGVX.
+167347
+		ANN-59NHX2 Appinstaller change the name of the application if \system\apps\appname\appname.ini exists
+167347
+		HOS-59PDZS - Midp test source should be located in tsrc and tapps directories
+167097
+	Code change in XmlBuilder  for critical Defect: KLN-59KGFB167097
+... //EPOC/Release/7.0/DeveloperLibrary/doc_source/reference/cpp/InternetMail/SMTP-CMsvEntry-functions.guide.xml#3 delete
+166852
+	Fix for Hurricane Defect PEN-58GHMN Locale setting not stored if Power is lost.
+166734
+	APY-59HBP7 - Modified default unload time to 1 second.
+166734
+	APY-59JJ4V - Modified test bed behaviour for OOM testing of async functions to be more specific.
+166734
+	APY-59KKFW - Reset index where necessary if array appends failed.
+166658
+	HOS-59KEDF - MIDletAgent doesn't run the last test
+166658
+	TAR-59KJZE kvm resource.lib MIDP file has relative targetpath
+166609
+	Fixing defect BRA-58WEYW
+166465
+	Remove the fix for WEP-55CFXQ "Resource complier complies code that isn't correct."
+166465
+	and WEP-55CFV5 "Misleading resource compilation." because it caused lots of warnings.
+166431
+	Fix for CUO-59FLPM - WSP Protocol Handler will not work with unlimited Server SDU and/or message Size
+166431
+	Fix for EXT-59BCZ5 - Application Protocols potential access violations
+166431
+	Fix for HOY-58ZGSD - Buffer overrun in the WSP header decoder
+166431
+	Fix for SAM-598JAT - WSP protocol handler does not set the wsp encoding version in the header codec
+166431
+	Fix for SAM-59FJFV - Validation filter incorrectly rejects Trailer headers in requests
+166297
+	Fix for defect FUR-59CD7T "[Carried over from 6.0] Having 1b masks in AIFs would save significant amount of RAM"
+166297
+	Fix for defect FUR-58ZBV2 "Carried over from 6.1] Infinite recursive loop in OOM situation in CEikonEnv::HandleError()"
+166297
+	Fix for defect HOM-593DL7 "uikon, tmenu3, title dim option dims the wrong title"
+166297
+	Fix for defect WSERV: STE-58KNFT "(From 6.1) Device reboots when trying to enter a license number to an application."
+166201
+	Fix migrated from 6.1 Release defects ARG-58TD3C and BUG-593HU6, Hurricane defects ASM-59JECX
+166201
+	and ASM-59JEJA.
+166186
+	Change Request IRAN-58WDPP : Change method of setting/storing the SystemDefaultCharset
+166177
+	Fixed ROS-586DV6: Calling CFbsBitGc::DrawPolygon(const TPoint*,TInt aNumPoints,...) with zero points causes an exception.
+166177
+	Fix MON-59CE79: Problems with the stdlib function strtod
+166083
+	fixed defect  EVS-59FNLS "Web recogniser duplictes the mailto recognition code"
+166082
+	EXT-57YGMQ "CContactViewBase::ContactsMatchingCriteriaL is too slow for interactive find"
+166056
+	        BEN-593GYT Crash when Closing message before add/delete attachment has completed
+166056
+	        PEN-59BAHE Servicecentre number is reset if phone is turned off during system start
+166056
+	        EKD-59BAFK Initialize servicecenternumber should not startup phone
+166056
+	        OHF-592FAM Strange and confusing information in SyncML
+166056
+	        PEN-56HKDW Impovement suggestions from codereview not implemented
+166056
+	        JON-57CL68 Some Saved pages are impossible to open.
+166056
+	        PEN-56TGBT Web doesn't handle plugins added at runtime (not correctly anyway)
+166056
+	        Defect fix: KAN-598D6B The active policy has been deactivated when reentering the IPSec Manager a second time
+166056
+	        Defect fix: PEN-594B4R SECDLGSV.DLL and SECNOT.DLL uses same UID
+166056
+	        SVG-594D99 dialog.BluetoothSend does not match the UI specs
+166056
+	        SVG-594HJP QueryDialog.BT.deleteDevice does not match the UI specs.
+166056
+	        BEN-4Y6E2G Device not found dialog doesn·'t appear
+166056
+	        BEN-594MJT SMS/Fax DNL shows parenthes in messaging To field
+166056
+	        BEN-595CPF Incorrect DNL from Contacts is saved in Outbox and causes problem
+166056
+	        LIG-58ZJAY Program closed on Image viewer when trying to save the file.
+166056
+	        LCAL-58MQAC Make QBtCfg control the unloading and loading of the stack.
+166056
+	        LCAL-58MPFZ Make the Bluetooth listener aware of Bluetooth modes
+166056
+	        LCAL-58GEGV Remove 3 minute discoverability timer in Bluetooth UI
+166056
+	        implemented CR: FSJN-599JNK Add a button named disconnect to the 'Connect to PC' dialog.
+166056
+	        QTodo: LIG-58VCPM To do saves empty entries.
+166056
+	        QContactsSharedUi: JEN-594KAM After deleting an entry in Contact another entry is hightlighted in the list view.
+166056
+	           BEN-599B3S  InfoPrint.enterSearchString has a dot at the end of the text
+166056
+	        QJotter: JON-595GT3 Program closed on Jotter when press Do-it button twice in                                 empty Foun
+166056
+	        MOR-4Y49PC - Button remains pressed when it shouldn't
+166056
+	        CRZ-573LKE - Resource file has to be checked against localisation checklist
+166056
+	        LAE-58NDXG - MMFH : Big jpg pictures appear as broken....
+166056
+	        ANN-58ZF3U - No scrollbar visible when you start QFileMan...
+166056
+	        SPEE-58GKVT - QDefaultViewer screws up URL scheme handling
+166056
+	        PEN-594AJJ - Wrong UID for ClickAnim.dll
+166056
+	        PEN-594A8K - Wrong UID for QSystemSounds.EXE
+166056
+	          OHF-598AQF "Voice crashes when trying to change the volume"
+166056
+	          MAT-599DFH "Voice app created VoiceNote folder in the root of C"
+166056
+	          BEN-594MVE "Tabs on list view remember previous tap when returning"
+166056
+	          BEN-595LNV "Strange focus and highlighning behaviour when navigating between folders"
+166056
+	          BEN-593JY2 Busy infoprint is missing
+166056
+	          BEN-595KJF InfoPrint.callingContact is missing
+166056
+	         OHF-598AQF, MAT-599DFH: Susanne LindÚn
+166056
+	         BEN-594MVE, BEN-595LNV, BEN-593JY2, BEN-595KJF: Mikael Brorson
+166056
+	        Defect fix: KAN-598D6B The active policy has been deactivated when reentering the IPSec Manager a second time
+166056
+	        Defect fix: PEN-594B4R SECDLGSV.DLL and SECNOT.DLL uses same UID
+166056
+	        Javaphone: AUT-58KJBP serial tests use wrong com port
+166056
+	        Midp: ANN-58EKZW Tapping on A,B,C,D reports nothing on the Testscreen in AstroMission
+166056
+	        Ported erj\makefiles for GNU-Make.
+166056
+	        Added Infoprint1,InfoPrin2 and InfoPrint3 to sdk deliverables and ported these for GNU-Make.
+166056
+	        Fixed defects: LUD-593M69 Strings which can be localised have not been moved to rls file
+166056
+	            MYN-58WBAB  Change icon and name in QFileman
+165875
+	KAI-55KLTV          [N#101] I get 'InUse' when trying to connect second time.   
+165875
+	KAN-57JGBS          [N#117] IPSec <--> FreeSwan problems
+165813
+	TUR-59AHB6 "ICC entries not supported in contact model views"
+165813
+	ANN-58CD3U "JavaPhone javax\pim\addressbook\items.html fails on WINS"
+165813
+	JOE-4ZDDM5 "JavaPhone API cannot retrieve ContactTemplates via their ORG field"
+165631
+		USB		SER-COMMS\USB\GROUP
+165598
+	BIA-59FGFE - MIDletAgent doesn't always build
+165598
+	EXT-59BDG5 - MIDP potential access violation (Better fix)
+165598
+	EXT-59BDG5 - MIDP potential access violation
+165595
+	SVG-56HDTW  Time out for dial-up account not working correctly (tcpip6)
+165595
+	BRE-58LEYP  Genconn has NULL pointer exception during OOM testing (genconn)
+165448
+	Change Request LCAL-55ENF8
+165448
+	CL164418 update to test code for CR LCAL-55ENF8
+165448
+	CL163600 Integrating changes for LCAL-55ENF8 to development branch.
+165448
+	CL163487 Changes to test app to allow modification of underlying registry entry for LCAL-55ENF8. 
+165448
+	CL163401 added some test code to test the new interface to the Secman to allow the retrieval and modifications of CBTDevices for CR LCAL-55ENF8
+165448
+	CL163307 Changes to notification feature of LCAL-55ENF8.  
+165448
+	CL163103 Added to CR-LCAL-55ENF8, Modified Notification, and Modification funtion.  
+165448
+	CL162692 Added to CR-LCAL-55ENF8 to allow for Notification and Modification of registry entries.
+165448
+	CL162680 missing from previous submission to CR-LCAL-55ENF8 implementation
+165448
+	CL162366 few tweeks to items 23/24 on CR_LCAL-55ENF8 and test code
+165448
+	CL162212 implements task 23/24 of CR LCAL-55ENF8. also some tidy up of code
+165448
+	CL161599 some changes made to the test code to test the correct storing/retrieval of the now extended CBTDevice as requested in CR LAC-55ENF8
+165448
+	CL161528 Changes to Security Manager to support features for LCAL-55ENF8 - " Persistence of Page Scan Mode and related Page Timeouts "
+165448
+	Change Request LCAL-576PZT
+165448
+	CL161472 implementation for CR LCAL-576PZT "Minimal Power Management Support".  Includes reference implementation of power status observer for UART devices in HCI.DLL.
+165448
+	Defect HOS-57ZPVW "RFCOMM state Disconnecting should defer call of MSocketNotify::Disconnect"
+165425
+	HED-57JJ2H   Still a very high number of illegal leaves in networking
+165424
+	DevKit - NavPages update to catch files fixing SHN-59FFGP
+165275
+	BRN-595GB2 "Contacts panic when searching for contacts with alot of chinese characthers in the search-string"
+165275
+	DUG-595CSC "In-source documentation should refer to 7.0 instead of 6.2"
+165275
+	DUG-595CU3 "In-source documentation should refer to 7.0 instead of 6.2"
+165275
+	DUG-595CVC "In-source documentation should refer to 7.0 instead of 6.2"
+165062
+	Fixed defect CLE-58EEDC - AppInstUI User Doc & Shell User Doc updated
+165062
+	Fixed defect BRY-58KJEW - add mrouter config app (mrouterclientui) to techview
+164964
+	Fixed COY-58UCK3: 16bpp and 24bpp compressed RAM bitmaps not supported.
+164922
+	Fixed defect  BEU-58UD8P "String Pool documentation needs to be updated"
+164763
+	Fixed FOT-58TGE6: CFbsBitmap::GetScanLine() functionality seems to have changed
+164618
+	- Defect Fix BAR-58WDCV : "CCoeSoundPlayerManager doesn't update the uids back to the playing client"
+164618
+	- Fix for defect MAT-593PME "Possible optimization in CEikEdwin::HandleSizeChangedL()"
+164579
+	BEN-587MYG, LYN-593JT3, MIY-58ZLS5, MIY-58ZM9S, TRN-593EUT
+164554
+	Amending categories - see change requests PTRY-59AGHW & PTRY-59AGL4 
+164554
+	Also removed comments to complete PTRY-59ACLF
+
+########################################################################################### 
+Defect list run on //epoc/release/7.0/... in period Hurricane 7.0.5 - 7.0.6  - changelists 169227 172990
+###########################################################################################
+172836
+	Fix for TET-59FK9F: Picture selection is broken in Linnea
+172836
+	  DUG-55CEKK Secure mmc: Indicator shows new messages, Inbox is empty
+172834
+	HAN-5AMJ5M - Changes to agenda within a minute of last sync not picked up
+172834
+	HAN-5A7CHH - Syncing hangs when using Weblicon
+172834
+	KRN-59ABLG - Client sync anchor gets saved too early
+172834
+	LLUD-5ADJS8 - (CR) Extend SyncML Database Adaptor interface to check for existence of database
+172820
+	MUN-5B3KP5  Relying on the fact that SetOpt(KSoSSLDomainName, ...) is used by everybody has side effect
+172810
+	MAY-5A5KCWSDP listener keeps binding to port in RunL even if no failure occured
+172810
+	ASM-5B2EAEL2CAP Test Case Errata 282 for test case TP/COS/TMH/BV-02
+172810
+	EXT-59BD48Bluetooth potential access violations
+172810
+	FRU-5AYNZSContinuation in SSA responses sometimes sends DES header twice
+172810
+	HOS-55DDN5HCIMgr panics on receipt of HCI_HarwareError event
+172810
+	HOS-57ZPVWRFCOMM Disconnecting state should defer call of MSocketNotify::Disconnect
+172810
+	HOS-594KEUL2CAP Config watchdog can cause access violation
+172810
+	HOS-59HHJJL2CAP fails to indicate reception of undersized L2CAP packets
+172810
+	HOS-59RLK3Baseband policy is not initialised
+172796
+	Defect fix TUR-5B4JSR: BC break of interface between Nifman and Tcpip6 to allow passing of a parameter by IfUserIsNetworkLayerActive() in MNifIfUser interface to allow Tcpip6 to distinguish which interface is asking about an active network layer
+172573
+	Defect fix: BIA-5AUL93 - KVM can panic if it fails to allocate its initial heap
+172573
+	Defect fix: MAY-5ANGPG - JNI methods that use 0, ...
+172573
+	BIA-5AJGYP - InfoStore MIDlet causes crash on exit
+172570
+	PEN-59BD4K Wrong expiry on received MMS
+172570
+	HOL-59BKAZ The content-id field value must be quoted.
+172570
+	HOL-59BKFE MMS unicode text media objects are not handled correctly...
+172570
+	LOO-58KMVN MmsAddressParser::IsValidGlobalPhoneNumber is not flexible enough
+172570
+	PEN-593B7H Received MMSs are not stored Unread and New
+172570
+	LOO-59PLN4 MMS Decoder does not correctly save media objects when a MMS message is retrieved
+172558
+	MOO-58NG9W     Apex driver can write corrupt data when sending ACK/NAK
+172558
+	HAS-593BKB     Bad checking logic in BasicCallUnitTest
+172558
+	HAS-58VDYF     Superfluous header files
+172558
+	MOO-592L5R     Apex fragment FIFO can overrun under extreme conditions
+172554
+	Fix for defect KIN-5B2C3M "There is no usbman.dll & usbman.lib for WINS in HRB675".
+172552
+	KIN-5B2C3M "There is no usbman.dll & usbman.lib for WINS in HRB675"
+172552
+	DIN-59QKPF. (StartCancel Hanging)
+172544
+	DAS-5AVLUG CommDB documents corrupted in Hurricane release 7.0.5
+172528
+	GIS-5A4F55       Calling RWapConn::GetBearer() causes CWAPSession::DispatchMessageL() to panic 
+172528
+	GIS-5A4GBR    CWAPConn::GetRemoteAddressL does not correctly write back the address to the client
+172476
+	LUD-599CYC "Agnmodel stores last changed date to a resolution of minutes which is too long"
+172476
+	FER-5AUJA8 "AppendCategoryListL does not remove R object from cleanupclose when returning early"
+172313
+	CUS-5AMDYY          [6.0] PPP callback idletimeout is too short
+172313
+	CUS-5AMDVD          Nifman does not produce debug logs
+172313
+	CUS-5AMELP          [5.2] Problems with Flogger memory consumption when SMS sending fails
+172313
+	CUS-5AMGHE          CEventLogger in Genconn does not log call duration correctly
+172313
+	CUS-5AMH3E          Default GPRS settings do not accept zero length APN
+172313
+	CUS-5AMHXU          Problems disconnecting from a socket when GPRS is suspended
+172313
+	SAM-5ATHWZ          Memory leak in SSL when going to a site without a trusted certificate
+172313
+	MUN-5A5DF9          images transferred multiple times from some secure sites
+172313
+	SAE-5AYJ52          TCP/IP Dual stack test code reports in unorthadox way...
+172313
+	DUR-5AKD9C          TIPC.EXE test harness fails on OOM tests
+172312
+	        PAA-5AHF7H Remove the mime-type dummy/everything from Qikon
+172312
+	        PAA-5AHF2G Remove the unrecogniser
+172312
+	        PAA-5ACGCR The default viewer should have the mimetype in the aif file to "*"
+172312
+	        WEP-5AJEB2 MMFH: Possible to have several files with same name - in the same folder
+172312
+	        PAA-5AJGEW Filemanager should take care of launching the default viewer when neccessary
+172312
+	        WEP-5A6CHM CRASH BUG in QikButtonPanel::ReArrangeButtonsL(const TRect& aGroupRect)
+172312
+	        ALM-5AMGCU No space between the lines makes the text unreadable.
+172312
+	        PAD-5ALKCY QStart must start the Connectivity listeners
+172312
+	        FSJN-5ACC27 Change the buttons on the default viewer to prevent loss of data
+172312
+	         BEN-5AMFPC "Receiving BIOs displays icon.messaging.newMessage"
+172312
+	        PEN-5AUAZT Duplicate code in CEmailDialog::CheckEssentialData()
+172312
+	        fixed: CKH-5AMGEV Improper use of SMIL API causes the emulator to crash in error condition
+172312
+	        CKH-5AMLP5 "Memory leak in CQMmsEngineModel under error condition"
+172312
+	        Fixed defect WEP-5AJFD2 reccert.mdl released by multiple components
+172312
+	        PAD-5AKH3S Memoryleak in BT
+172312
+	        BEN-59AJA6 Check disappear when searching is finished
+172312
+	        BEN-5AKQT4 Possible to Send address/Load images before page is loaded
+172312
+	        PAD-5AKH3S Memoryleak in BT
+172312
+	        BEN-59AJA6 Check disappear when searching is finished
+172312
+	        SOD-5ATFYN BT send crash when sending to a bonded device
+172312
+	        PAD-5AKGHD "Available devices" dialog doesn't match the UI spec !
+172312
+	        SVG-594GJA If other device initiates bonding it is listed as unknown
+172312
+	        BEN-59XD2W In Use after deleting an email account.
+172312
+	        BAN-59FB4J Access violation, messaging (QMmsEngineModel).
+172312
+	        JON-5AR9JK MMS: To-field not updated in New slide on address tab.
+172312
+	        ALM-5ASF98 Tap Go-back button when deleting sms from detail view results in program closed.
+172312
+	        BEN-5ARLMB Progress dialogs is missing during a schedule fetch.
+172312
+	        BEN-5AFG8W "Using DNL from contacts switch phonenumber with name"
+172312
+	        ALM-5AMJBL "The space between the phone numbers is missing in the address tab."
+172312
+	        BEN-5AJCHN InfoDialog.IPSec.importFailed appears when entering password
+172312
+	        implemented CR: ABRY-59PESL "UIQ support for Connectivity over USB"
+172312
+	        SVG-58LLCP  Icon on attachment tab for jar/jad/sis-files are to large
+172312
+	        SVG-5AEJ3D  Attached sis/jar file can only be installed once
+172312
+	        JON-5ASDE5  Corrupt sis files from beaming does not get deleted
+172312
+	        PAA-5AMJZL remove #ifndef __MINI_BUILD__in QStart
+172312
+	        PAD-5ALKCY QStart must start the Connectivity listeners
+172312
+	        PAA-5AEC9D    "CApaScanningAppFinder UpdateL should be avoided as much as possible..."
+172312
+	        REK-5A8HXX    QApplauncher - "The listview of the applauncher does not allow dragging the highlight from one application
+172312
+	        SVG-598E49c:\system\data\syssnd.dat cannot be restored
+172312
+	        AUN-5ADDBU Tap on Found entry shows blank/empty/new Contact
+172312
+	        JON-5AEJN3 Some images are not saved in Contacts.
+172312
+	        JON-5AJBBH Entry not correctly saved when open Show in list with no numbers available.
+172312
+	        EXT-5ABKQS Agenda folders given incorrect UID
+172312
+	        ANN-5AJADZ Accessing "ctrl+space" menu in javaapp makes it crash
+172312
+	        From GT: ANN-58CM42 JavaPhone Https test fails
+172312
+	        REK-5ALJEP  QStart needs to be able to start app without apparc server running
+172312
+	        REK-5ALJGR  Extra list should not get started all at once
+172312
+	        Fixed defects: DAO-59WGWH Loading notifiers needs performance improvement
+172260
+	Fix for defect OHF-5AKHZR å. ä and ö and the character after deleted from a lotus notes mail.
+172230
+Change 172230 by ShehlaA@CAM-ENGBUILD03-release_7.0 on 2002/06/12 14:23:14
+172230
+	ASM-5B2EAE - L2CAP test case errata 282 for test case TP/COS/TMH/BV-02
+172056
+	-- Number  LAE-5AZAKD: opening a wbmp files crashes the emulator....
+171990
+	Fixed defect no. LIG-59SHGL: Tapping on Mail-to link and nothing happens.
+171913
+	Fix for defect PAR-5A6G8D - ECOM hangs with SyncML OOM tests.
+171838
+	Changes for the CR MPEN-5AJF8F Making HAL Settings Persistent
+171774
+	Fix for BAD-59YJU6 FreeType OOM crash
+171371
+	Fixes for defects CHN-5ATBVW and CHN-5AKD6P.
+171326
+	BEN-4Y4EJ5  Timezone has no impact on vCal
+171326
+	DUG-5A7JCZ  Copy Paste code in Symbian Versit parser method CParserPropertyValueDaylight::ConvertAllUTCDateTimesToMachineLocalL?
+171326
+	SVG-58ZECH  Name not sent correctly in beamed vCards
+171326
+	FER-5AED4L  Agenda Model needs to use versit's optimisation interface
+171326
+	FER-5AECSB  Contacts Model needs to use versit's optimisation interface
+171216
+	        JON-5AFFKF InfoPrint.creatingNewEmail and Infoprint.findingWebPage are shown too short time.
+171216
+	        JON-5AJ9ZU Wrong folder displayed when renaming a folder in detail/edit view.
+171216
+	        LUD-59FK26 Create some friends command does not store phone numbers in correct field
+171216
+	        JON-5AJJHF Found entry opened in Edit mode if Edit mode is displayed when Find is selected.
+171216
+	        DAS-5AEEWR
+171216
+	        DAS-5AEFS2 Need to be careful about CMsvOperation Construction order
+171216
+	        DAS-5AEEMF Possible myestorious Kern-Exec3 on Thumb
+171216
+	        BEN-5AEC2C Program closed when closing BIO
+171216
+	        SVG-5ajazw Phone number listed twice in contacts
+171216
+	        ALM-5AKHN9  Not possible to launch the viewer
+171216
+	        SVG-59RFLR dialog.connectivity.homePCnotFound does not match the UI specs
+171216
+	        fixed: ROS-59KNBU Qsyncml attempts to rebuild GT resource files
+171216
+	        SVG-594GJA If other device initiates bonding it is listed as unknown
+171216
+	        BEN-5ADG43 Send as Bt not working if you task away from dialog.BT.availableOBEX.devices
+171216
+	        BRN-59XJR5 Memory leak in RGenConAgentDialogServer
+171216
+	        BRN-59XMKB RGenConAgentDialogServer::Connect doesn't handle OOM correctly
+171216
+	        BEN-58DHKZ Cannot connect after cancel connect.to.ISP dialog before Connection dialog appears
+171216
+	        BAN-5A5JT3 "CQikScrollableContainer does not draw properly"
+171216
+	        AUN-5AKJDU "Program closed with fast changing HW buttons in MMS"
+171216
+	        SVG-5AJG2V Panic when receiving multiple files over IR.
+171216
+	        CR implemented: MICD-59P9JY The Web viewer should recognize XML as well
+171216
+	        NEO-5ACJ23 dependancy: agenda-agendaModel-printer
+171216
+	        NEO-5ACJ9Z dependacy to printers to save notes
+171216
+	        EKD-5BJGBW Crash when file in use in voicenote viewer
+171216
+	        SPEE-5A7BHP    "AppLauncher crash"
+171216
+	        MAT-5A7NKB    Keyword to reduce app switch flicker missing from wsini.ini files
+171216
+	        JON-5ACAQA    Calibration screen has no wrapping in the text.
+171012
+	This change fixes the defect SIN-5ANF8C.
+170969
+	Fix defect RED-5ACK5F "Resource compiler creates nothing for empty and bad counted byte arrays"
+170969
+	Fix defect CHN-58WEZ3 "EPOCRC.PL fails in VC6 IDE builds with long paths"
+170956
+Change 170956 by neilbr@LON-ENGBUILD03-AUTOMATED_BUILD_ONLY-BTR-K: on 2002/05/31 13:54:46
+170956
+	MAY-5AEMK6: JNI does not handle returning global references to Java
+170956
+	PLD-599ELS Resource loading is suboptimal
+170956
+	HOS-59XJWP Gauge is not displayed properly
+170956
+	HOS-59YPCJ - MIDletAgent .app/.sis files are not built
+170931
+	1) MAT-58TKV6 - Newly created windows do not copy the fade state of      the parent window. 
+170931
+	2) TET-4ZNK8G - "Start an app in the background, and then view    switch to it. It doesn't get put in the foreground"
+170914
+	Fix for defect TUR-59BGLX WinNT backup locks Agenda Database on Assabet.
+170904
+	fix to defect ROS-53GRQ (buildrom.pl doesn't guarantee the order of substitutions)
+170776
+	Synchronise changes to made directly to Delivery Branch 7.0.5 into Release Branch. Specific defects implemented were "Background device search jams device", SIS-5AMJ9D, and "DISC on DLCI 0...", QUN-54JDQ4
+170763
+	Fixed defect no. EXT-59BD7B: Connectivity potential access violations
+170762
+	Fix for SKN-59KK8N - EC_CustomServers component has faulty .IBY file
+170762
+	Fix for SKN-59JHFS - \connlink\conndev\plpgrp\plp.iby is faulty and causes hangs
+170744
+	LOO-59ZE72 void CCLWatcherBase::ReceivePushL() is not handling the state machine correctly if an error occurs
+170738
+	COR-59QMAB Font file locks getting chopped off
+170709
+	-- Defect Number:  ROS-5AFG4W: (Propagated) WAV file assigned to ringing tone crashes sound    driver and kills phone.
+170599
+	HED-57JJ2H Still a very high number of illegal leaves in networking                                  
+170599
+	FAN-5ACHRC Add #define ECommDbBearerGPRS ECommDbBearerWcdma to cdbcols.
+170599
+	CUS-5AEJ2G CED fails to create Internet account details correctly  
+170589
+	Extra fix for defect PAR-59RLGJ - that was missing from the last submission
+170550
+	        Fixed defects: WEP-599HYZ Qstart in error processing
+170550
+	        REK-59XAZ5  "AppInstaller does not find SIS-files on C"
+170550
+	        PEN-59CDJM  "Web doesn't get EReleaseDisk event"
+170550
+	        ALM-58VG6N  "Strange behvaviour when opening a help topic for the first time."
+170550
+	                OEL-592FXC Searching in agenda needs performance improvement
+170550
+	                HAR-58EE7H Starting Agenda Application for the first time needs perfromance improvement.
+170550
+	                DOS-57YF2C Deleting "completed" Todo's needs performance improvements
+170550
+	                LIG-5ADAFB "HW buttons does not work correctly in Found dialog."
+170550
+	                JON-5ADEHK Entry with notes that is moved from To do makes Agenda crash.
+170550
+	        OEL-588QWH Reply and forward of messages needs performance improvement
+170550
+	        OEL-588R2B Opening message entry in messaging needs performance improvement
+170550
+	        LOO-59PMHA MMS does not disconnect after send failed
+170550
+	        EVS-5a7hpy Can not build QMMSView
+170550
+	        PEN-5ACCW3
+170550
+	        BEN-59PHSC Crash when tapping Go back when deleting message
+170550
+	        ALM-5ACCYW There should be no folder option
+170550
+	        BEN-59RQA2 Unknown error when Internet account is missing
+170550
+	        BEN-59KFE7 Crash when Scheduled fetch starts and messaging running
+170550
+	        ALM-5ADATJ THe bottom of the page is cut when sending..
+170550
+	        DAS-5ACm6R Codereview of messaging
+170550
+	        DAS-5ACM6R iLsSession.Close in destructor
+170550
+	        PEN-5AECZX Zero Length Fax number which has been created by DNL crashes
+170550
+	        DIN-5A8D2Q PCLINK not included in Quartz WINSCW builds
+170550
+	        SVG-59WCKE dialog.connectivity.linkToDesktop.BT is not updated correctly
+170550
+	        SOD-5ACBMM Unable to send large file over BT
+170550
+	        SJN-59XHEC Activate the filter that filter the Available devices dialog.
+170550
+	        SVG-59KKUB Dialog.BT.bluetoothOff opens too early
+170550
+	        BEN-5A6D3N Crash when task away directly after Send immediately
+170550
+	        OHF-59VGZN - Device disconnects after get & send emails when connected to Internet
+170550
+	        SVG-5A89NK List view not updated when folder is deleted in edit view
+170550
+	                KAN-5A8CMN Crash when deleting folder
+170550
+	        BEN-59AFNJ Focus should be on first row in Note tab
+170550
+	        OEL-588RWT "Opening an entry in contacts needs performance improvement"
+170550
+	        OEL-588RZH "Creating new entry in contacts needs performance improvement"
+170550
+	        MAT-59SHCN "Ugly performance work-around impacts Contacts' functionality"
+170550
+	        BEN-59FCG7 "Edit view not updated correctly when selecting New inside an entry"
+170550
+	        Release notes for performance changes( OEL-588RWT, OEL-588RZH, MAT-59SHCN, BEN-59FCG7):
+170550
+	         * Fixed MAT-59SHCN by removing the test in CContactsManAppUi::MoveUnfolderedContactsToUnfiledL().
+170550
+	           GT (see MAT-59SHVW).
+170372
+	PAR-59RLGJ - ECOMs behaviour is undefined for duplicate plugins on different drives
+170361
+	Fix for defect SKN-5ACGEU "Not possible to reproduce FORM binaries."
+170361
+	Fix for defect BAD-59GEDC "@deprecated tag spelt wrongly."
+170276
+	DUG-589JUC "Calcon is just too slow"
+170276
+	WAG-5AEHQR "Inline documentation was wrong"
+170276
+	FER-59YLFZ "Emulator doesn't set local on Boot Up"
+170276
+	WEP-59RJNC "Changed Owner Card name not reflected in tab view"
+170276
+	THY-59KK2U "Cntmodel View architecture does not sort contacts based on 
+170276
+	DUG-5AEE9D "(Propagated) CContactLocalView notifies only the first observer 
+170276
+	WAG-5A4CYK "(Propagated) AgnModel hangs"
+170276
+	TUR-5ADHGW "(Propagated) Contact view sorting does not use default collation 
+170276
+	DUG-5AEEB7 "(Propagated) Problems appear when contact's default number is 
+170274
+	This change fixes the defects PIN-5AFESN and HET-5AFGKD.
+170138
+	Fixes to BAD-59YJU6 FreeType OOM crash, WEP-59GAMB RichText field Parser crashes internalise and MON-59CE79 Problems with the stdlib function strtod
+170115
+	Fixed defect CHY-5AJDSN - some distribution policy files are wrong
+169798
+	ALR-5ABLF6 - (Propagated) CMsvEntry Sorting behaviour is wrong if you specify reverse sorting
+169798
+	ALR-5ABL9S - (Propagated) Copying message entries can fill disk completely
+169798
+	ALR-5ABLGM - (Propagated) 1 second timer ticking for IMAP remote mailconnection
+169798
+	ALR-5ACJYX - SMS backup/restore does not work correctly
+169798
+	ALR-5ABMSZ -Fixed Strange behaviour in message server when closing sessions causes crash in mce app
+169798
+	ALR-5ABMX3 - Performance: IMAP sends NOOP strings too often and consumes battery power + creates bill to the user
+169798
+	ALR-5ABMZS (Propagated) connecting to pop3 mailbox crashes
+169798
+	ALR-5ABN2U -TImRfc822DateField::SetDate uses hardcoded strings
+169798
+	ALR-5ABN43 - Cancelling of autosend'ing of emails doesn't appear to be working
+169798
+	SMRA-5ACD73 - The message engine igonres errors on attempting to load HTML convertors.
+169798
+	LIG-59SHGL: Tapping on Mail-to link and nothing happens
+169798
+	SMRA-5ACM9W - (Propagated) MIME parts defined to be inlined should be shown as attachments also
+169798
+	GUY-58TGT6 - Shouldn't set the attachment flag on embeded messages unless they have an attachment.
+169798
+	KAI-58NEJ5 - V3:EDNTHYN-4XUAAE-IMAP4 not able to handle negative server responses
+169798
+	WIN-56VKPT - V3: Incorrect progress when sending emails containing Bcc: recipients
+169783
+	Fix for defects LEQ-59SEC6 and LEQ-59SFBD.
+169706
+	Fix for BRN-59XKV9  RGenConAgentDialogServer is destructed twice       
+169695
+	Fix defects GAL-5AEKU5, GAL-5AEKWP (problems with policy file on Win2000 and an
+169657
+	RES-59KLHY WSP tests failing when running T_Http on both WINS and Assabet
+169657
+	SAM-59WGL5 Some tests fail in t_http when doing WSP secure tests using securetestcases.ini
+169636
+	Fix for DAO-5A8AMH.  Default locale is now fixed to be British English
+169507
+	Defect Number:  ROS-5ADCR6: (Propagated) Possible audio OOM bug in Media Server
+169366
+	         Fixed defects:PEN-5ACCW3 Pressing backbutton in detail views crashes with Object still active on destruction
+169366
+	                      Fixed Defects:    HUN-5AB    "summer times" should be "summertime"
+169366
+	        DIN-5A8D2Q PCLINK not included in Quartz WINSCW builds
+169366
+	        SVG-59WCKE dialog.connectivity.linkToDesktop.BT is not updated correctly
+169366
+	        BED-57ZL2T Design flaw in MMFH ?
+169366
+	        FRN-59FCED MMFH: The size of a file in the select dialog is different depending on the folder.
+169366
+	        FRN-59VJ9C MMFH: Select dialog doesn't return right path to voice notes.
+169366
+	        SVG-59NAZN : play button activatd when no entry selected
+169366
+	        LIG-58ZH9T Scroll bar displayed in alarm and storage manager dialogs.
+169366
+	        REK-594GV9 Defects in QikTaskMenu.cpp
+169366
+	        WEP-59S9ER : Error in CQikMediaFileFolderUtils::RunL()
+169366
+	        LIG-5A49ZS : FileHandling: Dialog.saveUnrecognized does not match its UI
+169366
+	        changes in Qikdlg.rss to fix defect LIG-5A49ZS. Removed a duplicated string :  STRING_r_save_file_in_folder_dialog4 (Jus
+169366
+	         QAgenda: ALM-59XK7M, BEN-59AG8F
+169366
+	         QContacts: BEN-59SJ2R, BEN-59WNTC, ALM-59ND48
+169366
+	         QJotter: WEP-59W9QR
+169366
+	         QTime: PEN-59WCW5
+169366
+	         QVoice: DAS-59NMB4, JON-59HCA7
+169366
+	         ALM-59XK7M: Jenny Ekelund
+169366
+	         BEN-59AG8F: Jens Karlsson
+169366
+	         BEN-59SJ2R: Jenny Ekelund
+169366
+	         BEN-59WNTC: Berith Bergquist
+169366
+	         ALM-59ND48: Jenny Ekelund
+169366
+	         WEP-59W9QR: Bengt Strand
+169366
+	         PEN-59WCW5: Berith Bergquist
+169366
+	         DAS-59NMB4: Jenny Ekelund
+169366
+	         JON-59HCA7: Jenny Ekelund
+169366
+	        PEN-59VGEH SMS Detailview does not display name of sender of SMS from contacts
+169366
+	        PEN-59XFG3 QStatusBar does Signal for New Message when new message is created under local service
+169366
+	        Defect fix: OHF-59NG4Z Cursur jumps to another filed when entering text using HW keyboard.
+169366
+	        Defect fix: OHF-59NBMK Installation complete when import password is canceled
+169366
+	        Defect fix: BEN-59XPR2  Web hangs when you Disconnect before you are connected
+169366
+	        JON-59XCM3 dialog.web.form does not look correct
+169366
+	        HOS-59RJG6 Descriptor overflow guaranteed if Bluetooth UI finds device with long name.
+169366
+	        PEN-59VAYD SyncML fails to handle translated resource correctly
+169366
+	        MKY-59ZBQL qinetcfg policy files (stange readme.txt file)
+169366
+	        SOD-59FK7L QBTSelectDlg.h should not include...
+169366
+	        OHF-59PBND Task status always = "-" and some housekeeping.
+169366
+	        BEN-59NB97 - Crash when tapping screen when Busy deleting messages
+169366
+	        BEN-59MMUQ - Task away from messaging.saveContact to Contacts, highlights entry and crash
+169366
+	        JON-59P9XV - Problems sending and receiving emails when having two different accounts
+169366
+	        OHF-59VGZN - Device disconnects after get & send emails when connected to Internet
+169366
+	        BEN-59SLH7 - Incorrect DNL from Contacts is saved in Outbox and causes problem
+169366
+	        BEN-58BMXR - Low on storage space dimmes messaging and then ViewSrv crash
+169366
+	        BEN-59BE7C - ViewSrv crash when Low on storage space
+169366
+	        PEN-5A5AFM - Default ScheduledFetch settings should have ScheduledFetch Fail set to False
+169366
+	        JON-59SAVD dialog.internetSetup.AdvancedSettings does not match its UI.
+169366
+	        Defect fix: DAS-59WPRU Some resource leaks in QSbMsg
+169366
+	        Defect fix: BEN-59XBQ7 Proxy server address and Server address is highlighted
+169366
+	        Defect fix: FID-5A4LXD QInetCfg HSCSD Speed Settings Dialog
+169366
+	        Defect fix: WEP-59GD6N Current Service Id and AgentDialog
+169366
+	        JON-595BFT  Adaptations for PC install of sis files is needed
+169366
+	        Fixed defects: TUR-57KCM4 assabet. cannot open vcals and vcards in QFileMan - file is damaged
+169366
+	        REK-592HP6 Bitmap color scheme mapping unflexible
+169366
+	        BRN-59VEKR Dialogs aren't closed when switching views within an app
+169366
+	        REK-594D9T Handanim (and TextInputServerClient) uses wrong screendevice
