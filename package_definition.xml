@@ -47,6 +47,9 @@
       <component id="e32toolp" name="E32 Perl Tools" purpose="development" target="desktop" filter="test">
         <unit mrp="sbsv1_os/e32toolp/group/tools_e32toolp.mrp" bldFile="sbsv1_os/e32toolp/group"/>
       </component>
+      <component id="romutils" name="ROM Utilities" filter="gt" purpose="development">
+        <unit bldFile="sbsv1_os/romutils/group" mrp="sbsv1_os/romutils/group/tools_romutils.mrp"/>
+      </component>
 	  </collection>
 	  <collection id="imgtools_os" name="Image Tools" level="fw">
       <component id="romkiteka2" name="ROMKIT EKA2" deprecated="^2" purpose="development">
