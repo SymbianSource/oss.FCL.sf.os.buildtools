@@ -123,6 +123,8 @@ binary \epoc32\tools\makefile_templates\application-protocols\buildstubsis.meta
 binary \epoc32\tools\makefile_templates\application-protocols\buildstubsis.mk
 binary \epoc32\tools\makefile_templates\base\bootstrap.meta
 binary \epoc32\tools\makefile_templates\base\bootstrap.mk
+binary \epoc32\tools\makefile_templates\base\bootstrap.xml
+binary \epoc32\tools\makefile_templates\base\bootstrap.flm
 binary \epoc32\tools\makefile_templates\base\config.meta
 binary \epoc32\tools\makefile_templates\base\config.mk
 binary \epoc32\tools\makefile_templates\base\copy_default.meta
@@ -260,19 +262,13 @@ binary \epoc32\tools\makefile_templates\tools\stlport.meta
 binary \epoc32\tools\makefile_templates\tools\stlport.mk
 binary \epoc32\tools\makefile_templates\tools\x86tool.meta
 binary \epoc32\tools\makefile_templates\tools\x86tool.mk
+binary \epoc32\tools\makefile_templates\tools\abld_update.meta
+binary \epoc32\tools\makefile_templates\tools\abld_update.mk
 binary \epoc32\tools\makefile_templates\tools\ant_launch.flm
 binary \epoc32\tools\makefile_templates\tools\ant_launch.xml
 binary \epoc32\tools\java\symbianant.jar
 binary \epoc32\tools\shell\cmd.mk
 binary \epoc32\tools\shell\generic.mk
 binary \epoc32\tools\shell\sh.mk
-
-binary \epoc32\include\assp\naviengine\flexible\naviengine.inc
-binary \epoc32\include\assp\naviengine\multiple\naviengine.inc
-binary \epoc32\include\omap_hrp\assp\omap24xx\omap24xxconst.inc
-binary \epoc32\include\omap_hrp\h4\nand_fbr_offset.inc
-binary \epoc32\include\tiomap3\assp\common\customrestartreasons.inc
-binary \epoc32\include\tiomap3\variant\common\nand_fbr_offset.inc
-binary \epoc32\include\wins\nand\nand_fbr_offset.inc
 
 notes_source \component_defs\release.src

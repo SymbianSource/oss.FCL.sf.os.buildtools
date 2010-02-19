@@ -1,3 +1,7 @@
+version 3.15.1
+================
+(Made by Marvin Shi 15/01/2010)
+  1. DEF143368 Changes to omxilcompref.iby cause errors in rombuild for textshell roms.
 Version is unchanged
 ================
 (Made by Zheng Shen, 24/08/2009)

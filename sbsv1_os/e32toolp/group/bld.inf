@@ -1,7 +1,7 @@
 // Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
-// under the terms of "Eclipse Public License v1.0"
+// under the terms of the License "Eclipse Public License v1.0"
 // which accompanies this distribution, and is available
 // at the URL "http://www.eclipse.org/legal/epl-v10.html".
 //
@@ -47,6 +47,8 @@ PRJ_EXPORTS
 ../../../toolsandutils/buildsystem/extension/application-protocols/buildstubsis.mk 	/epoc32/tools/makefile_templates/application-protocols/buildstubsis.mk
 ../../../toolsandutils/buildsystem/extension/base/bootstrap.meta 	/epoc32/tools/makefile_templates/base/bootstrap.meta
 ../../../toolsandutils/buildsystem/extension/base/bootstrap.mk 		/epoc32/tools/makefile_templates/base/bootstrap.mk
+../../../toolsandutils/buildsystem/extension/base/bootstrap.flm 	/epoc32/tools/makefile_templates/base/bootstrap.flm
+../../../toolsandutils/buildsystem/extension/base/bootstrap.xml 	/epoc32/tools/makefile_templates/base/bootstrap.xml
 ../../../toolsandutils/buildsystem/extension/base/config.meta 		/epoc32/tools/makefile_templates/base/config.meta
 ../../../toolsandutils/buildsystem/extension/base/config.mk 		/epoc32/tools/makefile_templates/base/config.mk
 ../../../toolsandutils/buildsystem/extension/base/copy_default.meta 	/epoc32/tools/makefile_templates/base/copy_default.meta
@@ -186,3 +188,6 @@ PRJ_TESTEXPORTS
 ../../../toolsandutils/buildsystem/extension/syslibs/word_template.meta			/epoc32/tools/makefile_templates/syslibs/word_template.meta
 ../../../toolsandutils/buildsystem/extension/syslibs/word_template.mk			/epoc32/tools/makefile_templates/syslibs/word_template.mk
 
+PRJ_EXTENSIONS
+START EXTENSION tools/abld_update
+END

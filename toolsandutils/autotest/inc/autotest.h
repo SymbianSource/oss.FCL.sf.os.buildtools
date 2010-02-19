@@ -1,7 +1,7 @@
 // Copyright (c) 2000-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
-// under the terms of "Eclipse Public License v1.0"
+// under the terms of the License "Eclipse Public License v1.0"
 // which accompanies this distribution, and is available
 // at the URL "http://www.eclipse.org/legal/epl-v10.html".
 //
@@ -52,8 +52,8 @@
  */
 struct TAutoTestCase
 	{
-	void (*iFunc)(void);   //< function pointer to the actual test case
-	const TText* iText;    //< textual info about the test case
+	void (*iFunc)(void);   ///< function pointer to the actual test case
+	const TText* iText;    ///< textual info about the test case
 	};
 
 static const TInt KMaxCmdLength = 256;
@@ -103,19 +103,19 @@ class CAutoTest : public CBase
   private:
 
   private:
-	const struct TAutoTestCase* iTestCases; //< pointer to table with all the test cases
-	const TInt iNumberOfTestcases;			//< number of test cases in the table
-	TBuf<KMaxCmdLength> iTestReportName;	//< holds the name of the test report file
-	TBool iKeepGoing;						//< if true, does not stop if a test fails, but continues
-	TBool iTestSuiteFailed;					//< indicates if the whole test suite failed or not
-	TInt* iTestResults;						//< contains all the test results after running test suite
-	RFs iFileServer;						//< handle to the File Server
-	RFile iTestReport;						//< handle to the file containing the test report
-	TInt iTestCase;							//< the test case currently being run
-	TBuf8<256> iCompInfo;					//< contains information about the Component under test
-	RTest& iRTest;							//< reference to the test utility class
-	TBool* iSkipList;						//< List of tests to be skipped in decimal
-	HBufC* iCommandLine;					//< Internal copy of command line or config file
+	const struct TAutoTestCase* iTestCases; ///< pointer to table with all the test cases
+	const TInt iNumberOfTestcases;			///< number of test cases in the table
+	TBuf<KMaxCmdLength> iTestReportName;	///< holds the name of the test report file
+	TBool iKeepGoing;						///< if true, does not stop if a test fails, but continues
+	TBool iTestSuiteFailed;					///< indicates if the whole test suite failed or not
+	TInt* iTestResults;						///< contains all the test results after running test suite
+	RFs iFileServer;						///< handle to the File Server
+	RFile iTestReport;						///< handle to the file containing the test report
+	TInt iTestCase;							///< the test case currently being run
+	TBuf8<256> iCompInfo;					///< contains information about the Component under test
+	RTest& iRTest;							///< reference to the test utility class
+	TBool* iSkipList;						///< List of tests to be skipped in decimal
+	HBufC* iCommandLine;					///< Internal copy of command line or config file
 	};
 
 //

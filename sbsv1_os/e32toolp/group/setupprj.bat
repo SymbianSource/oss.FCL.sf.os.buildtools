@@ -26,9 +26,9 @@ my $EPOCRoot;
 
 BEGIN {
 	$EPOCRoot = $ENV{EPOCROOT};
+	$EPOCRoot .= "\\" unless($EPOCRoot =~ /\\$/);
 	die "ERROR: Must set the EPOCROOT environment variable\n" if (!defined($EPOCRoot));
 	$EPOCRoot =~ s-/-\\-go;	# for those working with UNIX shells
-	die "ERROR: EPOCROOT must be an absolute path\n" if ($EPOCRoot !~ /^\\/);
 	die "ERROR: EPOCROOT must not be a UNC path\n" if ($EPOCRoot =~ /^\\\\/);
 	die "ERROR: EPOCROOT must end with a backslash\n" if ($EPOCRoot !~ /\\$/);
 	die "ERROR: EPOCROOT must specify an existing directory\n" if (!-d $EPOCRoot);
@@ -78,21 +78,6 @@ $GroupDir=~s-^(.*\\)[^\\]+$-$1-o; # remove filename, leaving just path
 # strip the resulting path of excess occurrences of . and ..
 while ($GroupDir=~s-\\\.\\-\\-go) { }
 while ($GroupDir=~s-\\(?!\.{2}\\)[^\\]*\\\.{2}(?=\\)--go) { }
-
-my $GroupToRoot=&UpToRoot($GroupDir);
-chop $GroupToRoot;
-
-my $GroupToToolsPath="$GroupToRoot$EPOCToolsPath";
-
-my $GroupToToolsConfigFilePath="$GroupToRoot$EPOCToolsConfigFilePath";
-
-my $GroupToDocsPath="$GroupToRoot$DocsPath";
-	
-my $GroupToTemplatePath="$GroupToRoot$TemplateFilePath";
-
-my $GroupToShellPath="$GroupToRoot$ShellFilePath";
-
-my $GroupToBinPath="$GroupToRoot$BinFilePath";
 
 $GroupDir=~s-\\$--o;	# remove trailing backslash
 chdir "$GroupDir" or die "Can't cd to $GroupDir: $!\n";
@@ -185,7 +170,7 @@ my $OutTxt='';
 	"\@goto invoke\n",
 	"\n",
 	"#!perl\n",
-	"unless (\@ARGV==1 && \$ARGV[0]=~/^(deb|rel|clean)\$/io) {\n",
+	"unless (\@ARGV==1 && \$ARGV[0]=~/^(deb|rel|clean|releasables)\$/io) {\n",
 	"	die\n",
 	"		\"E32TOOLP's bld.bat - usage\\n\",\n",
 	"		\"BLD [param]\\n\",\n",
@@ -195,9 +180,17 @@ my $OutTxt='';
 	"}\n",
 	"my \$Param=lc \$ARGV[0];\n",
 	"chdir \"$PrintGroupDir\";\n",
+	"if (\$Param =~ /releasables/i)\n",
+	"{\n",
+	"open PIPE, \"..\\\\binutils\\\\make -s -f e32toolp.make \$Param |\" or die \"Can't invoke make: \$!\\n\";\n",
+	"while (<PIPE>) { print \$_; }\n",
+	"close PIPE;\n",
+	"\n",
+	"exit;\n",
+	"}\n",
 	"print \"..\\\\binutils\\\\make -s -f e32toolp.make \$Param\\n\";\n",
 	"open PIPE, \"..\\\\binutils\\\\make -s -f e32toolp.make \$Param |\" or die \"Can't invoke make: \$!\\n\";\n",
-	"while (<PIPE>) {}\n",
+	"while (<PIPE>) { }\n",
 	"close PIPE;\n",
 	"\n",
 	"__END__\n",
@@ -224,53 +217,53 @@ $OutTxt='';
 	"endif\n",
 	"\n",
 	"\n",
-	"$GroupToToolsPath :\n",
-	"\t\@perl -w ..\\genutil\\emkdir.pl $GroupToToolsPath\n", 
+	"$EPOCToolsPath :\n",
+	"\t\@perl -w ..\\genutil\\emkdir.pl $EPOCToolsPath\n", 
 	"\n",
-	"$GroupToTemplatePath :\n",
-	"\t\@perl -w ..\\genutil\\emkdir.pl $GroupToTemplatePath\n", 
+	"$TemplateFilePath :\n",
+	"\t\@perl -w ..\\genutil\\emkdir.pl $TemplateFilePath\n", 
 	"\n"
 );
 
 foreach (sort keys %TemplateDirs) {
 	&Output(
-	"$GroupToTemplatePath\\$_ :\n",
-	"\t\@perl -w ..\\genutil\\emkdir.pl $GroupToTemplatePath\\$_\n", 
+	"$TemplateFilePath\\$_ :\n",
+	"\t\@perl -w ..\\genutil\\emkdir.pl $TemplateFilePath\\$_\n", 
 	"\n"
 	);
 }
 
 foreach (sort keys %BinDirs) {
  	&Output(
- 	"$GroupToBinPath\\$_ :\n",
- 	"\t\@perl -w ..\\genutil\\emkdir.pl $GroupToBinPath\\$_\n", 
+ 	"$BinFilePath\\$_ :\n",
+ 	"\t\@perl -w ..\\genutil\\emkdir.pl $BinFilePath\\$_\n", 
  	"\n"
  	);
 }
 
 &Output(
-	"$GroupToShellPath :\n",
-	"\t\@perl -w ..\\genutil\\emkdir.pl $GroupToShellPath\n", 
+	"$ShellFilePath :\n",
+	"\t\@perl -w ..\\genutil\\emkdir.pl $ShellFilePath\n", 
 	"\n",
-	"$GroupToToolsConfigFilePath :\n",
-	"\t\@perl -w ..\\genutil\\emkdir.pl $GroupToToolsConfigFilePath\n", 
+	"$EPOCToolsConfigFilePath :\n",
+	"\t\@perl -w ..\\genutil\\emkdir.pl $EPOCToolsConfigFilePath\n", 
 	"\n",
-	"$GroupToDocsPath :\n",
-	"\t\@perl -w ..\\genutil\\emkdir.pl $GroupToDocsPath\n", 
+	"$DocsPath :\n",
+	"\t\@perl -w ..\\genutil\\emkdir.pl $DocsPath\n", 
 	"\n",
 	"\n",
-	"deb : $GroupToToolsPath $GroupToToolsConfigFilePath $GroupToDocsPath $GroupToTemplatePath $GroupToShellPath "
+	"deb : $EPOCToolsPath $EPOCToolsConfigFilePath $DocsPath $TemplateFilePath $ShellFilePath "
 );
 
 foreach (sort keys %TemplateDirs) {
 	&Output(
-	"$GroupToTemplatePath\\$_ "
+	"$TemplateFilePath\\$_ "
 	);
 }
 
 foreach (sort keys %BinDirs) {
  	&Output(
- 	"$GroupToBinPath\\$_ "
+ 	"$BinFilePath\\$_ "
  	);
 }
 
@@ -279,59 +272,59 @@ foreach (sort keys %BinDirs) {
 my $File;
 foreach $File (keys %Files) {
 	&Output(
-		"\tcopy \"..\\$Files{$File}\" \"$GroupToToolsPath\\$File\" >nul\n"
+		"\tcopy \"..\\$Files{$File}\" \"$EPOCToolsPath\\$File\" >nul\n"
 	);
 }
 
 my $ConfigFile;
 foreach $ConfigFile (@ConfigFiles) {
 	&Output(
-		"\tcopy \"..\\platform\\$ConfigFile\" \"$GroupToToolsConfigFilePath\\$ConfigFile\" >nul\n"
+		"\tcopy \"..\\platform\\$ConfigFile\" \"$EPOCToolsConfigFilePath\\$ConfigFile\" >nul\n"
 	);
 }
 
 foreach $File (@Docs) {
 	&Output(
-			"\tcopy \"..\\Docs\\$File\" \"$GroupToDocsPath\\$File\" >nul\n"
+			"\tcopy \"..\\Docs\\$File\" \"$DocsPath\\$File\" >nul\n"
 	);
 }
 
 my $tfile;
 foreach $tfile (@TemplateFiles) {
 	&Output(
-			"\tcopy \"..\\..\\..\\toolsandutils\\buildsystem\\extension\\$tfile\" \"$GroupToTemplatePath\\$tfile\" >nul\n"
+			"\tcopy \"..\\..\\..\\toolsandutils\\buildsystem\\extension\\$tfile\" \"$TemplateFilePath\\$tfile\" >nul\n"
 	);
 }
 
 my $bfile;
 foreach $bfile (@BinFiles) {
  	&Output(
- 			"\tcopy \"..\\..\\..\\toolsandutils\\buildsystem\\bin\\$bfile\" \"$GroupToBinPath\\$bfile\" >nul\n"
+ 			"\tcopy \"..\\..\\..\\toolsandutils\\buildsystem\\bin\\$bfile\" \"$BinFilePath\\$bfile\" >nul\n"
  	);
 }
 
 my $sfile;
 foreach $sfile (@ShellFiles) {
 	&Output(
-			"\tcopy \"..\\..\\..\\toolsandutils\\buildsystem\\shell\\$sfile\" \"$GroupToShellPath\\$sfile\" >nul\n"
+			"\tcopy \"..\\..\\..\\toolsandutils\\buildsystem\\shell\\$sfile\" \"$ShellFilePath\\$sfile\" >nul\n"
 	);
 }
 
 &Output(
 	"\n",
 	"\n",
-	"rel : $GroupToToolsPath $GroupToToolsConfigFilePath $GroupToDocsPath $GroupToTemplatePath $GroupToShellPath "
+	"rel : $EPOCToolsPath $EPOCToolsConfigFilePath $DocsPath $TemplateFilePath $ShellFilePath "
 );
 
 foreach (sort keys %TemplateDirs) {
 	&Output(
-	"$GroupToTemplatePath\\$_ "
+	"$TemplateFilePath\\$_ "
 	);
 }
 
 foreach (sort keys %BinDirs) {
  	&Output(
- 	"$GroupToBinPath\\$_ "
+ 	"$BinFilePath\\$_ "
  	);
 }
 
@@ -340,48 +333,48 @@ foreach (sort keys %BinDirs) {
 	
 foreach $File (keys %Files) {
 	&Output(
-		"\t.\\perlprep.bat \"..\\$Files{$File}\" \"$GroupToToolsPath\\$File\"\n"
+		"\t.\\perlprep.bat \"..\\$Files{$File}\" \"$EPOCToolsPath\\$File\"\n"
 	);
 }
 
 foreach $ConfigFile (@ConfigFiles) {
 	&Output(
-		"\tcopy \"..\\platform\\$ConfigFile\" \"$GroupToToolsConfigFilePath\\$ConfigFile\" >nul\n"
+		"\tcopy \"..\\platform\\$ConfigFile\" \"$EPOCToolsConfigFilePath\\$ConfigFile\" >nul\n"
 	);
 }
 
 foreach $File (@Docs) {
 	&Output(
-			"\tcopy \"..\\Docs\\$File\" \"$GroupToDocsPath\\$File\" >nul\n"
+			"\tcopy \"..\\Docs\\$File\" \"$DocsPath\\$File\" >nul\n"
 	);
 }
 
 foreach $tfile (@TemplateFiles) {
 	&Output(
-			"\tcopy \"..\\..\\..\\toolsandutils\\buildsystem\\extension\\$tfile\" \"$GroupToTemplatePath\\$tfile\" >nul\n"
+			"\tcopy \"..\\..\\..\\toolsandutils\\buildsystem\\extension\\$tfile\" \"$TemplateFilePath\\$tfile\" >nul\n"
 	);
 }
 foreach $bfile (@BinFiles) {
  	&Output(
- 			"\tcopy \"..\\..\\..\\toolsandutils\\buildsystem\\bin\\$bfile\" \"$GroupToBinPath\\$bfile\" >nul\n"
+ 			"\tcopy \"..\\..\\..\\toolsandutils\\buildsystem\\bin\\$bfile\" \"$BinFilePath\\$bfile\" >nul\n"
  	);
 }
 foreach $sfile (@ShellFiles) {
 	&Output(
-			"\tcopy \"..\\..\\..\\toolsandutils\\buildsystem\\shell\\$sfile\" \"$GroupToShellPath\\$sfile\" >nul\n"
+			"\tcopy \"..\\..\\..\\toolsandutils\\buildsystem\\shell\\$sfile\" \"$ShellFilePath\\$sfile\" >nul\n"
 	);
 }
 &Output(
 	"\n",
-	"rel deb : $GroupToToolsPath\\make.exe\n",
-	"$GroupToToolsPath\\make.exe: ..\\binutils\\make.exe\n",
+	"rel deb : $EPOCToolsPath\\make.exe\n",
+	"$EPOCToolsPath\\make.exe: ..\\binutils\\make.exe\n",
 	"\tcopy \$\? \$\@\n"
 );
 
 &Output(
 	"\n",
-	"rel deb : $GroupToToolsPath\\scpp.exe\n",
-	"$GroupToToolsPath\\scpp.exe: ..\\binutils\\scpp.exe\n",
+	"rel deb : $EPOCToolsPath\\scpp.exe\n",
+	"$EPOCToolsPath\\scpp.exe: ..\\binutils\\scpp.exe\n",
 	"\tcopy \$\? \$\@\n"
 );
 
@@ -392,32 +385,67 @@ foreach $sfile (@ShellFiles) {
 );
 foreach $File (keys %Files) {
 	&Output(
-		"\t-\$(ERASE) \"$GroupToToolsPath\\$File\"\n"
+		"\t-\$(ERASE) \"$EPOCToolsPath\\$File\"\n"
 	);
 }
 foreach $ConfigFile (@ConfigFiles) {
 	&Output(
-		"\t-\$(ERASE) \"$GroupToToolsConfigFilePath\\$ConfigFile\"\n"
+		"\t-\$(ERASE) \"$EPOCToolsConfigFilePath\\$ConfigFile\"\n"
 	);
 }
 foreach $File (@Docs) {
 	&Output(
-			"\t-\$(ERASE) \"$GroupToDocsPath\\$File\"\n"
+			"\t-\$(ERASE) \"$DocsPath\\$File\"\n"
 	);
 }
 foreach $tfile (@TemplateFiles) {
 	&Output(
-			"\t-\$(ERASE) \"$GroupToTemplatePath\\$tfile\"\n"
+			"\t-\$(ERASE) \"$TemplateFilePath\\$tfile\"\n"
 	);
 }
 foreach $bfile (@BinFiles) {
  	&Output(
- 			"\t-\$(ERASE) \"$GroupToBinPath\\$bfile\"\n"
+ 			"\t-\$(ERASE) \"$BinFilePath\\$bfile\"\n"
  	);
 }
 foreach $sfile (@ShellFiles) {
 	&Output(
-			"\t-\$(ERASE) \"$GroupToShellPath\\$sfile\"\n"
+			"\t-\$(ERASE) \"$ShellFilePath\\$sfile\"\n"
+	);
+}
+
+&Output(
+	"\n",
+	"releasables :\n"
+);
+foreach $File (keys %Files) {
+	&Output(
+		"\t\@echo $EPOCToolsPath\\$File\n"
+	);
+}
+foreach $ConfigFile (@ConfigFiles) {
+	&Output(
+		"\t\@echo $EPOCToolsConfigFilePath\\$ConfigFile\n"
+	);
+}
+foreach $File (@Docs) {
+	&Output(
+			"\t\@echo $DocsPath\\$File\n"
+	);
+}
+foreach $tfile (@TemplateFiles) {
+	&Output(
+			"\t\@echo $TemplateFilePath\\$tfile\n"
+	);
+}
+foreach $bfile (@BinFiles) {
+ 	&Output(
+ 			"\t\@echo $BinFilePath\\$bfile\n"
+ 	);
+}
+foreach $sfile (@ShellFiles) {
+	&Output(
+			"\t\@echo $ShellFilePath\\$sfile\n"
 	);
 }
 
