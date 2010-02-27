@@ -1,7 +1,7 @@
 # Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
 # All rights reserved.
 # This component and the accompanying materials are made available
-# under the terms of the License "Eclipse Public License v1.0"
+# under the terms of "Eclipse Public License v1.0"
 # which accompanies this distribution, and is available
 # at the URL "http://www.eclipse.org/legal/epl-v10.html".
 #
@@ -77,13 +77,15 @@ endif
 ifeq "$(CPU)" "arm"
 ASMINCPATH := . $(EPOCBLDABS) $(ASMINCPATH) $(EXTENSION_ROOT) $(EPOCCPUINC)
 ARMASM_OUT := $(shell armasm 2>&1)
-ARMASM_OUT_4 := $(word 4,$(ARMASM_OUT))
+ARMASM_OUT_RVCT := $(wordlist 1,6,$(ARMASM_OUT))
 ARMASM_OUT_6 := $(word 6,$(ARMASM_OUT))
 
 # Use GCC toolchain if no other is available
 TOOLVER := GCC
 
-RVCTSTR := $(strip $(findstring RVCT, $(ARMASM_OUT_4)))
+# ARM/Thumb Macro Assembler, RVCT2.2 [Build 616]
+# ARM Assembler, RVCT4.0 [Build 529]
+RVCTSTR := $(strip $(findstring RVCT, $(ARMASM_OUT_RVCT)))
 ifeq "$(RVCTSTR)" "RVCT"
         TOOLVER := RVCT
         OP := --
