@@ -37,6 +37,10 @@ PRJ_EXPORTS
 ../binutils/scpp.exe			/epoc32/tools/scpp.exe
 ../genutil/listzip.pl			/epoc32/tools/listzip.pl
 
+// Bootstrap e32toolp via an extention makefile which calls setupprj.bat
+../../../toolsandutils/buildsystem/extension/tools/abld_update.meta 	/epoc32/tools/makefile_templates/tools/abld_update.meta
+../../../toolsandutils/buildsystem/extension/tools/abld_update.mk 		/epoc32/tools/makefile_templates/tools/abld_update.mk
+
 ../../../toolsandutils/buildsystem/extension/app-services/buildstubsis.meta 		/epoc32/tools/makefile_templates/app-services/buildstubsis.meta
 ../../../toolsandutils/buildsystem/extension/app-services/buildstubsis.mk 		/epoc32/tools/makefile_templates/app-services/buildstubsis.mk
 ../../../toolsandutils/buildsystem/extension/app-services/buildupgradesis.meta 		/epoc32/tools/makefile_templates/app-services/buildupgradesis.meta
