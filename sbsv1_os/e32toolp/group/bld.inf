@@ -51,8 +51,6 @@ PRJ_EXPORTS
 ../../../toolsandutils/buildsystem/extension/application-protocols/buildstubsis.mk 	/epoc32/tools/makefile_templates/application-protocols/buildstubsis.mk
 ../../../toolsandutils/buildsystem/extension/base/bootstrap.meta 	/epoc32/tools/makefile_templates/base/bootstrap.meta
 ../../../toolsandutils/buildsystem/extension/base/bootstrap.mk 		/epoc32/tools/makefile_templates/base/bootstrap.mk
-../../../toolsandutils/buildsystem/extension/base/bootstrap.flm 	/epoc32/tools/makefile_templates/base/bootstrap.flm
-../../../toolsandutils/buildsystem/extension/base/bootstrap.xml 	/epoc32/tools/makefile_templates/base/bootstrap.xml
 ../../../toolsandutils/buildsystem/extension/base/config.meta 		/epoc32/tools/makefile_templates/base/config.meta
 ../../../toolsandutils/buildsystem/extension/base/config.mk 		/epoc32/tools/makefile_templates/base/config.mk
 ../../../toolsandutils/buildsystem/extension/base/copy_default.meta 	/epoc32/tools/makefile_templates/base/copy_default.meta
