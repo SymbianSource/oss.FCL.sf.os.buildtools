@@ -1,3 +1,18 @@
+#
+# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of "Eclipse Public License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description: 
+#
 #! perl
 
 use strict;
@@ -540,6 +555,7 @@ HEADING_EOF
     
     my $CompName;
     my $dirCount = 0;
+	my $spacer = "\n";
 
 
     # Loop through the list of elements running perforce commands to obtain the descriptions
@@ -673,30 +689,38 @@ HEADING_EOF
             	# Must be properly formatted change description
             	# discard everything seen so far except the "Change" line.
             	@revisedLines = (shift @revisedLines);
-            	while ($line = shift @changeLines)
+                
+		# Process all lines starting with the first <EXTERNAL> section.
+            	while (($line =~ /<EXTERNAL>$/) || ($line = shift @changeLines))
             	{
-            		last if ($line =~ /<\/EXTERNAL>$/);
-            		
-            		$line =~ s/^\t+//;
-					$line =~ s/\&/&amp;/g; 
-					$line =~ s/\</&lt;/g; 
-					$line =~ s/\>/&gt;/g; 
-					$line =~ s/\"/&quot;/g;	# quote the " character as well
+		    # Process an <EXTERNAL> section.
+		    while ($line =~ /<EXTERNAL>$/) 
+		    {
+			# Keep processing until an </EXTERNAL> line is encountered
+            		while(($line = shift @changeLines) && ($line !~ /<\/EXTERNAL>$/))
+			{
+			    $line =~ s/^\t+//;
+			    $line =~ s/\&/&amp;/g; 
+			    $line =~ s/\</&lt;/g; 
+			    $line =~ s/\>/&gt;/g; 
+			    $line =~ s/\"/&quot;/g;	# quote the " character as well
 
-            		push @revisedLines, $line;
+			    push @revisedLines, $line;
             		
-            		# Opportunity to pick information out of changes as they go past
-					if ($line =~ /^\s*((DEF|PDEF|INC)\d+):?\s/)
-					{
-						$allDefects{$1} = $line;
-						next;
-					}
-					if ($line =~ /^(BR[0-9.]+)\s/)
-					{
-						$allBreaks{$1} = $line;
-						next;
-					}
-
+			    # Opportunity to pick information out of changes as they go past
+			    if ($line =~ /^\s*((DEF|PDEF|INC)\d+):?\s/)
+				{
+				$allDefects{$1} = $line;
+				next;
+				}
+			    if ($line =~ /^(BR[0-9.]+)\s/)
+				{
+				$allBreaks{$1} = $line;
+				next;
+				}
+			}
+			push @revisedLines, $spacer;
+		    }
             	}
             	
               	# update the description for this change

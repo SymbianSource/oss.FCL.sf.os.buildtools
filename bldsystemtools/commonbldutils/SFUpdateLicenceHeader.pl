@@ -1,14 +1,18 @@
 # Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
-# This component and the accompanying materials are made available
-# under the terms of the License "Eclipse Public License v1.0"
-# which accompanies this distribution, and is available
-# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+# All rights reserved.
+# This material, including documentation and any related 
+# computer programs, is protected by copyright controlled by 
+# Nokia. All rights are reserved. Copying, including 
+# reproducing, storing, adapting or translating, any 
+# or all of this material requires the prior written consent of 
+# Nokia. This material also contains confidential 
+# information which may not be disclosed to others without the 
+# prior written consent of Nokia.
 #
-# Initial Contributors:
-# Nokia Corporation - initial contribution
-#
-# Contributors
-#
+# Contributors:
+#     matti.parnanen@nokia.com
+#     pasi.kauraniemi@nokia.com
+# 
 # Description: Replace S60 header with Symbian Foundation license header.
 #              Output file (results) is compatibe for SFMakeLxrLinks.pl as input.
 #
@@ -144,9 +148,9 @@ my $SFLicenseHeader =
 * Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 * This component and the accompanying materials are made available
-* under the terms of the License "Symbi'.'an Foundation License v1.0"
+* under the terms of "Eclipse Public License v1.0"
 * which accompanies this distribution, and is available
-* at the URL "http://www.symbi'.'anfoundation.org/legal/sf'.'l-v10.html".
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
 *
 * Initial Contributors:
 * Nokia Corporation - initial contribution.
@@ -175,9 +179,9 @@ my $SFLicenseHeader_other_template =
 # Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
 # All rights reserved.
 # This component and the accompanying materials are made available
-# under the terms of the License "Symbi'.'an Foundation License v1.0"
+# under the terms of the License "Eclipse Public License v1.0"
 # which accompanies this distribution, and is available
-# at the URL "http://www.symbi','anfoundation.org/legal/sf'.'l-v10.html".
+# at the URL "http://www.eclipse.org/legal/epl-v10.html".
 #
 # Initial Contributors:
 # Nokia Corporation - initial contribution.
@@ -1428,7 +1432,7 @@ sub isDirectoryNonEmpty
 my $sflText = '"Symbian Foundation License v1.0"';
 my $sflTextPattern = '(the\s*License\s*)?\"Symbian\s*Foundation\s*License\s*v1\.0\"'; 
 my $sflUrlPattern = 'http\:\/\/www\.symbianfoundation\.org\/legal\/sfl\-v10\.html';
-my $sflUrl = 'http://www.symbianfoundation.org/legal/sf'.'l-v10.html';
+my $sflUrl = 'http://www.symbianfoundation.org/legal/sfl-v10.html';
 my $eplText = '"Eclipse Public License v1.0"';
 my $eplUrl = 'http://www.eclipse.org/legal/epl-v10.html';
 my $eplUrlPattern = 'http\:\/\/www\.eclipse\.org\/legal\/epl\-v10\.html';

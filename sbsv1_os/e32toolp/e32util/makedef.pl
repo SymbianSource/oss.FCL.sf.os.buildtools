@@ -1,7 +1,7 @@
 # Copyright (c) 1998-2009 Nokia Corporation and/or its subsidiary(-ies).
 # All rights reserved.
 # This component and the accompanying materials are made available
-# under the terms of the License "Eclipse Public License v1.0"
+# under the terms of "Eclipse Public License v1.0"
 # which accompanies this distribution, and is available
 # at the URL "http://www.eclipse.org/legal/epl-v10.html".
 #
@@ -312,7 +312,7 @@ sub ReadInfFileL ($$$) {
 						next;
 					}
 				}
-				$Name = $1;
+				$Name = length $1 ? $1 : '';
 # Workaround: if MWLD can't demangle the name, we will see only the __imp_ version.
 				if ($Name =~ /^__imp_(\S+)$/o) {
 					$Name = $1;

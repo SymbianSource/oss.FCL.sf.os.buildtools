@@ -1,7 +1,7 @@
 // Copyright (c) 1995-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
-// under the terms of the License "Eclipse Public License v1.0"
+// under the terms of "Eclipse Public License v1.0"
 // which accompanies this distribution, and is available
 // at the URL "http://www.eclipse.org/legal/epl-v10.html".
 //
@@ -230,9 +230,9 @@ TUint commThread(DCommWins *comm)
 	}
 
 //VOID WINAPI ReadComplete(DWORD anErr,DWORD numBytes,LPOVERLAPPED anOverLapped)
-////
-//// Windows read completion routine
-////
+//
+// Windows read completion routine
+//
 //	{
 //
 //	if (numBytes>KReadBufSize)
@@ -628,9 +628,9 @@ Returned from 2nd param to ClearCommError (err below)
 */
 
 //void DCommWins::DoReceive(TInt aByteCount)
-////
-//// Called from read completion routine 
-////
+//
+// Called from read completion routine 
+//
 //	{
 //	if(aByteCount==0)
 //		{
@@ -660,11 +660,11 @@ Returned from 2nd param to ClearCommError (err below)
 //		return;
 //		}
 //
-////	if (!ReadFileEx(iCommPort,iInBuf,KReadBufSize,&iReadOverLapped,ReadComplete))
-////		{
-////		TInt r=GetLastError();
-////		Panic(EWindowsUnexpectedError);
-////		}
+//	if (!ReadFileEx(iCommPort,iInBuf,KReadBufSize,&iReadOverLapped,ReadComplete))
+//		{
+//		TInt r=GetLastError();
+//		Panic(EWindowsUnexpectedError);
+//		}
 //	}
 
 void DCommWins::RunCommThread(TDriverCommand aCommand)

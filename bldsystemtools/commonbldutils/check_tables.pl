@@ -1,3 +1,18 @@
+#
+# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of "Eclipse Public License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description: 
+#
 #!Perl -w
 
 use strict;
@@ -498,7 +513,7 @@ up to date.
 
 =head1 VERSION
 
-$Id: //SSS/release/sf/tb92/os/buildtools/bldsystemtools/commonbldutils/check_tables.pl#1 $
-$Change: 1751173 $  $DateTime: 2009/12/19 09:14:39 $
+$Id: //SSS/release/sf/tb92/os/buildtools/bldsystemtools/commonbldutils/check_tables.pl#2 $
+$Change: 1761838 $  $DateTime: 2010/02/11 15:04:36 $
 
 =cut

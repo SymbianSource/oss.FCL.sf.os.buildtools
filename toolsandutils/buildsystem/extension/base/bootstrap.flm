@@ -1,7 +1,7 @@
-# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+# Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies).
 # All rights reserved.
 # This component and the accompanying materials are made available
-# under the terms of the License "Eclipse Public License v1.0"
+# under the terms of "Eclipse Public License v1.0"
 # which accompanies this distribution, and is available
 # at the URL "http://www.eclipse.org/legal/epl-v10.html".
 #
@@ -13,8 +13,8 @@
 # Description:
 #
 
-ifeq ($($(NAME)_bootstrap_flm),)
-$(NAME)_bootstrap_flm := 1
+ifeq ($($(NAME)_$(PLATFORM_PATH)_bootstrap_flm),)
+$(NAME)_$(PLATFORM_PATH)_bootstrap_flm := 1 
 
 E32PATH := $(EXTENSION_ROOT)/$(E32PATH)
 SOURCES := $(foreach S,$(SOURCES),$(addprefix $(EXTENSION_ROOT)/,$(S)))
@@ -26,7 +26,7 @@ ifndef LINKBASE
 LINKBASE := 0x00000000
 endif
 
-UNIQ:=$(E32PATH)$(NAME)$(MEMMODEL)$(SOURCES)$(ASM_MACROS)
+UNIQ:=$(E32PATH)$(PLATFORM_PATH)$(NAME)$(MEMMODEL)$(SOURCES)$(ASM_MACROS)
 UNIQ:=$(word 1,$(shell echo $(UNIQ) | $(GNUMD5SUM)))
 
 # Make the output build directory name unique, starting with NAME of the binary being built

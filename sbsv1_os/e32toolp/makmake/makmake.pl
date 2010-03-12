@@ -1,7 +1,7 @@
 # Copyright (c) 1997-2009 Nokia Corporation and/or its subsidiary(-ies).
 # All rights reserved.
 # This component and the accompanying materials are made available
-# under the terms of the License "Eclipse Public License v1.0"
+# under the terms of "Eclipse Public License v1.0"
 # which accompanies this distribution, and is available
 # at the URL "http://www.eclipse.org/legal/epl-v10.html".
 #
@@ -585,18 +585,6 @@ if ($TrgType{Basic} =~ /^(EXEDLL|EXE|DLL|LIB)$/ && %FeatureVariantInfo && $Featu
 		}
 	}
 # modified end: makefile improvement 
-
-# modified by SV start: makefile improvement 
-if(-e $MAKEFILE)
-{
-	my $mmp_time = -M $MMPFILE;
-	my $makefile_time = -M $MAKEFILE;
-	if( $makefile_time <= $mmp_time)
-	{
-		exit;
-	}
-}
-# modified by SV end: makefile improvement 
 
 my $CurAifRef;
 my $CurBaseObj;
