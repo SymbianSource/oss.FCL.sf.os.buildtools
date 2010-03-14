@@ -1,7 +1,7 @@
 // Copyright (c) 2002-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
-// under the terms of "Eclipse Public License v1.0"
+// under the terms of the License "Eclipse Public License v1.0"
 // which accompanies this distribution, and is available
 // at the URL "http://www.eclipse.org/legal/epl-v10.html".
 //
@@ -221,9 +221,9 @@ private:
 	TInt iClientReadLength;		//how much data the client has requested in a read
 
     //-- win tunnel specific members
-	SOCKET  iSocket;        //< socket for serial port simulation
-	char    iOptions[151];  //< contains a string with mapping serial port numbers to the IPs
-    TBool   iReadCancel;    //< flag, used to indicate that the read was cancelled during socket read
+	SOCKET  iSocket;        ///< socket for serial port simulation
+	char    iOptions[151];  ///< contains a string with mapping serial port numbers to the IPs
+    TBool   iReadCancel;    ///< flag, used to indicate that the read was cancelled during socket read
 
 	};
 

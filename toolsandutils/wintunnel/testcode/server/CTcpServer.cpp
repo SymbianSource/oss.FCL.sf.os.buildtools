@@ -1,7 +1,7 @@
 // Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
-// under the terms of "Eclipse Public License v1.0"
+// under the terms of the License "Eclipse Public License v1.0"
 // which accompanies this distribution, and is available
 // at the URL "http://www.eclipse.org/legal/epl-v10.html".
 //
@@ -110,9 +110,9 @@ bool CTcpServer::IsBufferComplete(char* aBuffer,int aLen)
  * SECTION: PRIVATE METHODS
  *
  **************************************************************************************/
-//
+////////////////////////////////////////////////////////////////////////
 //	Method binds the sock to the address. 
-//
+////////////////////////////////////////////////////////////////////////
 int CTcpServer::connect(SOCKET &aSocket, SOCKADDR_IN &aAddr)
 {
 	int err;
@@ -129,9 +129,9 @@ int CTcpServer::connect(SOCKET &aSocket, SOCKADDR_IN &aAddr)
 	return ITS_OK;
 }
 
-//
+////////////////////////////////////////////////////////////////////////
 //  Disoconnect
-//
+////////////////////////////////////////////////////////////////////////
 int CTcpServer::disconnect()
 {
 	shutdown(iLocal_Sock, SD_SEND);
@@ -145,9 +145,9 @@ int CTcpServer::disconnect()
 	return ITS_OK;
 }
 
-//
+////////////////////////////////////////////////////////////////////////
 // Method to check if we have IP adress or hostname, and return IP address
-//
+////////////////////////////////////////////////////////////////////////
 SOCKADDR_IN CTcpServer::getSockAddr( const char* aIp, const char* aPort)
 {
 	SOCKADDR_IN sockAddr;
@@ -168,9 +168,9 @@ SOCKADDR_IN CTcpServer::getSockAddr( const char* aIp, const char* aPort)
 }
 
 
-//
+////////////////////////////////////////////////////////////////////////
 // Method to check if the adress is IP format or is a hostname string.
-//
+////////////////////////////////////////////////////////////////////////
 bool CTcpServer::isIPAdress(const char* aAddr)
 {
 	int c =0;
@@ -190,9 +190,9 @@ bool CTcpServer::isIPAdress(const char* aAddr)
 		return false;
 }
 
-//
+////////////////////////////////////////////////////////////////////////
 // Makes a connection, listens, and prints any incoming data.
-//
+////////////////////////////////////////////////////////////////////////
 int CTcpServer::makeConnection(SOCKET &aLocalSocket, SOCKET &aRemoteSocket, SOCKADDR_IN & aRemoteAddr)
 {
 	int remote_addr_len;
@@ -246,9 +246,9 @@ int CTcpServer::makeConnection(SOCKET &aLocalSocket, SOCKET &aRemoteSocket, SOCK
 	return ITS_OK;
 }
 
-//
+////////////////////////////////////////////////////////////////////////
 // Returns a a TCP/IP socket
-//
+////////////////////////////////////////////////////////////////////////
 SOCKET CTcpServer::getSocket()
 {
 	SOCKET sock;
@@ -266,9 +266,9 @@ SOCKET CTcpServer::getSocket()
 	return sock;
 }
 
-//
+////////////////////////////////////////////////////////////////////////
 // Initialise use of the dll.
-//
+////////////////////////////////////////////////////////////////////////
 int CTcpServer::initialise()
 {
 	WORD version;
@@ -283,9 +283,9 @@ int CTcpServer::initialise()
 }
 
 
-//
+////////////////////////////////////////////////////////////////////////
 // Release.
-//
+////////////////////////////////////////////////////////////////////////
 int CTcpServer::release()
 {
 	int err =WSACleanup();
@@ -296,9 +296,9 @@ int CTcpServer::release()
 	return ITS_OK;
 }
 
-//
+////////////////////////////////////////////////////////////////////////
 // Set the arguments
-//
+////////////////////////////////////////////////////////////////////////
 int CTcpServer::setArguments(char* li, char* lp)
 {
 	if(!lp)

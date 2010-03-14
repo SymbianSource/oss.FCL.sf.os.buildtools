@@ -1,3 +1,9 @@
+Version 0.01.675
+================
+(Made by Marvin Shi 18/01/2009)
+1) Marvin Shi
+	DEF143085  Bug 151 - bldmake is not in PDK2.0c 
+
 Version 0.01.674
 ================
 (Made by Zheng Shen 16/12/2009)

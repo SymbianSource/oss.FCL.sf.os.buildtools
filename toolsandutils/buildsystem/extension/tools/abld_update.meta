@@ -1,0 +1,9 @@
+# Meta information for stlport builds
+#
+# Copyright (c) 2006 Symbian Software Ltd.  All rights reserved.
+#
+
+platform	win32
+makefile 	gnumake
+techstream	tools
+

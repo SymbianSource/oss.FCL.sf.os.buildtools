@@ -13,6 +13,13 @@ EGL
 EGL/egl.h
 EGL/egltypes.h
 EGL/egluids.hrh
+EGL/eglext.h
+WF
+WF/wfc.h
+WF/wfcext.h
+WF/wfcplatform.h
+WF/openwfcuids.hrh
+KHR/khrplatform.h
 GLES
 GLES/egldisplayproperty.h
 GLES/egldisplaypropertydef.h
@@ -57,3 +64,6 @@ libOpenVG.dll
 libOpenVG.lib
 libOpenVGU.dll
 libOpenVGU.lib
+libWFC.lib
+libWFC.dll
+libWFCu.def
