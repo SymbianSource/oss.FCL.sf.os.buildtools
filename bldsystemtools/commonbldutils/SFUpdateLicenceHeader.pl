@@ -29,7 +29,7 @@ use FileHandle;
 ####################
 
 # Tool version
-use constant VERSION => '2.1';
+use constant VERSION => '2.22';
 # Version history: 0.8 Added copyright year pick-up
 # Version history: 0.9- Bug fixesg
 # Version history: 0.95- EPL header support added
@@ -80,10 +80,11 @@ use constant VERSION => '2.1';
 # Version history: 2.01 checkPortionsCopyright implemented and applied
 # Version history: 2.02 Extra license word taken out from EPL header
 # Version history: 2.1 -verify -epl support added and switchLicense() tried first for SFL --> EPL switching
+# Version history: 2.20 Bug fixes.
 
 my $IGNORE_MAN ='Ignore-manually';
 my $IGNORE ='Ignore';
-my $INTERNAL = 'internal';
+my $INTERNAL = '/internal/';
 use constant KEEP_SYMBIAN => 0;
 use constant REMOVE_SYMBIAN => 1;
 
@@ -91,7 +92,7 @@ use constant REMOVE_SYMBIAN => 1;
 #file extention list that headers should be replace
 my @extlist = ('.cpp', '.c', '.h', '.mmp', '.mmpi', '.rss', '.hrh', '.inl', '.inf', '.iby', '.oby',
             '.loc', '.rh', '.ra', '.java', '.mk', '.bat', '.cmd', '.pkg', '.rls', '.rssi', '.pan', '.py', '.pl', '.s', '.asm', '.cia',
-            '.s60', '.pm', '.hpp', '.mmh', '.script', 
+            '.s60', '.pm', '.hpp', '.mmh', '.script', '.mrp',
             '.pro', '.pri');  # Qt specific
 
 # Various header comment styles
@@ -119,7 +120,7 @@ my $linenumtext = "1";  # Use this linenumer in LXR links
 # Copyright patterns
 my $copyrYearPattern = 'Copyright\b.*\d{4}\s*([,-]\s*\d{4})*';
 my $copyrYearPattern2 = '\d{4}(\s*[,-]\s*\d{4})*';
-use constant DEFCOPYRIGHTYEAR => "2009";  # For error cases
+use constant DEFCOPYRIGHTYEAR => "2010";  # For error cases
 
 my $NokiaCopyrPattern = '\bCopyright\b.*Nokia.*(All Rights)?';
 my $NonNokiaCopyrPattern = '\bCopyright\b.*(?!Nokia).*(All Rights)?';
@@ -145,7 +146,7 @@ my $PortionsSymbianCopyrPattern = 'Portions\s*Copyright\b.*(Symbian\sLtd|Symbian
 #
 my $SFLicenseHeader = 
 '/*
-* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 * This component and the accompanying materials are made available
 * under the terms of "Eclipse Public License v1.0"
@@ -176,7 +177,7 @@ $CC . '\s*at\s*the\s*URL\s*\"http\:\/\/www\.symbianfoundation\.org\/legal\/sfl\-
 #
 my $SFLicenseHeader_other_template = 
 '#
-# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+# Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
 # All rights reserved.
 # This component and the accompanying materials are made available
 # under the terms of the License "Eclipse Public License v1.0"
@@ -200,7 +201,7 @@ my $SFLicenseHeader_other_template =
 # C/C++ style
 my $EPLLicenseHeader = 
 '/*
-* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 * This component and the accompanying materials are made available
 * under the terms of "Eclipse Public License v1.0"
@@ -232,7 +233,7 @@ $CC . '\s*at\s*the\s*URL\s*\"http\:\/\/www\.eclipse\.org\/legal\/epl\-v10\.html\
 #
 my $EPLLicenseHeader_other_template = 
 '#
-# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+# Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
 # All rights reserved.
 # This component and the accompanying materials are made available
 # under the terms of "Eclipse Public License v1.0"
@@ -253,7 +254,7 @@ my $EPLLicenseHeader_other_template =
 ##############
 my $LGPLLicenseHeader = 
 '/*
-* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 *
 * This program is free software: you can redistribute it and/or modify
@@ -287,7 +288,7 @@ $CC . '\s*the\s*Free\s*Software\s*Foundation\,\s*version\s*2\.1\s*of\s*the\s*Lic
 #
 my $LGPLLicenseHeader_other_template = 
 '#
-# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies). 
+# Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies). 
 # All rights reserved.
 #
 # This program is free software: you can redistribute it and/or modify
@@ -587,7 +588,8 @@ sub process_file
     
 	elsif ( (lc($suffix) eq ".mk" ) or 
           (lc($suffix) eq ".pl") or (lc($suffix) eq ".py") or (lc($suffix) eq ".pm") or # script
-          (lc($suffix) eq ".pro") or (lc($suffix) eq ".pri") )   # Qt specific
+          (lc($suffix) eq ".pro") or (lc($suffix) eq ".pri") or    # Qt specific
+          (lc($suffix) eq ".mrp") )
     {
         # Makefile, Perl or Python script  (# comment)
 		$cm = '#';
@@ -1195,9 +1197,10 @@ sub preprocess
 
     if ($dir =~ m/$INTERNAL/i)
     {
-        if ( ($content eq SFL_DISTRIBUTION_VALUE) || ($content eq EPL_DISTRIBUTION_VALUE) )
+        my $isSFId = &isSFDistribution($content);
+        if ( $isSFId )
         {
-            # Internal directory has SFL or EPL distribution value, something is wrong !
+            # Internal directory has SF distribution value, something is wrong !
             my $comment = "";  # Leave it just empty
             printResult(DISTRIBUTION_CONTEXT() . "$sep"."Internal directory going to SF (current value $content)$sep$comment$sep$sep$full_filename$sep$linenumtext\n");
             $verifyFailedCount[VERI_INTERNAL_TO_SF]++;
@@ -1437,7 +1440,7 @@ my $eplText = '"Eclipse Public License v1.0"';
 my $eplUrl = 'http://www.eclipse.org/legal/epl-v10.html';
 my $eplUrlPattern = 'http\:\/\/www\.eclipse\.org\/legal\/epl\-v10\.html';
 my $eplTextPattern = '"Eclipse\s*Public\s*License\s*v1\.0"';
-my $oldEplTextPattern = 'the\s*License\s*"Eclipse\s*Public\s*License\s*v1\.0'; # "the License" is unncessary
+my $oldEplTextPattern = 'the\s*License\s*"Eclipse\s*Public\s*License\s*v1\.0"'; # "the License" is unncessary
 
 sub switchLicense
 {
@@ -1828,6 +1831,8 @@ sub handleVerifyEpl
     # OK, it should be Nokia copyrighted file
     #
 
+    my $isSFId = &isSFDistribution($lastDistributionValue);
+
     # Note that partial headers are manually quoted in the declaration
     # Otherwise \Q$EPLText\E would be needed around those ones
     # because plain text contains special chars, like .
@@ -1847,6 +1852,11 @@ sub handleVerifyEpl
             return 1;  # OK
        }
 
+        if (!$isSFId)
+        {
+            return 1;
+        }   
+
         if (($$header_ref =~ m/$testValueSfl/s) || ($$filecontent_ref =~ m/$testValueSfl/s))
         {
             #  Still SFL header in place
@@ -1865,10 +1875,9 @@ sub handleVerifyEpl
     }
 
     # Cross header versus distribution ID
-    if ($lastDistributionValue ne "")
+    if ($isSFId)
     {
         # Also other than 7 may be OK based on the config file
-        my $isSFId = &isSFDistribution($lastDistributionValue);
         printLog(LOG_DEBUG, "DEBUG:handleVerify:Other ID OK=$isSFId\n");
         if ( ($$filecontent_ref =~ m/$testValueEpl/s) && ($lastDistributionValue ne EPL_DISTRIBUTION_VALUE) )
         {
