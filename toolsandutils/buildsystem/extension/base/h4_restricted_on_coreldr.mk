@@ -100,7 +100,7 @@ XSRCPPSOURCE1 := OSLessOAM.cpp
 XSRCPPSOURCE2 := onld.cpp
 SPECXSRCPPSOURCE := pam.cpp
 
-XSRLIB := $(EPOCROOT)epoc32/release/armv5/urel/nbl2.lib
+XSRLIB := $(EPOCROOT)epoc32/release/armv5/$(CFG)/nbl2.lib
 
 ifeq "$(USE_MMU)" "TRUE"
 	GENASMSOURCE := coreldrmmu.s # only link in the MMU stuff if required

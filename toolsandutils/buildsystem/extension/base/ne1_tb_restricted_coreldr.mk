@@ -127,7 +127,7 @@ XSRCPPSOURCE1 := OSLessOAM.cpp
 SPECXSRCPPSOURCE := pam.cpp
 SPECXSRCPPSOURCE1 := pnl.cpp  
 
-XSRLIB := $(EPOCROOT)epoc32/release/armv5/urel/nbl2.lib
+XSRLIB := $(EPOCROOT)epoc32/release/armv5/$(CFG)/nbl2.lib
 
 ifeq "$(USE_MMU)" "TRUE"
 	#generic version found in base/e32utils/nandboot/coreldr/...
