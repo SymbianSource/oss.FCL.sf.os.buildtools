@@ -266,6 +266,7 @@
 <feature name="CommonTsy" statusflags="0x00000001" uid ="0x00000125"></feature>
 <feature name="CommonDsy" statusflags="0x00000001" uid ="0x00000129"></feature>
 <feature name="CommonVoip" statusflags="0x00000001" uid ="0x0000012a"></feature>
+<feature name="EnableIsiCommunicationInUsbChargingMode" statusflags="0x00000001" uid ="0x00000135"></feature>
 <feature name="QwertyInput" statusflags="0x00000001" uid ="0x00000199"></feature>
 <feature name="PenSupport" statusflags="0x00000001" uid ="0x0000019a"></feature>
 <feature name="IncludeAmrWbCMMFCodec" statusflags="0x00000001" uid ="0x000001eb"></feature>
