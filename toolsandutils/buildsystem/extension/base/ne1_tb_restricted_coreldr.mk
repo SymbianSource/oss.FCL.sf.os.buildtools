@@ -86,7 +86,7 @@ VARIANTINC2 := $(EXTENSION_ROOT)/../navienginebsp/ne1_tb/bootstrap
 VARIANTINC3 := $(EXTENSION_ROOT)/../navienginebsp/ne1_tb/nand  $(EXTENSION_ROOT)/../navienginebsp/naviengine_assp  $(INC_PATH)/assp/naviengine/$(MEMMODEL)
 
 #Generic driver file includes
-GENINC1 := $(INC_PATH)
+GENINC1 := $(INC_PATH) $(EPOCROOT)epoc32/include
 GENDRIVERINC := $(INC_PATH)/drivers
 GENINC2 := $(INC_PATH)/drivers/unistore2 $(INC_PATH)/memmodel/epoc $(INC_PATH)/kernel  $(INC_PATH)/kernel/arm $(INC_PATH)/nkern $(INC_PATH)/nkern/arm
 GENXSRINC := $(EXTENSION_ROOT)/../../../kernelhwsrv/kernel/eka/drivers/unistore2/srca/XSR/INC
@@ -127,7 +127,7 @@ XSRCPPSOURCE1 := OSLessOAM.cpp
 SPECXSRCPPSOURCE := pam.cpp
 SPECXSRCPPSOURCE1 := pnl.cpp  
 
-XSRLIB := $(EPOCROOT)epoc32/release/armv5/urel/nbl2.lib
+XSRLIB := $(EPOCROOT)epoc32/release/armv5/$(CFG)/nbl2.lib
 
 ifeq "$(USE_MMU)" "TRUE"
 	#generic version found in base/e32utils/nandboot/coreldr/...

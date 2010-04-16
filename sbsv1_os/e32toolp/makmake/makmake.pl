@@ -586,18 +586,6 @@ if ($TrgType{Basic} =~ /^(EXEDLL|EXE|DLL|LIB)$/ && %FeatureVariantInfo && $Featu
 	}
 # modified end: makefile improvement 
 
-# modified by SV start: makefile improvement 
-if(-e $MAKEFILE)
-{
-	my $mmp_time = -M $MMPFILE;
-	my $makefile_time = -M $MAKEFILE;
-	if( $makefile_time <= $mmp_time)
-	{
-		exit;
-	}
-}
-# modified by SV end: makefile improvement 
-
 my $CurAifRef;
 my $CurBaseObj;
 my $CurBld;

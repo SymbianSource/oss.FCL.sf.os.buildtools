@@ -1,3 +1,22 @@
+Version 0.01.678
+(Made by Zheng Shen 8/02/2009)
+1) Brook Hong
+	PDEF144276  Excess warnings from makedef.pl 
+2) Marvin Shi
+  PDEF144257  Add libWFC and WF to case check exclusions 
+
+Version 0.01.676
+================
+(Made by Marvin Shi 3/02/2010)
+1) Marvin Shi
+	PDEF144099 Missing vmap files when using symbian binary variantion 
+
+Version 0.01.675
+================
+(Made by Marvin Shi 18/01/2010)
+1) Marvin Shi
+	DEF143085  Bug 151 - bldmake is not in PDK2.0c 
+
 Version 0.01.674
 ================
 (Made by Zheng Shen 16/12/2009)

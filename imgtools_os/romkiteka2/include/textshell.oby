@@ -125,9 +125,7 @@ file=ABI_DIR\DEBUG_DIR\EDISP.DLL				sys\bin\EDISP.DLL
 #include <traces.iby>
 #include <mmf_plugin.iby>
 #include <omxilcompref.iby>
-#ifdef SYMBIAN_MULTIMEDIA_OPENMAX_IL_V2
 #include <omxilcomp.iby>
-#endif
 #include <omxilcore.iby>
 	
 	#include <inetprotutil.iby>		/* needed for mmfcontrollerframework.dll */

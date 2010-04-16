@@ -22,10 +22,9 @@ require Exporter;
 	E32tpver
 );
 
-use strict;
 
 sub E32tpver () {
-	my $Version=674; 
+	my $Version=678; 
 }
 
 1;

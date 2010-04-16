@@ -55,11 +55,11 @@ CLEAN :
 #	-$(ERASE) $(MDIR)/$(PREFIX)values.cpp
 #	-$(ERASE) $(MDIR)/$(PREFIX)config.cpp
 
-$(MDIR)/$(PREFIX)values.cpp : $(SOURCE)/values.hda $(EPOCROOT)epoc32/include/hal_data.h
+$(MDIR)/$(PREFIX)values.cpp : $(SOURCE)/values.hda $(EPOCROOT)epoc32/include/platform/hal_data.h
 	-$(call createdir,"$(MDIR)")
-	perl $(HALPATH)/hal/halcfg.pl $(EPOCROOT)epoc32/include/hal_data.h $(SOURCE)/values.hda $(MDIR)/$(PREFIX)values.cpp
+	perl $(HALPATH)/hal/halcfg.pl $(EPOCROOT)epoc32/include/platform/hal_data.h $(SOURCE)/values.hda $(MDIR)/$(PREFIX)values.cpp
 
-$(MDIR)/$(PREFIX)config.cpp : $(SOURCE)/config.hcf $(EPOCROOT)epoc32/include/hal_data.h
+$(MDIR)/$(PREFIX)config.cpp : $(SOURCE)/config.hcf $(EPOCROOT)epoc32/include/platform/hal_data.h
 	-$(call createdir,"$(MDIR)")
-	perl $(HALPATH)/hal/halcfg.pl -x $(EPOCROOT)epoc32/include/hal_data.h $(SOURCE)/config.hcf $(MDIR)/$(PREFIX)config.cpp
+	perl $(HALPATH)/hal/halcfg.pl -x $(EPOCROOT)epoc32/include/platform/hal_data.h $(SOURCE)/config.hcf $(MDIR)/$(PREFIX)config.cpp
 

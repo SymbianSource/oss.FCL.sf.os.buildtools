@@ -64,6 +64,9 @@ my %states = (
             'START' => ['stage.tmpl'],
             'STOP' => ['stage.tmpl','faults.tmpl']
         },
+'SMOKETEST' => {
+            'STOP' => ['smoketest.tmpl']
+        },
 'ENDBUILD' => {
             'START' => ['diamonds_finish.tmpl', 'status.tmpl']
         }

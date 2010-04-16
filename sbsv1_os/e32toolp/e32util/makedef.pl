@@ -312,7 +312,7 @@ sub ReadInfFileL ($$$) {
 						next;
 					}
 				}
-				$Name = $1;
+				$Name = length $1 ? $1 : '';
 # Workaround: if MWLD can't demangle the name, we will see only the __imp_ version.
 				if ($Name =~ /^__imp_(\S+)$/o) {
 					$Name = $1;

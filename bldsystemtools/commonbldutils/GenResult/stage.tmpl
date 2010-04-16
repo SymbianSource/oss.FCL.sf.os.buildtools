@@ -1,7 +1,7 @@
 [@--# Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
 # All rights reserved.
 # This component and the accompanying materials are made available
-# under the terms of the License "Eclipse Public License v1.0"
+# under the terms of "Eclipse Public License v1.0"
 # which accompanies this distribution, and is available
 # at the URL "http://www.eclipse.org/legal/epl-v10.html".
 #
@@ -21,9 +21,46 @@
     <stage>
       <name>[@--$iStage--@]</name>
       [@--
-      use myutils; 
-      if($START){"<started>".&myutils::getTime()."</started>";}
-      elsif($STOP){"<finished>".&myutils::getTime()."</finished>";}
+		use myutils;
+		if($START){$OUT = "<started>".&myutils::getTime()."</started>";}
+		elsif($STOP){
+		my $iDir = &myutils::getiLinkPath();
+		my $iSnapshot = &myutils::getiSnapshot();
+		my $iProduct = &myutils::getiProduct();
+		my $iGTFileName    = "GT.summary.html";
+		my $iTVFileName    = "TV.summary.html";
+		my $iBUILDFileName = "$iSnapshot"."_Symbian_OS_v"."$iProduct".".summary.html";
+		my $iCBRFileName   = "$iSnapshot"."_Symbian_OS_v"."$iProduct"."_cbr.summary.html";
+		my $iROMFileName   = "techviewroms"."$iSnapshot"."_Symbian_OS_v"."$iProduct". ".log";
+		my $iCDBFileName   = "$iSnapshot"."_Symbian_OS_v"."$iProduct"."_cdb.summary.html";
+		my $iURL ;
+		$OUT  = "<finished>".&myutils::getTime()."</finished>\n";
+		if ($iStage =~ /GT/i)
+		{
+		$iURL = $iDir.$iGTFileName;
+		}
+		elsif($iStage =~ /TV/i)
+		{
+		$iURL = $iDir.$iTVFileName;
+		}
+		elsif($iStage =~ /BUILD/i)
+		{
+		$iURL = $iDir.$iBUILDFileName;
+		}
+		elsif($iStage =~ /CBR/i)
+		{
+		$iURL = $iDir.$iCBRFileName;
+		}
+		elsif($iStage =~ /ROM/i)
+		{
+		$iURL = $iDir.$iROMFileName;
+		}
+		elsif($iStage =~ /CDB/i)
+		{
+		$iURL = $iDir.$iCDBFileName;
+		}
+		$OUT  .= "<link>".$iURL."</link>";
+		}
       --@]
     </stage>
   </stages>

@@ -61,7 +61,7 @@ PLATSRCDIR := $(EXTENSION_ROOT)/../omaph2bsp/shared/bootstrap
 VARIANTINC := $(EXTENSION_ROOT)/../omaph2bsp/h2/inc
 ARMDIR := $(INC_PATH)/kernel/arm
 
-GENINC1 := $(INC_PATH)
+GENINC1 := $(INC_PATH) /epoc32/include
 GENDRIVERINC := $(INC_PATH)/drivers
 GENINC2 := $(INC_PATH)/drivers/unistore2
 H2BLDDIR := $(EXTENSION_ROOT)/../omaph2bsp/h2

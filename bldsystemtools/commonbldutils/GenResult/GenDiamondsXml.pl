@@ -50,8 +50,8 @@ sub Usage {
   Usage: GenDiamondsXml.pl [switches]
 
   [Switches]
-  -t Stage (e.g. STARTBUILD|GT|TV|ROM|CBR|CDB|BUILD|ENDBUILD|ALL)
-  -i (START|END)
+  -t Stage (e.g. STARTBUILD|GT|TV|ROM|CBR|CDB|BUILD|SMOKETEST|ENDBUILD|ALL)
+  -i (START|STOP)
   -s server (e.g. diamonds.nmp.nokia.com:9003)
     
   [Optional]
