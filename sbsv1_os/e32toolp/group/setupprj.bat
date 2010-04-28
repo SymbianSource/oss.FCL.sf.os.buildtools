@@ -117,18 +117,21 @@ opendir CONFIGDIR, "..\\platform" or die "ERROR: Can't open dir \"..\\platform\"
 
 closedir CONFIGDIR;
 
-opendir SUBDIR, "..\\Docs" or die "ERROR: Can't open dir \"..\\Docs\"\n";
-my @Docs = map lc $_, readdir SUBDIR;
-@Docs = grep /^[^\.].+\.(rtf|doc|changes|txt|html|htm)$/o, @Docs;
+my @Docs;
+if (-d "..\\Docs") {
+	opendir SUBDIR, "..\\Docs" or die "ERROR: Can't open dir \"..\\Docs\"\n";
+	@Docs = map lc $_, readdir SUBDIR;
+	@Docs = grep /^[^\.].+\.(rtf|doc|changes|txt|html|htm)$/o, @Docs;
+  closedir SUBDIR;	
+}
 	
-closedir SUBDIR;	
 
 open TEMPLATEFILESUBDIR, "\"dir \/s \/b \/a-d ..\\..\\..\\toolsandutils\\buildsystem\\extension\" |";
 my @TemplateFiles=();
 my %TemplateDirs;
 while (<TEMPLATEFILESUBDIR>)
 	{
-	next if ($_ !~ /\.(mk|meta)$/i);	
+	next if ($_ !~ /\.(mk|meta|flm|xml)$/i);	
 	$_ =~ s/^.*\\buildsystem\\extension\\//i;
 	chomp $_;
 	push @TemplateFiles, $_;
@@ -241,15 +244,22 @@ foreach (sort keys %BinDirs) {
  	);
 }
 
+if (scalar @Docs) {
+	&Output(
+		"$DocsPath :\n",
+		"\t\@perl -w ..\\genutil\\emkdir.pl $DocsPath\n", 
+		"\n"
+	);
+} else {
+	$DocsPath = "";		# suppresses $DocsPath as a dependency in the main rules
+}
+
 &Output(
 	"$ShellFilePath :\n",
 	"\t\@perl -w ..\\genutil\\emkdir.pl $ShellFilePath\n", 
 	"\n",
 	"$EPOCToolsConfigFilePath :\n",
 	"\t\@perl -w ..\\genutil\\emkdir.pl $EPOCToolsConfigFilePath\n", 
-	"\n",
-	"$DocsPath :\n",
-	"\t\@perl -w ..\\genutil\\emkdir.pl $DocsPath\n", 
 	"\n",
 	"\n",
 	"deb : $EPOCToolsPath $EPOCToolsConfigFilePath $DocsPath $TemplateFilePath $ShellFilePath "
