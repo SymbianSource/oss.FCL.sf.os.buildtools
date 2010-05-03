@@ -918,16 +918,18 @@ sub PMEndSrcBld {
 
 	if ($Cia) {
 		&main::Output(
-			"\"\$(EPOCBLD$Bld)\\$BaseSrc\_.obj\" \"\$(EPOCBLD$Bld)\\$BaseSrc\_.sbr\" : \"$SrcPath$Src\" \$(DEPEND$Bld)\n",
-			"\tperl -S tranasm_x86.pl \"$SrcPath$Src\" \"\$(EPOCBLD$Bld)\\$BaseSrc\_.transd.cia\"\n",
+			"\"\$(EPOCBLD$Bld)\\$BaseSrc\_.transd.cia\" : \"$SrcPath$Src\" \$(DEPEND$Bld)\n",
+			"\tperl -S tranasm_x86.pl \"$SrcPath$Src\" \$\@\n",
+			"\n",
+			"\"\$(EPOCBLD$Bld)\\$BaseSrc\_.obj\" \"\$(EPOCBLD$Bld)\\$BaseSrc\_.sbr\" : \"\$(EPOCBLD$Bld)\\$BaseSrc\_.transd.cia\" \$(DEPEND$Bld)\n",
 			"\t\$(CL$Bld) /I \"$SrcPath\.\" /TP /Fo\"\$(EPOCBLD$Bld)\\$BaseSrc\_.obj\" /GF /c \"\$(EPOCBLD$Bld)\\$BaseSrc\_.transd.cia\"\n",
 			"\n",
 #			assembler listing target
 			"LISTING$Bld$BaseSrc\_ : \"\$(EPOCBLD$Bld)\\$BaseSrc\_.lis\"\n",
 			"\tcopy \$? \"$SrcPath$BaseSrc\_.$Plat.lst\"\n",
 			"\n",
-			"\"\$(EPOCBLD$Bld)\\$BaseSrc\_.lis\": \"$SrcPath$Src\" \$(DEPEND$Bld)\n",
-			"\t\$(CL$Bld) /TP /FAsc /Fa\"\$\@\" /Fo\"\$(EPOCBLD$Bld)\\$BaseSrc\_.obj\" /GF /c \"$SrcPath$Src\"\n",
+			"\"\$(EPOCBLD$Bld)\\$BaseSrc\_.lis\" : \"\$(EPOCBLD$Bld)\\$BaseSrc\_.transd.cia\" \$(DEPEND$Bld)\n",
+			"\t\$(CL$Bld) /I \"$SrcPath\.\" /TP /FAsc /Fa\"\$\@\" /Fo\"\$(EPOCBLD$Bld)\\$BaseSrc\_.obj\" /GF /c \"\$(EPOCBLD$Bld)\\$BaseSrc\_.transd.cia\"\n",
 			"\n"
 		);
 	} else {

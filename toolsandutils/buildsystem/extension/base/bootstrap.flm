@@ -51,12 +51,35 @@ endif
 ASMINCPATH := . $(EPOCBLDABS) $(ASMINCPATH) $(EXTENSION_ROOT) $(EPOCCPUINC) $(EXTRA_EPOC32_INC_PATH) $(E32PATH)/eka/include/kernel/$(CPU)
 
 ifeq ($(MEMMODEL),)
-$(error Memory model unknown)
-else
-ASM_MACROS := $(ASM_MACROS) CFG_MM$(MEMMODEL)
+$(error MEMMODEL parameter not specified)
+endif
+
+# Convert MEMMODEL parameter to lower case
+MEMMODEL := $(shell echo $(MEMMODEL) | tr A-Z a-z)
+
+ifeq ($(MEMMODEL),direct)
+CFG_MM := CFG_MMDirect
+HEADERS_MM :=
+endif
+ifeq ($(MEMMODEL),flexible)
+CFG_MM := CFG_MMFlexible
+HEADERS_MM := $(E32PATH)/eka/include/memmodel/epoc/flexible/$(CPU)/mmboot.h
+endif
+ifeq ($(MEMMODEL),moving)
+CFG_MM := CFG_MMMoving
+HEADERS_MM := $(E32PATH)/eka/include/memmodel/epoc/moving/$(CPU)/mmboot.h
+endif
+ifeq ($(MEMMODEL),multiple)
+CFG_MM := CFG_MMMultiple
+HEADERS_MM := $(E32PATH)/eka/include/memmodel/epoc/multiple/$(CPU)/mmboot.h
+endif
+ifndef CFG_MM
+$(error '$(MEMMODEL)' memory model unknown)
+endif
+
+ASM_MACROS := $(ASM_MACROS) $(CFG_MM)
 ifneq ($(SMP),)
 ASM_MACROS := $(ASM_MACROS) SMP
-endif
 endif
 
 ASMINCPATHCMD := $(foreach dir,$(ASMINCPATH),$(join -I ,$(dir)))
@@ -110,11 +133,7 @@ BASESRCPATH := $(E32PATH)/eka/kernel/$(CPU)
 # Generic source files
 BASESOURCES := $(foreach S,$(BASESOURCES_NAMES),$(addprefix $(BASESRCPATH)/,$(S)))
 
-HEADERS:= $(E32PATH)/eka/include/kernel/kernboot.h $(E32PATH)/eka/include/kernel/arm/bootdefs.h $(E32PATH)/eka/include/e32rom.h $(GENINCLUDES_HEADERS)
-
-ifneq ($(MEMMODEL),direct)
-HEADERS := $(HEADERS) $(E32PATH)/eka/include/memmodel/epoc/$(MEMMODEL)/$(CPU)/mmboot.h
-endif
+HEADERS:= $(E32PATH)/eka/include/kernel/kernboot.h $(E32PATH)/eka/include/kernel/arm/bootdefs.h $(E32PATH)/eka/include/e32rom.h $(GENINCLUDES_HEADERS) $(HEADERS_MM)
 
 # Generated include files
 BOOTSTRAP_GENINCLUDES := $(foreach f,$(HEADERS),$(basename $(notdir $(f))).$(INCEXT))
