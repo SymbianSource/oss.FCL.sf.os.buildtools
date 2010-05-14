@@ -21,6 +21,16 @@
 define OBEYFILE TextShell
 define ROMDATE	##TODAY##
 
+// Undefine things in global System Include that stops the SymTB textshell rom from working.
+#undef USE_CUSTOM_MMC_PARTITION
+#undef SYMBIAN_EXCLUDE_SCDV
+#undef SYMBIAN_GRAPHICS_USE_GCE 
+#undef SYMBIAN_GRAPHICS_ADAPTATION
+#undef SGA_SW_NO_GRAPHICSRESOURCE 
+#undef SYMBIAN_EXCLUDE_KEYMAP  
+
+
+
 #define NO_METROTRK_APP // don't want metrotrk application
 #define HAS_ETHERNET	// include etherDrv, ether802, DHCP
 #define SYMBIAN_EXCLUDE_FAX
@@ -93,7 +103,7 @@ file=ABI_DIR\DEBUG_DIR\EDISP.DLL				sys\bin\EDISP.DLL
 #include <c32.iby>
 #include <ecuart.iby>
 #include <irda.iby>
-#include <bluetooth.iby>
+// #include <bluetooth.iby>
 #include <stdlib.iby>
 #include <gdi.iby>
 #include <fntstore.iby>
@@ -106,27 +116,27 @@ file=ABI_DIR\DEBUG_DIR\EDISP.DLL				sys\bin\EDISP.DLL
 #include <printers.iby>
 
 // include enough multimedia components to keep cone happy. includes symbian optional, reference and replacable components
-#include <mmf.iby>
-#include <mmcommon.iby>
-#include <mdf.iby>
-#include <devvideo.iby>
-#include <devsound_pluginsupport.iby>
-#include <devsound_refplugin.iby>
-#ifdef SYMBIAN_MULTIMEDIA_A3FDEVSOUND
-#include <acf.iby>
-#include <a3fdevsound.iby>
-#include <acl.iby>
-#include <devsoundadaptationinfo.iby>
-#include <refacladaptation.iby>
-#include <refmmrc.iby>
-#include <a3fserverstart.iby>
-#endif // SYMBIAN_MULTIMEDIA_A3FDEVSOUND
+//#include <mmf.iby>
+//#include <mmcommon.iby>
+//#include <mdf.iby>
+//#include <devvideo.iby>
+//#include <devsound_pluginsupport.iby>
+//#include <devsound_refplugin.iby>
+//#ifdef SYMBIAN_MULTIMEDIA_A3FDEVSOUND
+//#include <acf.iby>
+//#include <a3fdevsound.iby>
+//#include <acl.iby>
+//#include <devsoundadaptationinfo.iby>
+//#include <refacladaptation.iby>
+//#include <refmmrc.iby>
+//#include <a3fserverstart.iby>
+//#endif // SYMBIAN_MULTIMEDIA_A3FDEVSOUND
 
 #include <traces.iby>
-#include <mmf_plugin.iby>
-#include <omxilcompref.iby>
-#include <omxilcomp.iby>
-#include <omxilcore.iby>
+//#include <mmf_plugin.iby>
+//#include <omxilcompref.iby>
+//#include <omxilcomp.iby>
+//#include <omxilcore.iby>
 	
 	#include <inetprotutil.iby>		/* needed for mmfcontrollerframework.dll */
 	#include <caf.iby>				/* needed for mediaclientutils.dll */
@@ -182,13 +192,13 @@ REM Satisfy unwanted references to appgrfx.dll
 	#include <emime.iby>		/* Mime recognition */
 #endif
 
-#ifndef __CONE_IBY__
+//#ifndef __CONE_IBY__
 REM Satisfy unwanted reference to cone.dll, usually for CCoeEnv::Static()
-#include <cone.iby>
-	file=ABI_DIR\BUILD_DIR\viewcli.dll		sys\bin\viewcli.dll
-		file=ABI_DIR\BUILD_DIR\viewsrv.dll		sys\bin\viewsrv.dll
-	#include <egul.iby>
-		#include <numberconversion.iby>
-#endif
+//#include <cone.iby>
+//	file=ABI_DIR\BUILD_DIR\viewcli.dll		sys\bin\viewcli.dll
+//		file=ABI_DIR\BUILD_DIR\viewsrv.dll		sys\bin\viewsrv.dll
+//	#include <egul.iby>
+//		#include <numberconversion.iby>
+//#endif
 
 #endif

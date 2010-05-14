@@ -24,35 +24,35 @@ EXCLUDE_FEATURE Fax
 FEATURE Fax
 #endif
 
-#ifdef	SYMBIAN_EXCLUDE_PRINT
+#ifndef	__UPNP_PRINT_FRAMEWORK
 EXCLUDE_FEATURE Print
 #else
 FEATURE Print
 #endif
 
 
-#ifdef	SYMBIAN_EXCLUDE_BLUETOOTH
+#ifndef	__BT
 EXCLUDE_FEATURE Bluetooth
 #else
 FEATURE Bluetooth
 #endif
 
 
-#ifdef	SYMBIAN_EXCLUDE_INFRARED
+#ifndef	__IRDA
 EXCLUDE_FEATURE Infrared
 #else
 FEATURE Infrared
 #endif
 
 
-#ifdef	SYMBIAN_EXCLUDE_MMC
+#ifndef	__MMC
 EXCLUDE_FEATURE Mmc
 #else
 FEATURE Mmc
 #endif
 
 
-#ifdef	SYMBIAN_EXCLUDE_USB
+#ifndef	__USB
 EXCLUDE_FEATURE Usb
 #else
 FEATURE Usb
@@ -89,7 +89,7 @@ FEATURE NetworkQos
 #endif
 
 
-#ifdef	SYMBIAN_EXCLUDE_IPSEC
+#ifndef	__IPSEC
 EXCLUDE_FEATURE IPSec
 #else
 FEATURE IPSec
@@ -97,7 +97,7 @@ FEATURE IPSec
 
 
 
-#ifdef	SYMBIAN_EXCLUDE_DHCP
+#ifndef	__DHCP
 EXCLUDE_FEATURE Dhcp
 #else
 FEATURE Dhcp
@@ -112,50 +112,50 @@ FEATURE Connectivity
 #endif
 
 
-#ifdef	SYMBIAN_EXCLUDE_MTP
+#ifndef	__MTP_PROTOCOL_SUPPORT
 EXCLUDE_FEATURE MTP
 #else
 FEATURE MTP
 #endif
 
 
-#ifdef	SYMBIAN_EXCLUDE_VIBRA
+#ifndef	__VIBRA
 EXCLUDE_FEATURE Vibra
 #else
 FEATURE Vibra
 #endif
 
-#ifdef	SYMBIAN_EXCLUDE_AMBIENT_LIGHT_SENSOR
+#ifndef	__SERIES60_AMBIENT_LIGHT_SENSOR
 EXCLUDE_FEATURE AmbientLightSensor
 #else
 FEATURE AmbientLightSensor
 #endif
 
-#ifdef	SYMBIAN_EXCLUDE_COVER_DISPLAY
+#ifndef	__COVER_DISPLAY
 EXCLUDE_FEATURE CoverDisplay
 #else
 FEATURE CoverDisplay
 #endif
 
-#ifdef	SYMBIAN_EXCLUDE_KEYPAD_NO_SLIDER
+#ifndef	__SERIES60_KEYPAD_NO_SLIDER
 EXCLUDE_FEATURE KeypadNoSlider
 #else
 FEATURE KeypadNoSlider
 #endif
 
-#ifdef	SYMBIAN_EXCLUDE_CS_VIDEO_TELEPHONY
+#ifndef	__CS_VIDEO_TELEPHONY
 EXCLUDE_FEATURE CsVideoTelephony
 #else
 FEATURE CsVideoTelephony
 #endif
 
-#ifdef	SYMBIAN_EXCLUDE_EMERGENCY_CALLS_ENABLED_IN_OFFLINE_MODE
+#ifndef	__COMMON_TSY__EMERGENCY_CALLS_ENABLED_IN_OFFLINE_MODE
 EXCLUDE_FEATURE EmergencyCallsEnabledInOfflineMode
 #else
 FEATURE EmergencyCallsEnabledInOfflineMode
 #endif
 
-#ifdef	SYMBIAN_EXCLUDE_DRIVE_MODE_CAN_RESTRICT_MT_CALLS
+#ifndef	__DRIVE_MODE
 EXCLUDE_FEATURE DriveModeCanRestrictMtCalls
 #else
 FEATURE DriveModeCanRestrictMtCalls

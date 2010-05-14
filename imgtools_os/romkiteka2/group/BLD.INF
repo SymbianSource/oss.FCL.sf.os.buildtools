@@ -75,6 +75,9 @@ PRJ_EXPORTS
 // OBY file that builds a substantial Text Shell rom with no UI dependency
 ../include/textshell.oby	/epoc32/rom/include/textshell.oby
 
+// OBY file that builds a substantial Text Shell rom with no UI dependency and works with the Chassis build for BATS testing
+../include/textshell_Chassis_BATS.oby	/epoc32/rom/include/textshell_Chassis_BATS.oby
+
 #if defined(SYMBIAN_FEATURE_MANAGER)
 PRJ_PLATFORMS
 TOOLS2

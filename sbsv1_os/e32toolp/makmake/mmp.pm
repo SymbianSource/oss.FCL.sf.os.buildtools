@@ -1706,14 +1706,19 @@ sub Mmp_ProcessL ($$$$) {
 			next LINE;
 		}
 		if( /^PAGED$/o) {
-			if ($CodePagingTargetMode == PAGED or $DataPagingTargetMode == PAGED) {
+			#revert "PAGED" keyword from code and data paged to code paged only
+			#if ($CodePagingTargetMode == PAGED or $DataPagingTargetMode == PAGED) {
+			if ($CodePagingTargetMode == PAGED) {
 				push @MmpWarn, "$CurFile($LineNum) : duplicate paging setting\n";
 			}
-			if ($CodePagingTargetMode == UNPAGED or $DataPagingTargetMode == UNPAGED) {
+			#revert "PAGED" keyword from code and data paged to code paged only
+			#if ($CodePagingTargetMode == UNPAGED or $DataPagingTargetMode == UNPAGED) {
+			if ($CodePagingTargetMode == UNPAGED) {
 				push @MmpWarn, "$CurFile($LineNum) : conflict paging setting\n";
 			}
 			$CodePagingTargetMode = PAGED;
-			$DataPagingTargetMode = PAGED;
+			#revert "PAGED" keyword from code and data paged to code paged only
+			#$DataPagingTargetMode = PAGED;
 			next LINE;
 			}
 		if( /^UNPAGED$/o) {
