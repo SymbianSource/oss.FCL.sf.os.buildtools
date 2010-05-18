@@ -37,7 +37,7 @@ BLD : do_nothing
 SAVESPACE : do_nothing
 
 RELEASABLES :
-		@perl -S $(EPOCROOT)epoc32/tools/listzip.pl $(EPOCROOT)epoc32/release $(FILE)
+		@perl -S $(EPOCROOT)epoc32/tools/listzip.pl $(TODIR) $(FILE)
 
 CLEAN : do_nothing
 
