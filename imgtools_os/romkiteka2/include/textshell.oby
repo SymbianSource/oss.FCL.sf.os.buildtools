@@ -32,6 +32,22 @@ define ROMDATE	##TODAY##
 #define _STARTUPMODE1		// for sysstart.iby
 #endif
 
+#define __MMC
+#define __COVER_DISPLAY
+#define __IRDA
+#define __BT
+#define __USB
+#define __CS_VIDEO_TELEPHONY
+#define __DHCP
+#define __COMMON_TSY__EMERGENCY_CALLS_ENABLED_IN_OFFLINE_MODE
+#define __VIBRA
+#define __MTP_PROTOCOL_SUPPORT
+#define __SERIES60_KEYPAD_NO_SLIDER
+#define __DRIVE_MODE
+#define __SERIES60_AMBIENT_LIGHT_SENSOR
+#define __UPNP_PRINT_FRAMEWORK
+#define FF_FMTX
+
 // The following 3 macros need to be removed once LibXML2 is depended 
 // by any of the component in textshell image.
 #define SYMBIAN_EXCLUDE_LIBXML2
