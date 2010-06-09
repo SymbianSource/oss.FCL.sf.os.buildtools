@@ -248,7 +248,7 @@
 <feature name="PushWhiteList" statusflags="0x00000001" uid ="0x000000e3"></feature>
 <feature name="OmaProv" statusflags="0x00000001" uid ="0x000000e4"></feature>
 <feature name="FfContactsRemoteLookup" statusflags="0x00000001" uid ="0x000000ea"></feature>
-<feature name="FfAdditionalFonts" statusflags="0x00000001" uid ="0x000000f1"></feature>
+<feature name="FfContactsCompanyNames" statusflags="0x00000001" uid="0x000000ec"></feature>
 <feature name="MMS" statusflags="0x00000001" uid ="0x000000f4"></feature>
 <feature name="FfDeviceEncryptionFeature" statusflags="0x00000001" uid ="0x000000fa"></feature>
 <feature name="ffContactsMycard" statusflags="0x00000001" uid ="0x0000010b"></feature>
