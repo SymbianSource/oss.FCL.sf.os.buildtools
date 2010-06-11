@@ -29,7 +29,8 @@ define ROMDATE	##TODAY##
 #undef SGA_SW_NO_GRAPHICSRESOURCE 
 #undef SYMBIAN_EXCLUDE_KEYMAP  
 
-
+// undef __BT to only get the client side dlls which should be present even if bluetooth hardware not present or not working.
+#undef __BT
 
 #define NO_METROTRK_APP // don't want metrotrk application
 #define HAS_ETHERNET	// include etherDrv, ether802, DHCP
@@ -103,7 +104,7 @@ file=ABI_DIR\DEBUG_DIR\EDISP.DLL				sys\bin\EDISP.DLL
 #include <c32.iby>
 #include <ecuart.iby>
 #include <irda.iby>
-// #include <bluetooth.iby>
+#include <bluetooth.iby>
 #include <stdlib.iby>
 #include <gdi.iby>
 #include <fntstore.iby>
