@@ -9,6 +9,7 @@
 # Nokia Corporation - initial contribution.
 #
 # Contributors:
+# Mike Kinghan, mikek@symbian.org, for Symbian Foundation
 #
 # Description:
 # e32toolp\e32util\armasm2as.pl
@@ -288,7 +289,8 @@ sub process_logical_expr($$) {
 	$val =~ s/\{TRUE\}/(1)/g;
 	$val =~ s/\{FALSE\}/(0)/g;
 
-	my @lops = split( /(\s*\:LAND\:\s*|\s*\:LOR\:\s*|\s*\:LNOT\:\s*|\s*\:DEF\:\s*)/, $val );
+	my @lops = split( /(\s*\:LAND\:\s*|\s*\:LOR\:\s*|\s*\:LNOT\:\s*|\s*\:DEF\:\s*|\s*\(\s*|\s*\)\s*)/, $val );
+	my @lops2;
 	foreach (@lops) {
 		s/\s*\:LAND\:\s*/\:LAND\:/go;
 		s/\s*\:LOR\:\s*/\:LOR\:/go;
@@ -306,7 +308,7 @@ sub process_logical_expr($$) {
 				push @$outref, "\t.ifdef $sym\n\t.set __defined__$sym, 1\n\t.else\n\t.set __defined__$sym, 0\n\t.endif\n";
 				push @lops2, " __defined__$sym ";
 			} else {
-				die "Bad :DEF: operand\n";
+				die "Bad :DEF: operand $sym\n";
 			}
 		} elsif ($x eq ':LAND:') {
 			push @lops2, ' && ';
