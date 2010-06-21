@@ -1,4 +1,21 @@
+Version 0.01.680
+================
+(Made by Lorence Wang 05/17/2009)
+1) Marvin Shi
+	DEF145403  ABLD bug on GCCE static/import library location 
+2) Marvin Shi
+  DEF145339  abld -check and -what for selected targets is wrong
+
+Version 0.01.679
+================
+(Made by Zheng Shen 11/02/2009)
+1) Marvin Shi
+	PDEF144284  refine fix for Bug 151 -  bldmake is not in PDK2.0c
+2) Ross Qin
+  PDEF144387  Tools meta files should not be exported in the build phase 
+
 Version 0.01.678
+================
 (Made by Zheng Shen 8/02/2009)
 1) Brook Hong
 	DEF143588  Excess warnings from makedef.pl 

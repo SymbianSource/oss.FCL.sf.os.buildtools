@@ -1110,10 +1110,20 @@ sub PMBld {
 	&main::Output(" \\\n\$(EPOCSTATLINK$Bld)\\$StaticRTLib\.lib");
 
 	&main::Output(" \\\n\t",getConfigVariable('VIA_FILE_PREFIX'));
-	PrintList("\' \\\n\t\'\.\&Generic_Quote\(\"\\\$\(EPOCBSFSTATLINK$Bld\)\\\\\$_\"\)", @StatLibList);
+	if($PlatName =~ /^gcce$/i) {
+		PrintList("\' \\\n\t\'\.\&Generic_Quote\(\"\\\$\(EPOCSTATLINK$Bld\)\\\\\$_\"\)", @StatLibList);
+	}
+	else {
+		PrintList("\' \\\n\t\'\.\&Generic_Quote\(\"\\\$\(EPOCBSFSTATLINK$Bld\)\\\\\$_\"\)", @StatLibList);
+	}
 	&main::Output(" \\\n\t",getConfigVariable('VIA_FILE_SUFFIX'));
 	
-	@depLibs = (@depLibs, DepLinkList("\&Generic_Quote\(\"\\\$\(EPOCBSFSTATLINK$Bld\)\\\\\$_\"\)", @StatLibList));
+	if($PlatName =~ /^gcce$/i) {
+		@depLibs = (@depLibs, DepLinkList("\&Generic_Quote\(\"\\\$\(EPOCSTATLINK$Bld\)\\\\\$_\"\)", @StatLibList));
+	}
+	else {
+		@depLibs = (@depLibs, DepLinkList("\&Generic_Quote\(\"\\\$\(EPOCBSFSTATLINK$Bld\)\\\\\$_\"\)", @StatLibList));
+	}
 	
 	
 	my @ImportLibList = ImportLibraryList(@LibList);
@@ -1706,9 +1716,14 @@ sub PMBld {
          elsif ($BasicTrgType=~/^LIB$/o) {
 			&main::Output(
 			"\t\$(AR) ",
-				" \$(ARCHIVER_CREATE_OPTION) ",
-				" \$(EPOCBSFSTATLINK$Bld)\\$Trg \\\n"
+				" \$(ARCHIVER_CREATE_OPTION) "
 			);
+			if($PlatName =~ /^gcce$/i) {
+				&main::Output(" \$(EPOCSTATLINK$Bld)\\$Trg \\\n");
+			}
+			else {
+				&main::Output(" \$(EPOCBSFSTATLINK$Bld)\\$Trg \\\n");
+			}
 		# Pass in the command file if the command file option is passed in
 		if($viaoption) {
                         #'@' is for GCCE whos version is not 3.4.3

@@ -32,7 +32,6 @@ require Exporter;
 	Close_InfoFile
 );
 
-use strict;
 use Pathutl;
 my $epocroot;
 my $epocPath;
@@ -85,25 +84,6 @@ sub Lockit_SrcFile()
 
 		# update rppfile in epoc32\localisation if -l option specified and generating resource
 		copy("$RppFile", "$FilePath\\$ResrcFile.rpp");
-	}
-
-	# update bitmaps in epoc32\localisation if -l option and bitmaps specified
-	if ($CWDir && ($Bitmaps ne ""))
-	{
-		my $BmpRef;
-		$Bitmaps =~ s/ +|\t/ /g; # replace tabs and more spaces with single space
-		$Bitmaps =~s/^ //g; # remove leading space
-		$Bitmaps =~s/ $//g; # remove trailing space
-
-		my (@AifBitmaps) = split(/ /, $Bitmaps);
-		foreach $BmpRef (@AifBitmaps) {
-			$BmpRef =~ /^([^\\]+)(\\.*)$/;
-			my $CDepth = $1;
-			my $bmp = $2;
-			Copy_Files($bmp, $FilePath);
-			my $file_base= basename($bmp);
-			chmod (0666,"$FilePath\\$file_base");
-		}
 	}
 
 	if (defined $ENV{ABLD_TOOLSMOD_COMPATIBILITY_MODE} &&  ($ENV{ABLD_TOOLSMOD_COMPATIBILITY_MODE} eq 'alpha')) {
@@ -196,7 +176,7 @@ sub Copy_Files ()
 sub Create_InfoFile ()
 	{
 	my ($CreateLockitPath, $CreateInfoFile, $Datadir) = @_;
-	if ( !-e "$CreateLockitPath") { mkpath($CreateLockitPath); }
+	if (($CreateLockitPath !~ /mbm$/i) && (!-e "$CreateLockitPath")) { mkpath($CreateLockitPath); }
 	if ( !-e "$epocPath\\group") { mkpath("$epocPath\\group"); }
 	if ( !-e "$epocPath\\group\\$CreateInfoFile.info") {	
 		open INFO,">$epocPath\\group\\$CreateInfoFile.info" or die "ERROR: Can not create file \"$CreateInfoFile\"\n"; 
@@ -325,14 +305,14 @@ sub Lockit_Releasables
 			$LockitPath .= "\\$BaseResrc.rpp";
 		}
 		else {
-			$LockitPath .= "\\$Bitmaps";
+			undef $LockitPath;
 		}
 	}
 
 	my %loggedFiles;
 	$loggedFiles{lc($_)} = 1 foreach keys (%Files);
 	
-	$Files{$LockitPath} = 1 if !($loggedFiles{lc($LockitPath)});
+	$Files{$LockitPath} = 1 if (defined $LockitPath) && (!($loggedFiles{lc($LockitPath)}));
 	$Files{$LockitInfoPath} = 1 if !($loggedFiles{lc($LockitInfoPath)});
 	
 	return %Files;

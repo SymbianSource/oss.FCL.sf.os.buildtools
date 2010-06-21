@@ -21,7 +21,6 @@
 use FindBin;		# for FindBin::Bin
 use Getopt::Long;
 use Cwd;
-use strict;
 # modified start: makefile improvement 
 use File::stat;
 use Time::localtime;
@@ -1229,7 +1228,13 @@ sub InitLinkPaths() {
 	}
 
 #	set up release path
-	$Path{Rel}="$E32env::Data{RelPath}".lc($Plat{Real})."\\";
+	if((&Plat() =~ /gcce/i) && ($TrgType{Basic} eq 'LIB'))
+	{
+		$Path{Rel}=$Path{StatLink};
+	}
+	else {
+		$Path{Rel}="$E32env::Data{RelPath}".lc($Plat{Real})."\\";
+	}
 	
 }
 
