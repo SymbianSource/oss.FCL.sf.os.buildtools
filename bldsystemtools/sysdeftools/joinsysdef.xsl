@@ -14,6 +14,7 @@
 	Create a stand-alone sysdef from a linked set of fragments
 -->
  	<xsl:output method="xml" indent="yes"/>
+<!-- create a stand-alone sysdef from a linked set of fragments -->
 
 <xsl:param name="path">/os/deviceplatformrelease/foundation_system/system_model/system_definition.xml</xsl:param>
 
@@ -29,6 +30,7 @@
 </xsl:template>
 
 
+<xsl:template match="meta[@rel='Api']" priority="2" mode="meta"/> <!-- ignore these, not needed in system build -->
 
 
 <xsl:include href="joinsysdef-module.xsl"/>

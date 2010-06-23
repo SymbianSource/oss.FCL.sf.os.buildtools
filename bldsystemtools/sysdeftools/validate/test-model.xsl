@@ -2,7 +2,7 @@
 <!--Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
 	All rights reserved.
 	This component and the accompanying materials are made available
-	under the terms of "Eclipse Public License v1.0"
+	under the terms of the License "Eclipse Public License v1.0"
 	which accompanies this distribution, and is available
 	at the URL "http://www.eclipse.org/legal/epl-v10.html".
 
@@ -52,12 +52,12 @@
 </xsl:apply-templates>
 </xsl:template>
 
-<xsl:template match="/SystemDefinition[@schema='3.0.0']" mode="ids">
+<xsl:template match="/SystemDefinition[starts-with(@schema,'3.0.')]" mode="ids">
 	<xsl:for-each select="//*[@id and not(@href)]"><xsl:value-of select="concat(' ',@id,' ')"/></xsl:for-each>
 	<xsl:apply-templates select="document(//layer/@href | //package/@href | //collection/@href | //component/@href,.)/*" mode="ids"/>
 </xsl:template>
 
-<xsl:template match="/SystemDefinition[@schema='3.0.0' and systemModel]" priority="2">
+<xsl:template match="/SystemDefinition[starts-with(@schema,'3.0.')and systemModel]" priority="2">
 	<xsl:param name="filename" select="$Filename"/>
 <xsl:call-template name="Section">
 	<xsl:with-param name="text">System Definition: <xsl:value-of select="*/@name"/></xsl:with-param>
@@ -68,7 +68,7 @@
 	</xsl:apply-templates>
 </xsl:template>
 
-<xsl:template match="/SystemDefinition[@schema='3.0.0'] | systemModel">
+<xsl:template match="/SystemDefinition[starts-with(@schema,'3.0.')] | systemModel">
 	<xsl:param name="filename"  select="$Filename"/>
 		
 <xsl:if test="//unit">
@@ -95,6 +95,15 @@
 <xsl:template match="@name|@href|@filter" mode="valid"/> 
 
 <xsl:template match="component/@introduced|component/@deprecated" mode="valid"/> 
+
+
+
+<xsl:template match="@replace" mode="valid">
+	<xsl:if test="/SystemDefinition[@schema='3.0.0']">
+		<xsl:call-template name="Error"><xsl:with-param name="text">Attribute <b><xsl:value-of select="name()"/></b>="<xsl:value-of select="."/>" not valid in schema <xsl:value-of select="/SystemDefinition/@schema"/>. Must use schema 3.0.1 or higher</xsl:with-param></xsl:call-template>
+	</xsl:if>
+</xsl:template>
+
 
 
 <xsl:template name="validate-class">
@@ -202,11 +211,12 @@
 <xsl:apply-templates select="@id"/>
 <xsl:if test="self::component">
 	<xsl:choose>
-		<xsl:when test="count(*[not(@version)]) &gt; 1 and @filter='s60'">
-			<xsl:call-template name="Warning"><xsl:with-param name="text">S60 Component "<xsl:value-of select="@id"/>" has <xsl:value-of select="count(*)"/> children.</xsl:with-param></xsl:call-template>
+		<xsl:when test="count(unit[not(@filter | @version)]) = 0 "/>
+		<xsl:when test="count(unit[not(@version)]) &gt; 1 and @filter='s60'">
+			<xsl:call-template name="Warning"><xsl:with-param name="text">S60 Component "<xsl:value-of select="@id"/>" has <xsl:value-of select="count(unit)"/> units.</xsl:with-param></xsl:call-template>
 		</xsl:when>
-		<xsl:when test="count(*[not(@version)]) &gt; 1">
-			<xsl:call-template name="Error"><xsl:with-param name="text">Component "<xsl:value-of select="@id"/>" has <xsl:value-of select="count(*)"/> children.</xsl:with-param></xsl:call-template>
+		<xsl:when test="count(unit[not(@version)]) &gt; 1">
+			<xsl:call-template name="Error"><xsl:with-param name="text">Component "<xsl:value-of select="@id"/>" has <xsl:value-of select="count(unit)"/> units.</xsl:with-param></xsl:call-template>
 		</xsl:when>
 	</xsl:choose>
 	<xsl:choose>
@@ -264,6 +274,13 @@
 </xsl:template>
 
 
+
+<xsl:template match="meta">	<xsl:param name="filename"/>
+	<xsl:apply-templates select="@*"/>
+</xsl:template>
+
+<xsl:template match="meta/@rel | meta/@type | meta/@href"/> <!-- anything is valid -->
+
 <xsl:template match="unit">	<xsl:param name="filename"/>
 	<xsl:apply-templates select="@mrp|@bldFile">
 		<xsl:with-param name="filename" select="$filename"/>
@@ -291,8 +308,63 @@
 </xsl:template>
 
 
+<xsl:template mode="localid" match="*">
+	<xsl:choose>
+		<xsl:when test="contains(@id,':')">/<xsl:value-of select="substring-after(@id,':')"/></xsl:when>
+		<xsl:otherwise><xsl:value-of select="@id"/></xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
 <xsl:template match="@bldFile|@mrp"><xsl:param name="filename"/>
+<xsl:if test="substring(.,string-length(.))='/'">
+		<xsl:call-template name="Warning"><xsl:with-param name="text"><code><xsl:value-of select="name()"/></code> path "<xsl:value-of select="."/>" should not end in /</xsl:with-param></xsl:call-template>
+</xsl:if>
+<xsl:if test="contains(.,'\')">
+		<xsl:call-template name="Error"><xsl:with-param name="text"><code><xsl:value-of select="name()"/></code> path "<xsl:value-of select="."/>" must use only forward slashes</xsl:with-param></xsl:call-template>
+</xsl:if>
 
+<!-- this is a realtive path, so just check that it's the expected number of dirs down -->
+	<xsl:variable name="fullpath"><xsl:call-template name="normpath">
+				<xsl:with-param name="path">
+					<xsl:if test="not(starts-with(.,'/'))">
+						<xsl:call-template name="before">
+							<xsl:with-param name="text" select="$filename"/>
+						</xsl:call-template>
+					</xsl:if>
+					<xsl:value-of select="."/>
+				 </xsl:with-param>
+			</xsl:call-template>
+		</xsl:variable>
+		<xsl:variable name="path">
+			<xsl:choose>
+				<xsl:when test="not(contains($filename,':'))">/<xsl:for-each select="ancestor::*/@id"><xsl:apply-templates mode="path" select="."/>/</xsl:for-each></xsl:when>
+				<xsl:otherwise><xsl:for-each select="../../../@id|../../@id"><xsl:apply-templates mode="path" select="."/>/</xsl:for-each></xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:variable name="segment"> <!-- the part relative to the fragment directory -->
+			<xsl:choose>
+				<xsl:when test="ancestor::layer">
+					<xsl:apply-templates select="ancestor::package" mode="localid"/>/<xsl:apply-templates select="ancestor::collection" mode="localid"/>
+				</xsl:when>
+				<xsl:when test="ancestor::package">
+				<xsl:apply-templates select="ancestor::collection" mode="localid"/>
+				</xsl:when>
+				<xsl:when test="ancestor::collection"/>
+			</xsl:choose>/<xsl:apply-templates select="ancestor::component" mode="localid"/>/</xsl:variable>
+		<xsl:choose>
+			<xsl:when test="not(starts-with(concat(.,'/'),$segment))">
+				<xsl:call-template name="Note"><xsl:with-param name="text">Unexpected <code><xsl:value-of select="name()"/></code> path for <xsl:apply-templates mode="path" select="../../../@id"/> -&gt; <strong><xsl:apply-templates mode="path" select="../../@id"/></strong>: "<xsl:value-of select="$fullpath"/>"</xsl:with-param></xsl:call-template>
+			</xsl:when>
+		</xsl:choose>
+</xsl:template>
+
+
+<xsl:template match="@bldFile[starts-with(.,'/') or contains(.,'../') or contains(.,':')] | @mrp[starts-with(.,'/') or contains(.,'../') or contains(.,':')] |@base[starts-with(.,'/') or contains(.,'../') or contains(.,':')]"><xsl:param name="filename"/>
+<xsl:if test="substring(.,string-length(.))='/'">
+		<xsl:call-template name="Warning"><xsl:with-param name="text"><code><xsl:value-of select="name()"/></code> path "<xsl:value-of select="."/>" should not end in /</xsl:with-param></xsl:call-template>
+</xsl:if>
+<xsl:if test="contains(.,'\')">
+		<xsl:call-template name="Error"><xsl:with-param name="text"><code><xsl:value-of select="name()"/></code> path "<xsl:value-of select="."/>" must use only forward slashes</xsl:with-param></xsl:call-template>
+</xsl:if>
 	<xsl:variable name="fullpath"><xsl:call-template name="normpath">
 				<xsl:with-param name="path">
 					<xsl:if test="not(starts-with(.,'/'))">
@@ -330,32 +402,25 @@
 	<xsl:when test="contains($filename,':')">
 		<xsl:choose>
 			<xsl:when test="not(starts-with(.,$path) or concat(.,'/')=$path)">
-				<xsl:call-template name="Note"><xsl:with-param name="text">Unexpected <code><xsl:value-of select="name()"/></code> path for <xsl:apply-templates mode="path" select="../../../@id"/> -&gt; <strong><xsl:apply-templates mode="path" select="../../@id"/></strong> "<xsl:value-of select="."/>"</xsl:with-param></xsl:call-template>
+				<xsl:call-template name="Note"><xsl:with-param name="text">Unexpected <code><xsl:value-of select="name()"/></code> path for <xsl:apply-templates mode="path" select="../../../@id"/> -&gt; <strong><xsl:apply-templates mode="path" select="../../@id"/></strong>: "<xsl:value-of select="."/>"</xsl:with-param></xsl:call-template>
 			</xsl:when>
 		</xsl:choose>
 	</xsl:when>
 	<xsl:otherwise>
 		<xsl:choose>
 			<xsl:when test="substring-before(substring($segment,2),'/') != substring-before(substring($path,2),'/') and (ancestor::SystemDefinition/@id-namespace!='http://www.symbian.org/system-definition' and not(contains(../../@id,':')))">
-				<xsl:call-template name="Warning"><xsl:with-param name="text">Unexpected <code><xsl:value-of select="name()"/></code> path for <xsl:apply-templates mode="path" select="../../../@id"/> -&gt; <strong><xsl:apply-templates mode="path" select="../../@id"/></strong> "<xsl:value-of select="$fullpath"/>"</xsl:with-param></xsl:call-template>
+				<xsl:call-template name="Warning"><xsl:with-param name="text">Unexpected <code><xsl:value-of select="name()"/></code> path for <xsl:apply-templates mode="path" select="../../../@id"/> -&gt; <strong><xsl:apply-templates mode="path" select="../../@id"/></strong>: "<xsl:value-of select="$fullpath"/>"</xsl:with-param></xsl:call-template>
 			</xsl:when>
 			<xsl:when test="substring-before(substring($segment,2),'/') != substring-before(substring($path,2),'/')">
-				<xsl:call-template name="Error"><xsl:with-param name="text">Unexpected <code><xsl:value-of select="name()"/></code> path for <xsl:apply-templates mode="path" select="../../../@id"/> -&gt; <strong><xsl:apply-templates mode="path" select="../../@id"/></strong> "<xsl:value-of select="$fullpath"/>"</xsl:with-param></xsl:call-template>
+				<xsl:call-template name="Error"><xsl:with-param name="text">Unexpected <code><xsl:value-of select="name()"/></code> path for <xsl:apply-templates mode="path" select="../../../@id"/> -&gt; <strong><xsl:apply-templates mode="path" select="../../@id"/></strong>: "<xsl:value-of select="$fullpath"/>"</xsl:with-param></xsl:call-template>
 			</xsl:when>
 			<xsl:when test="not(starts-with($segment,$path))">
-				<xsl:call-template name="Note"><xsl:with-param name="text">Unexpected <code><xsl:value-of select="name()"/></code> path for <xsl:apply-templates mode="path" select="../../../@id"/> -&gt; <strong><xsl:apply-templates mode="path" select="../../@id"/></strong> "<xsl:value-of select="$fullpath"/>"</xsl:with-param></xsl:call-template>
+				<xsl:call-template name="Note"><xsl:with-param name="text">Unexpected <code><xsl:value-of select="name()"/></code> path for <xsl:apply-templates mode="path" select="../../../@id"/> -&gt; <strong><xsl:apply-templates mode="path" select="../../@id"/></strong>: "<xsl:value-of select="$fullpath"/>"</xsl:with-param></xsl:call-template>
 			</xsl:when>
 		</xsl:choose>
 	</xsl:otherwise>
 </xsl:choose>
-<xsl:if test="substring(.,string-length(.))='/'">
-		<xsl:call-template name="Warning"><xsl:with-param name="text"><code><xsl:value-of select="name()"/></code> path "<xsl:value-of select="."/>" should not end in /</xsl:with-param></xsl:call-template>
-</xsl:if>
-<xsl:if test="contains(.,'\')">
-		<xsl:call-template name="Error"><xsl:with-param name="text"><code><xsl:value-of select="name()"/></code> path "<xsl:value-of select="."/>" must use only forward slashes</xsl:with-param></xsl:call-template>
-</xsl:if>
 </xsl:template>
-
 
 <xsl:template match="SystemDefinition" mode="check-matches">
 	<xsl:param name="which"/>
