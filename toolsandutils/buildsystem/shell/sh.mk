@@ -113,5 +113,15 @@ define forceremove
 -$(ERASE) -f $(1)
 endef
 
+# Macro to execute a command if a file exists.
+define ifexistf
+if [ -f $(1) ]; then $(2); fi
+endef
+
+# Macro ensure path delimiters are the right sort.
+define normalise_path
+$(subst \,/,$(1))
+endef
+
 # Configuration needs to be returned as upper case for abld
 CONFIGURATION:=rel

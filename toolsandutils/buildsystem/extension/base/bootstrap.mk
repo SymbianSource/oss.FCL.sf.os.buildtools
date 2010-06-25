@@ -13,9 +13,14 @@
 # Description:
 #
 
-# To ensure that EPOCROOT always ends with a forward slash. 
+# To ensure that EPOCROOT always ends with a forward slash.
 TMPROOT:=$(subst \,/,$(EPOCROOT))
 EPOCROOT:=$(patsubst %/,%,$(TMPROOT))/
+
+HOST_PLATFORM := $(patsubst linux%,linux,$(HOSTPLATFORM_DIR))
+ifeq (linux,$(HOST_PLATFORM))
+INC_PATH := $(EPOCROOT)epoc32/include/platform
+endif
 
 ifndef CPU
 CPU := arm
@@ -75,6 +80,8 @@ ASMINCPATH := $(EXTRA_INC_PATH)
 endif
 
 ifeq "$(CPU)" "arm"
+
+ifdef ARMCC
 ASMINCPATH := . $(EPOCBLDABS) $(ASMINCPATH) $(EXTENSION_ROOT) $(EPOCCPUINC)
 ARMASM_OUT := $(shell armasm 2>&1)
 ARMASM_OUT_RVCT := $(wordlist 1,6,$(ARMASM_OUT))
@@ -93,6 +100,27 @@ endif
 ifeq "$(ARMASM_OUT_6)" "2.37"
         TOOLVER := 211
 endif
+endif
+
+ifdef GCCE
+TOOLVER := GCCE
+ifeq (linux,$(HOST_PLATFORM))
+EXE_SUFFIX :=
+else
+EXE_SUFFIX := .exe
+endif
+ifdef SBS_GCCE432BIN
+GCCEBIN := $(SBS_GCCE432BIN)
+else ifdef SBS_GCCE433BIN
+GCCEBIN := $(SBS_GCCE433BIN)
+else ifdef SBS_GCCE441BIN
+GCCEBIN := $(SBS_GCCE441BIN)
+endif
+GCCEASM := $(GCCEBIN)/arm-none-symbianelf-as$(EXE_SUFFIX)
+GCCELD := $(GCCEBIN)/arm-none-symbianelf-ld$(EXE_SUFFIX)
+GCCESTRIP := $(GCCEBIN)/arm-none-symbianelf-strip$(EXE_SUFFIX)
+endif
+
 endif
 
 ifeq "$(MEMMODEL)" "direct"
@@ -242,6 +270,42 @@ ifeq "$(CPU)" "arm"
                         $(ERASE) $(call slash2generic,$(TEMPTRG)) 
                 endef
         endif
+        ifeq "$(TOOLVER)" "GCCE"
+                ASM_MACROS += USE_CXSF GNU_ASM
+                ASM := $(GCCEASM)
+				ASM_LIST_OPTS := -acdhlms
+                LINK := $(GCCELD)
+                STRIP := $(GCCESTRIP)
+                SRCEXT := s
+                INCEXT := ginc
+                OBJEXT := o
+                EXEEXT := in
+                ASMINCPATHCMD := $(foreach dir,$(ASMINCPATH),$(join -I ,$(dir)))
+                ASM_MACRO_CMD := $(foreach macro,$(ASM_MACROS),--defsym $(macro)=1 )
+				AFLAGS := -g --keep-locals $(ASM_MACRO_CMD) $(ASMINCPATHCMD)
+				LFLAGS := --Ttext $(LINKBASE) --entry $(LINKBASE) --print-map
+                SYMOPT := -symdefs
+                ASMTYP := AS
+                PROCESS_INCLUDES := 1
+                ifndef LINKFILE
+                        LINKFILE := bootstrap.lnk
+                endif
+                define do_asm
+                        perl $(EPOCROOT)/epoc32/tools/armasm2as.pl $< $(join $(basename $@),.ss)
+                        $(ASM) $(AFLAGS) -o $@ $(ASM_LIST_OPTS)=$(join $(basename $@),.lst) $(join $(basename $@),.ss)
+                endef
+                define do_link
+                        $(call ifexistf,$(join $(basename $@),.lnk),$(ERASE) $(call slash2generic,$(join $(basename $@),.lnk)) )
+                        $(COPY) $(call normalise_path,$(filter %.lnk,$^)) $(join $(basename $@),.lnk)
+                        $(LINK) $(LFLAGS) $(SYMOPT)=$(join $(basename $@),.sym) -o $@ $(filter %.$(OBJEXT),$^)
+                        $(COPY) $@ $(join $(basename $(TRG)),.sym)
+                endef
+                define do_strip
+                        $(STRIP) -O binary -o $(TEMPTRG) $<
+                        $(COPY) $(TEMPTRG) $@
+                        $(ERASE) $(call slash2generic,$(TEMPTRG)) 
+                endef
+        endif
 endif
 
 
@@ -298,7 +362,7 @@ vpath %.$(OBJEXT) $(EPOCBLDABS)
 vpath %.lnk . $(EXTENSION_ROOT) $(EPOCCPUINC)
 
 # How to link the object files 
-$(EPOCBLDABS)/$(NAME).$(EXEEXT): $(LINKOBJECTS) $(LINKFILE) $(call pipe,$(EPOCBLDABS)) 
+$(EPOCBLDABS)/$(NAME).$(EXEEXT): $(LINKOBJECTS) $(LINKFILE) $(call pipe,$(EPOCBLDABS))
 	$(do_link)
 
 # How to strip linked object to binary
@@ -314,7 +378,7 @@ $(FULLBASEINCLUDES) : $(EPOCBLDABS)/%.$(INCEXT) : %.inc $(call pipe,$(EPOCBLDABS
 	perl $(EPOCROOT)epoc32/tools/armasm2as.pl $< $@
 
 $(FULLINCLUDES) : $(EPOCBLDABS)/%.$(INCEXT) : %.inc $(call pipe,$(EPOCBLDABS))
-	perl $(EPOCROOT)epoc32/tools/armasm2as.pl $< $@
+	perl $(EPOCROOT)/epoc32/tools/armasm2as.pl $< $(EPOCBLDABS)/$(notdir $@)
 
 $(FULLBASEOBJECTS) : $(EPOCBLDABS)/%.$(OBJEXT) : %.$(SRCEXT) $(FULLINCLUDES) $(FULLBASEINCLUDES) $(FULLGENINCLUDES) $(call pipe,$(EPOCBLDABS))
 	$(do_asm)
