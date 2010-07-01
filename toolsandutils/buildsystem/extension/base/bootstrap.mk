@@ -109,12 +109,12 @@ EXE_SUFFIX :=
 else
 EXE_SUFFIX := .exe
 endif
-ifdef SBS_GCCE432BIN
-GCCEBIN := $(SBS_GCCE432BIN)
+ifdef SBS_GCCE441BIN
+GCCEBIN := $(SBS_GCCE441BIN)
 else ifdef SBS_GCCE433BIN
 GCCEBIN := $(SBS_GCCE433BIN)
-else ifdef SBS_GCCE441BIN
-GCCEBIN := $(SBS_GCCE441BIN)
+else ifdef SBS_GCCE432BIN
+GCCEBIN := $(SBS_GCCE432BIN)
 endif
 GCCEASM := $(GCCEBIN)/arm-none-symbianelf-as$(EXE_SUFFIX)
 GCCELD := $(GCCEBIN)/arm-none-symbianelf-ld$(EXE_SUFFIX)
@@ -337,7 +337,7 @@ ifndef BASEINCLUDES
 BASEINCLUDES := bootcpu.inc bootmacro.inc
 endif
 BASEINCLUDES := $(foreach f,$(BASEINCLUDES),$(basename $(f)).$(INCEXT))
-INCLUDES := $(foreach f,$(INCLUDES),$(basename $(f)).$(INCEXT))
+INCLUDES := $(foreach f,$(INCLUDES),$(basename $(notdir $(f))).$(INCEXT))
 
 # Generic object files
 BASEOBJECTS = $(foreach src, $(BASESOURCES), $(basename $(src)).$(OBJEXT))
@@ -378,7 +378,7 @@ $(FULLBASEINCLUDES) : $(EPOCBLDABS)/%.$(INCEXT) : %.inc $(call pipe,$(EPOCBLDABS
 	perl $(EPOCROOT)epoc32/tools/armasm2as.pl $< $@
 
 $(FULLINCLUDES) : $(EPOCBLDABS)/%.$(INCEXT) : %.inc $(call pipe,$(EPOCBLDABS))
-	perl $(EPOCROOT)/epoc32/tools/armasm2as.pl $< $(EPOCBLDABS)/$(notdir $@)
+	perl $(EPOCROOT)/epoc32/tools/armasm2as.pl $< $@
 
 $(FULLBASEOBJECTS) : $(EPOCBLDABS)/%.$(OBJEXT) : %.$(SRCEXT) $(FULLINCLUDES) $(FULLBASEINCLUDES) $(FULLGENINCLUDES) $(call pipe,$(EPOCBLDABS))
 	$(do_asm)
