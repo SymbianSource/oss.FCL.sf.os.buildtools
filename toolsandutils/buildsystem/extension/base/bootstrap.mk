@@ -104,6 +104,7 @@ endif
 
 ifdef GCCE
 TOOLVER := GCCE
+ASMINCPATH := . $(EPOCBLDABS) $(ASMINCPATH) $(EXTENSION_ROOT) $(EPOCCPUINC)
 ifeq (linux,$(HOST_PLATFORM))
 EXE_SUFFIX :=
 else
@@ -283,8 +284,7 @@ ifeq "$(CPU)" "arm"
                 ASMINCPATHCMD := $(foreach dir,$(ASMINCPATH),$(join -I ,$(dir)))
                 ASM_MACRO_CMD := $(foreach macro,$(ASM_MACROS),--defsym $(macro)=1 )
 				AFLAGS := -g --keep-locals $(ASM_MACRO_CMD) $(ASMINCPATHCMD)
-				LFLAGS := --Ttext $(LINKBASE) --entry $(LINKBASE) --print-map
-                SYMOPT := -symdefs
+				LFLAGS := -Ttext $(LINKBASE) --entry $(LINKBASE) --print-map
                 ASMTYP := AS
                 PROCESS_INCLUDES := 1
                 ifndef LINKFILE
@@ -297,7 +297,7 @@ ifeq "$(CPU)" "arm"
                 define do_link
                         $(call ifexistf,$(join $(basename $@),.lnk),$(ERASE) $(call slash2generic,$(join $(basename $@),.lnk)) )
                         $(COPY) $(call normalise_path,$(filter %.lnk,$^)) $(join $(basename $@),.lnk)
-                        $(LINK) $(LFLAGS) $(SYMOPT)=$(join $(basename $@),.sym) -o $@ $(filter %.$(OBJEXT),$^)
+                        $(LINK) $(LFLAGS) -o $@ $(filter %.$(OBJEXT),$^)
                         $(COPY) $@ $(join $(basename $(TRG)),.sym)
                 endef
                 define do_strip
