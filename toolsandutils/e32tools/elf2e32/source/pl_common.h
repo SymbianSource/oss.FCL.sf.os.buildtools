@@ -27,7 +27,7 @@
 	#pragma warning(disable: 4710) // function not inlined
 #endif
 
-#include <tools/elfdefs.h>
+#include "elfdefs.h"
 
 typedef unsigned long	PLULONG;
 typedef unsigned int	PLUINT32;

@@ -23,7 +23,7 @@
 #include "pl_elfrelocation.h"
 #include "pl_elfrelocations.h"
 #include "e32imagedefs.h"
-#include <tools/elfdefs.h>
+#include "elfdefs.h"
 
 #include <fstream>
 #include <vector>

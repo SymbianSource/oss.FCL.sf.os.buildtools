@@ -20,7 +20,7 @@
 #if !defined(_PL_DLLSYMBOL_H_)
 #define _PL_DLLSYMBOL_H_
 
-#include <tools/elfdefs.h>
+#include "elfdefs.h"
 #include "pl_symbol.h"
 
 /**

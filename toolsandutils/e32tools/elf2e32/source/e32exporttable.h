@@ -20,7 +20,7 @@
 #ifndef __E32EXPORTTABLE__
 #define __E32EXPORTTABLE__
 
-#include <tools/elfdefs.h>
+#include "elfdefs.h"
 
 #include "pl_elfexports.h"
 

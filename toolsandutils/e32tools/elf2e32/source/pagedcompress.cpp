@@ -270,26 +270,32 @@ int  CBytePairCompressedImage::GetPage(TUint16 aPageNum, TUint8 * aPageData)
 }
 
 
-void CompressPages(TUint8* bytes, TInt size, std::ofstream& os)
+void CompressPages(TUint8 * bytes, TInt size, std::ofstream& os)
 {
 	// Build a list of compressed pages
-	TUint16 numOfPages = (TUint16) ((size + PAGE_SIZE - 1) / PAGE_SIZE);
+	TUint16 numOfPages = (TUint16) (size / PAGE_SIZE);
+	if ( size % PAGE_SIZE > 0)
+		++numOfPages;
 	
-	CBytePairCompressedImage* comprImage = CBytePairCompressedImage::NewLC(numOfPages, size);
-	if (!comprImage)
+	CBytePairCompressedImage *comprImage = CBytePairCompressedImage::NewLC(numOfPages, size);
+	if( NULL == comprImage)
 	{
 		//Print(EError," NULL == comprImage\n");
 		return;
 	}
 	
-	TUint pageNum;
-	TUint remain = (TUint)size;
-	for (pageNum=0; pageNum<numOfPages; ++pageNum)
+	TUint8* iPageStart;
+	TUint16 iPageLen;
+	TUint16 iPage = 0;
+	
+	while(iPage * PAGE_SIZE <= size )
 	{
-		TUint8* pageStart = bytes + pageNum * PAGE_SIZE;
-		TUint pageLen = remain>PAGE_SIZE ? PAGE_SIZE : remain;
-		comprImage->AddPage((TUint16)pageNum, pageStart, (TUint16)pageLen);
-		remain -= pageLen;
+		iPageStart = &bytes[iPage * PAGE_SIZE];
+		iPageLen = (TUint16)( (iPage + 1) * PAGE_SIZE < size ? PAGE_SIZE : size - iPage * PAGE_SIZE);
+		
+		comprImage->AddPage(iPage, iPageStart, iPageLen);
+
+		++iPage;
 	}
 	
 	// Write out index table and compressed pages
@@ -300,7 +306,6 @@ void CompressPages(TUint8* bytes, TInt size, std::ofstream& os)
 	comprImage = NULL;
 	
 }
-
 
 int DecompressPages(TUint8 * bytes, std::ifstream& is)
 {

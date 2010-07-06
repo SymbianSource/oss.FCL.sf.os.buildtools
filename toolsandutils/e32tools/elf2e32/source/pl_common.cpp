@@ -17,7 +17,7 @@
 // 
 //
 
-#include <tools/elfdefs.h>
+#include "elfdefs.h"
 #include "pl_common.h"
 
 
