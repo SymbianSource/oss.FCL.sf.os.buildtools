@@ -46,6 +46,8 @@ bin2coff
 seclib
 secdump
 petran
+#else
+../elf2e32/group/elf2e32.mmp
 #endif
 
 PRJ_TESTMMPFILES
