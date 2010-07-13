@@ -37,6 +37,10 @@ PRJ_EXPORTS
 ../binutils/scpp.exe			/epoc32/tools/scpp.exe
 ../genutil/listzip.pl			/epoc32/tools/listzip.pl
 
+// Bootstrap e32toolp via an extention makefile which calls setupprj.bat
+../../../toolsandutils/buildsystem/extension/tools/abld_update.meta 	/epoc32/tools/makefile_templates/tools/abld_update.meta
+../../../toolsandutils/buildsystem/extension/tools/abld_update.mk 		/epoc32/tools/makefile_templates/tools/abld_update.mk
+
 ../../../toolsandutils/buildsystem/extension/app-services/buildstubsis.meta 		/epoc32/tools/makefile_templates/app-services/buildstubsis.meta
 ../../../toolsandutils/buildsystem/extension/app-services/buildstubsis.mk 		/epoc32/tools/makefile_templates/app-services/buildstubsis.mk
 ../../../toolsandutils/buildsystem/extension/app-services/buildupgradesis.meta 		/epoc32/tools/makefile_templates/app-services/buildupgradesis.meta
@@ -47,8 +51,6 @@ PRJ_EXPORTS
 ../../../toolsandutils/buildsystem/extension/application-protocols/buildstubsis.mk 	/epoc32/tools/makefile_templates/application-protocols/buildstubsis.mk
 ../../../toolsandutils/buildsystem/extension/base/bootstrap.meta 	/epoc32/tools/makefile_templates/base/bootstrap.meta
 ../../../toolsandutils/buildsystem/extension/base/bootstrap.mk 		/epoc32/tools/makefile_templates/base/bootstrap.mk
-../../../toolsandutils/buildsystem/extension/base/bootstrap.flm 	/epoc32/tools/makefile_templates/base/bootstrap.flm
-../../../toolsandutils/buildsystem/extension/base/bootstrap.xml 	/epoc32/tools/makefile_templates/base/bootstrap.xml
 ../../../toolsandutils/buildsystem/extension/base/config.meta 		/epoc32/tools/makefile_templates/base/config.meta
 ../../../toolsandutils/buildsystem/extension/base/config.mk 		/epoc32/tools/makefile_templates/base/config.mk
 ../../../toolsandutils/buildsystem/extension/base/copy_default.meta 	/epoc32/tools/makefile_templates/base/copy_default.meta

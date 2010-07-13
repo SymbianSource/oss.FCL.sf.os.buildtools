@@ -32,6 +32,9 @@ sub main(@)
     _print_err_and_die("$prefix is not a directory.") unless -d $prefix;
     _print_err_and_die("$zipf doesn't exist.") unless -f $zipf;
 
+    $prefix =~ s/\/\//\//g;    # SBS provides "Q://", so reduce the doubling
+    $prefix =~ s/\/$//;        # remove trailing /, if any
+		
     my @raw_data = qx/unzip -l $zipf/;
 
     for (@raw_data)
