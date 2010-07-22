@@ -54,8 +54,6 @@ REM EPOCBASE.IBY Basic OS Support
 
 #include <network.iby>
 
-#include <rtp.iby>              /* Multimedia Protocols(RTP) component */
-
 #include <stdlib.iby>        /* Standard C Library */
 
 #include <securitycommonutils.iby>
@@ -81,27 +79,7 @@ REM EPOCBASE.IBY Basic OS Support
 
 #endif // SYMBIAN_SYSTEM_STATE_MANAGEMENT
 
-#ifndef SYMBIAN_EXCLUDE_SIP  //sip components can be removed from build by defining this macro
-
-
-#include <sipsw.iby>		/* Multimedia Protocols(SIP) component */
-#include <siph2lanbearermonitor.iby>	/* Multimedia Protocols(SIP) component */
-#include <SipStateMachine.iby>	/* Multimedia Protocols(SIP) component */
-#include <SIPDummyPRT.iby>      /* Multimedia Protocols(SIP) component */
-
-#ifndef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
-
-#include <SIPCPR.iby>           /* Multimedia Protocols(SIP) component */
-#include <SIPParams.iby>        /* Multimedia Protocols(SIP) component */
-#include <SIPSCPR.iby>          /* Multimedia Protocols(SIP) component */
-
-#else
-
-#include <sipproviders.iby>     /* Multimedia Protocols(SIP) component */
-
-#endif  // SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
-
-#endif  // SYMBIAN_EXCLUDE_SIP   
+  
 
 #include <openenv.iby>
 #include <ezlib.iby>

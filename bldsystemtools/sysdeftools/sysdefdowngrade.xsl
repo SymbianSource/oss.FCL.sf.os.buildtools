@@ -106,6 +106,7 @@
 		<xsl:choose>
 			<xsl:when test="@href">
 				<xsl:variable name="this" select="."/>
+				<xsl:variable name="prefixmap" select="ancestor::SystemDefinition/*/meta[@rel='link-mapping']/map-prefix[starts-with(current()/@href,@link)]"/>
 				<xsl:for-each select="document(@href,.)/SystemDefinition/*">
 					<xsl:variable name="my-id"><xsl:apply-templates mode="normalize-id" select="@id"/></xsl:variable>
 					<xsl:variable name="other-id"><xsl:apply-templates mode="normalize-id" select="$this/@id"/></xsl:variable>
@@ -124,9 +125,31 @@
 					</xsl:for-each>
 					<xsl:apply-templates select="*|comment()">
 	  					<xsl:with-param name="path">
-	  						<xsl:call-template name="normpath">
-	  							<xsl:with-param name="path" select="concat($path,'/',$this/@href)"/>
-	  						</xsl:call-template>
+							<xsl:choose>
+								<xsl:when test="$prefixmap">
+	  								<xsl:call-template name="normpath">
+	  									<xsl:with-param name="path">
+										<xsl:apply-templates select="$prefixmap/@to"/>
+										<xsl:value-of select="substring-after($this/@href,$prefixmap/@link)"/>
+									 </xsl:with-param>
+	  								</xsl:call-template>
+								</xsl:when>
+								<xsl:when test="starts-with($this/@href,'/')">  <!-- absolute path -->
+	  								<xsl:call-template name="normpath">
+	  									<xsl:with-param name="path" select="$this/@href"/>
+	  								</xsl:call-template>
+								</xsl:when>
+								<xsl:when test="contains($this/@href,'://')">  <!-- generic URI -->
+	  								<xsl:call-template name="normpath">
+	  									<xsl:with-param name="path" select="substring-after($this/@href,'://')"/>
+	  								</xsl:call-template>
+								</xsl:when>
+								<xsl:otherwise>
+	  								<xsl:call-template name="normpath">
+	  									<xsl:with-param name="path" select="concat($path,'/',$this/@href)"/>
+	  								</xsl:call-template>
+								</xsl:otherwise>
+							</xsl:choose>
 	  					</xsl:with-param> 
 	  				</xsl:apply-templates>
 				</xsl:for-each>
@@ -211,7 +234,11 @@
 		<xsl:choose>
 			<xsl:when test="../@root">
 				<xsl:variable name="pre" select="substring-before(substring-after($root,concat(' ',../@root,'=')),' ')"/>
-				<xsl:if test="$pre!=''"><xsl:value-of select="concat($pre,'/')"/></xsl:if>
+				<xsl:value-of select="$pre"/>
+				<xsl:if test="$pre!='' and $pre!='/'">/</xsl:if>
+			</xsl:when>
+			<xsl:when test="$srcroot='/'"> <!-- treat all paths as absolute -->
+				<xsl:value-of select="$srcroot"/>
 			</xsl:when>
 			<xsl:when test="$srcroot!=''">
 				<xsl:value-of select="concat($srcroot,'/')"/>
@@ -240,6 +267,15 @@
 <xsl:template match="meta[info/@contract]"> <!-- except contract -->
 	<xsl:copy-of select="info/@contract"/>
 </xsl:template>
+
+
+<xsl:template match="meta[@rel='link-mapping']/map-prefix/@to">
+	<xsl:choose>
+		<xsl:when test="starts-with(.,'/')"><xsl:value-of select="substring(.,2)"/></xsl:when> <!-- absolute paths in 3.0 are relative in 2.0 -->
+		<xsl:otherwise><xsl:value-of select="."/></xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
 
 <xsl:template match="@id" mode="normalize-id">
 	<xsl:choose>

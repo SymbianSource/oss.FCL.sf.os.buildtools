@@ -1,3 +1,13 @@
+Version 2.1.16 (elf2e32)
+===============
+Made by Lorence Wang 29/04/2010
+  1. DEF145126 elf2e32 has compilation errors when buid with Gcc4.4 and STLport 5.2.1
+
+Version 2.2.1
+===============
+Made by Zheng Shen 02/03/2010
+  1. DEF144676 ELFTRAN'd give info in the illegal import of data message to allow debugging
+
 Version is unchanged
 ===============
 Made by Zheng Shen 24/08/2009

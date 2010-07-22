@@ -12,14 +12,25 @@
 	Contributors:
 	Description:
 	Filter a sysdef in the 2.0 or 3.0 syntax
+	The functionality of these filters is not supported outside of this tool. 
+	The filtering concepts here may not be carried forward in future system definition processing tools
 -->
 <xsl:output method="xml" indent="yes"/>
 
 <xsl:param name="filter-type">only</xsl:param> <!-- only, has or with -->
 
-<xsl:param name="filter"/> <!-- comma-separated list -->
+<!--
+"only" = every component/unit can only have zero or more of these specified filters. ie, it can only have filters from this list, no other filters are allowed. This covers the common use case of "I want anything with gt and or techview, but no other filters" that was the first step in all old symbian.com builds. 
 
-<xsl:param name="addbuild" select="0"/> <!-- add a system build section that accepts everything -->
+"has" =  every component/unit must have all of these filters. ie it can have any other filters, but all specified filters must all be present. This covers the case where filter="test" identifies tests and there is no special filter to identify things that are not tests. So a filter for "!test" will strip out anything with filter="test" (plus any other filters) for a production build, and a filter of "test" will strip out everything that does not have filter="test" (plus any other filters) for a test build. Opposite filters will generate sets that are exactly opposite to each other.
+
+"with" =  components/units that have the opposite filter are removed. This covers the old symbian.com case of java, !java and "don't care" components. In other words we have a global feature that every item can be built only when the feature is set, only when the feature is not set, or it does not care and will always be built. So for a !java build only items containing filter="java" are stripped out. For a java build, only items with filter="!java" are stripped out. Anything which does not explicitly mention java are always unaffected. Opposite filters will generate sets which overlap.
+-->
+
+
+<xsl:param name="filter"/> <!-- comma-separated list of filters-->
+
+<xsl:param name="addbuild" select="0"/> <!-- add a system build section that accepts everything. Needed for genxml processing -->
 
 
 <xsl:template match="node()|@*"><xsl:copy-of select="."/></xsl:template>

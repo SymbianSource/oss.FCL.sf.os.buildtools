@@ -255,6 +255,7 @@
 <feature name="FfContactsMerge" statusflags="0x00000001" uid ="0x0000010c"></feature>
 <feature name="S60MtpController" statusflags="0x00000001" uid ="0x00000110"></feature>
 <feature name="FfContactsSocial" statusflags="0x00000001" uid ="0x00000111"></feature>
+<feature name="FfContactsCompanyNames" statusflags="0x00000001" uid="0x000000ec"></feature>
 <feature name="MpegAacEncoding" statusflags="0x00000001" uid ="0x0000011a"></feature>
 <feature name="UseAmrNbCMMFCodec" statusflags="0x00000001" uid ="0x0000011c"></feature>
 <feature name="UseAmrWbCMMFCodec" statusflags="0x00000001" uid ="0x0000011d"></feature>
