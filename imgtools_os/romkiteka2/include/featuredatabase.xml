@@ -493,6 +493,8 @@
 <feature name="ProductIncludesHomeScreenEasyDialing" statusflags="0x00000001" uid ="0x000013dd"></feature>
 <feature name="HlpClearKey" statusflags="0x00000001" uid ="0x00002af8"></feature>
 <feature name="HlpMsk" statusflags="0x00000001" uid ="0x00002afb"></feature>
+<feature name="FeatureIdFfHttpAllowUntrustedCertificates" statusflags="0x00000001" uid ="0x0000069d"></feature>
+<feature name="FeatureIdFfIpsecUmaSupportEnable" statusflags="0x00000001" uid ="0x0000069f"></feature>
 	</featureset>
 	
 	<defaultfeaturerange higheruid="0x10281805" loweruid="0x10279806"></defaultfeaturerange>
