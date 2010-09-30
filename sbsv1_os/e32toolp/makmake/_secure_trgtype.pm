@@ -26,7 +26,6 @@ require Exporter;
 	Trg_List
 );
 
-use strict;
 use Genutl;
 
 my %Types=(

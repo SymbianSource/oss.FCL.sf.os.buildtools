@@ -48,7 +48,6 @@ require Exporter;
 	Winutl_CheckSourceMMPMetaData
 );
 
-use strict;
 use Genutl;
 use E32Variant;
 use CheckSource;

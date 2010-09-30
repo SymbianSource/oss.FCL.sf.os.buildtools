@@ -274,7 +274,7 @@ sub PMStartBldList($) {
 
 	foreach (@BldList) {
 		&main::Output(
-			"CW$_ = perl -w -S err_formatter.pl \$(COMPILER_PATH)$MWCC -msgstyle parseable "
+			"CW$_ = perl -S err_formatter.pl \$(COMPILER_PATH)$MWCC -msgstyle parseable "
 		);
 		if (/DEB$/o) {
 
@@ -423,7 +423,7 @@ sub PMStartBldList($) {
 					"\n",
 					&Generic_Quote("\$(EPOCLIB)\\UDEB\\$ExportLibrary.lib"), " : ",
 					&Generic_Quote($DefFile), "\n",
-					"\tperl -w -S prepdef.pl ",&Generic_Quote($DefFile)," \"\$(EPOCBLD)\\$ExportLibrary.prep.def\"\n",
+					"\tperl -S prepdef.pl ",&Generic_Quote($DefFile)," \"\$(EPOCBLD)\\$ExportLibrary.prep.def\"\n",
 					"\t\$(COMPILER_PATH)$MWLD -msgstyle gcc \"\$(EPOCBLD)\\$ExportLibrary.prep.def\" -importlib -o \$\@",
 					" -addcommand \"out:$LibLinkAs\" -warnings off",
 					"\n"
@@ -451,7 +451,7 @@ sub PMStartBldList($) {
 	if ($DefFile and $BasicTrgType!~/^IMPLIB$/io) {
 		&main::Output(
 #			call perl on the script here so nmake will die if there are errors - this doesn't happen if calling perl in a batch file
-			"\tperl -w -S efreeze.pl \$(EFREEZE_ALLOW_REMOVE) \"$DefFile\" \"\$(EPOCBLD)\\$ExportLibrary.def\" \n"
+			"\tperl -S efreeze.pl \$(EFREEZE_ALLOW_REMOVE) \"$DefFile\" \"\$(EPOCBLD)\\$ExportLibrary.def\" \n"
 		);
 	}
 	&main::Output(
@@ -683,7 +683,7 @@ sub PMBld {
 		"CLEAN$Bld : CLEANBUILD$Bld CLEANRELEASE$Bld\n",
 		"\n",
 		"CLEANBUILD$Bld : \n",
-		"\t\@perl -w -S ermdir.pl \"\$(EPOCBLD$Bld)\"\n",
+		"\t\@perl -S ermdir.pl \"\$(EPOCBLD$Bld)\"\n",
 		"\n",
 		"CLEANRELEASE$Bld : CLEANGENERIC\n",
 		"\n"
@@ -967,7 +967,7 @@ sub PMBld {
 #		call makedef to reorder the export information
 		&main::Output(
 #			call perl on the script here so nmake will die if there are errors - this doesn't happen if calling perl in a batch file
-			"\tperl -w -S makedef.pl $AbsentSubst -Inffile \"\$(EPOCBLD$Bld)\\$ExportLibrary.inf\""
+			"\tperl -S makedef.pl $AbsentSubst -Inffile \"\$(EPOCBLD$Bld)\\$ExportLibrary.inf\""
 		);
 		if (SysTrg()) {
     			&main::Output( "\t\t-SystemTargetType \\\n" );

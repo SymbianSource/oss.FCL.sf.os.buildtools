@@ -17,8 +17,6 @@
 # 
 #
 
-use strict;
-
 use FindBin;		# for FindBin::Bin
 use Getopt::Long;
 
@@ -1312,7 +1310,7 @@ sub CreatePerlBat ($) {
 		"REM ** DO NOT EDIT **", 
 		"\n",
 		"\n",
-		"perl -w -S ABLD.PL \"${BldInfPath}\\\" %1 %2 %3 %4 %5 %6 %7 %8 %9\n",
+		"perl -S abld.pl \"${BldInfPath}\\\" %1 %2 %3 %4 %5 %6 %7 %8 %9\n",
 		"if errorlevel==1 goto CheckPerl\n",
 		"goto End\n",
 		"\n",
@@ -1427,7 +1425,7 @@ sub CreateExportMak ($$$) {
 	foreach $dir (@$ExpDirsRef) {
 		&Output(
 			"$dir :\n",
-			    "\t\@perl -w -S emkdir.pl \"\$\@\"\n",
+			    "\t\@perl -S emkdir.pl \"\$\@\"\n",
 			"\n"
 		);
 	}
@@ -1711,7 +1709,7 @@ sub CreatePlatExports ($$) {
 	
     &Output("\n# Directories \n\n");  
 	&Output(join (" \\\n", @dirs)." :")       
-	&Output("\n\t\@perl -w -S emkdir.pl \$@\n\n");			
+	&Output("\n\t\@perl -S emkdir.pl \$@\n\n");			
 		   		
 }
 
@@ -1991,7 +1989,7 @@ sub CreatePlatMak ($$$$$$$$$;$) {
 			"\n",
 			"\n",
 			"STARTROMFILE :\n",
-			    "\t\@perl -w -S emkdir.pl \"", &Path_Chop($RomDir), "\"\n",
+			    "\t\@perl -S emkdir.pl \"", &Path_Chop($RomDir), "\"\n",
 			    "\t\@echo // $OutRomFile > $OutRomFile\n",
 			    "\t\@echo // >> $OutRomFile\n"
 		);
@@ -2094,7 +2092,7 @@ sub CreatePlatMak ($$$$$$$$$;$) {
 				"\n",
 				"\n",
 				"MAKEFILE$$Ref{Base} :\n",
-				    "\tperl -w -S makmake.pl \$(NO_DEPENDENCIES) -D $$Ref{Path}$$Ref{Base} $Plat$FeatureVariant $build_as_arm_arg $bld_flags $cmp_wrap_flag\n",
+				    "\tperl -S makmake.pl \$(NO_DEPENDENCIES) -D $$Ref{Path}$$Ref{Base} $Plat$FeatureVariant $build_as_arm_arg $bld_flags $cmp_wrap_flag\n",
 
 				"\n",
 				"CLEANMAKEFILE$$Ref{Base} :\n",
@@ -2119,7 +2117,7 @@ sub CreatePlatMak ($$$$$$$$$;$) {
 			foreach $Command (qw(CLEANALL)) {
 				&Output(
 					"CLEANALL$$Ref{Base} :\n",
-					"\tperl -w -S ermdir.pl $MakefilePath\n",
+					"\tperl -S ermdir.pl $MakefilePath\n",
 					"\n",
 				);
 			}

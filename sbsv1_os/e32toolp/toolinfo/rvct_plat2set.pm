@@ -39,7 +39,6 @@
 #
 
 package RVCT_plat2set;
-use strict;
 
 use RVCT_ver2set;
 

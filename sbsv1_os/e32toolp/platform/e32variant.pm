@@ -21,7 +21,6 @@ require Exporter;
 
 @EXPORT = qw(Variant_GetMacroList Variant_GetMacroHRHFile Variant_GetMacro);
 
-use strict;
 use Pathutl;
 
 # using $FindBin::Bin to figure out the location of the epoc32\tools directory as 

@@ -13,7 +13,6 @@
 # Description:
 #
 
-use strict;
 use Cwd;		# for cwd
 use File::Basename;	# for basename()
 use FindBin;		# for FindBin::Bin

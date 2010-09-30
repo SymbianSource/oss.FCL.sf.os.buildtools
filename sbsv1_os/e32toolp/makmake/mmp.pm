@@ -90,8 +90,6 @@ require Exporter;
 	Mmp_TestedMacros
 );
 
-use strict;
-
 use Genutl;
 use Prepfile;
 use Pathutl;

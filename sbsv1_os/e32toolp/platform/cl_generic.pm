@@ -38,7 +38,6 @@ require Exporter;
 	Generic_CleanTargets
 );
 
-use strict;
 use File::Basename;
 use lockit_info;
 use CheckSource;
@@ -333,7 +332,7 @@ sub Generic_CopyAction($) {
 	my ($target) = @_;
 	my $source = '$?';
 	$target = '$@' if (!defined $target);
-	return "perl -w -S ecopyfile.pl $source $target\n";
+	return "perl -S ecopyfile.pl $source $target\n";
 }
 
 # Record necessary directories, for eventual emkdir.pl rules
@@ -637,7 +636,7 @@ sub Generic_End {
 	}
 	&main::Output(
 		":\n",
-		"\tperl -w -S emkdir.pl \$\@\n",
+		"\tperl -S emkdir.pl \$\@\n",
 		"\n"
 	);
 
@@ -789,7 +788,7 @@ sub Generic_BitMapBld {
 	}
 	&main::Output(
 		"\n",
-		"\tperl -w -S epocmbm.pl -h\"$TmpBitMapHdr\"",
+		"\tperl -S epocmbm.pl -h\"$TmpBitMapHdr\"",
 		"\t-o\"$$BitMapRef{GenericTrg}\"",
 		"\t-l\"\\$$BitMapRef{TrgPath}:$WorkPath\"",
 		"\\\n\t\t"
@@ -814,7 +813,7 @@ sub Generic_BitMapBld {
 
 	if ($$BitMapRef{Hdr}) {
 		&main::Output(
-			"\tperl -w -S ecopyfile.pl \"$TmpBitMapHdr\" \"$BitMapHdr\"\n",
+			"\tperl -S ecopyfile.pl \"$TmpBitMapHdr\" \"$BitMapHdr\"\n",
 		);
 	}
 	&main::Output(
@@ -877,14 +876,14 @@ sub Generic_ResrcBld {
     if (defined $ENV{ABLD_TOOLSMOD_COMPATIBILITY_MODE} &&  ($ENV{ABLD_TOOLSMOD_COMPATIBILITY_MODE} eq 'alpha'))  {
 	if ($$ResourceRef{Hdr} || $$ResourceRef{Hdronly}) {
 		$HeaderOption = " -h\"$SavedBldPath\\$BaseResrc$$ResourceRef{Lang}.rsg\"";
-		$HeaderCopyCmd = "\tperl -w -S ecopyfile.pl \"$SavedBldPath\\$BaseResrc$$ResourceRef{Lang}.rsg\" \"$ResrcHdr\"\n";
+		$HeaderCopyCmd = "\tperl -S ecopyfile.pl \"$SavedBldPath\\$BaseResrc$$ResourceRef{Lang}.rsg\" \"$ResrcHdr\"\n";
 	}
 	
 	}
 	else {
 	if ($$ResourceRef{Hdr} || $$ResourceRef{Hdronly}) {
 		$HeaderOption = " -h\"$SavedBldPath\\$BaseResrc.rsg\"";
-		$HeaderCopyCmd = "\tperl -w -S ecopyfile.pl \"$SavedBldPath\\$BaseResrc.rsg\" \"$ResrcHdr\"\n";
+		$HeaderCopyCmd = "\tperl -S ecopyfile.pl \"$SavedBldPath\\$BaseResrc.rsg\" \"$ResrcHdr\"\n";
 	}
 	}
 	if (! $$ResourceRef{Hdronly}) {
@@ -912,7 +911,7 @@ sub Generic_ResrcBld {
 		"GENERIC_RESOURCE : $quotedTrg\n",
 		"\n",
 		"$quotedTrg : ", &Generic_Quote($AbsSrc), " \$(DEPEND)\n",
-		"\tperl -w -S epocrc.pl -m045,046,047 -I \"$ChopAbsSrcPath\""
+		"\tperl -S epocrc.pl -m045,046,047 -I \"$ChopAbsSrcPath\""
 	);
 	foreach (@ChopAbsUserIncPaths) {
 		&main::Output(
@@ -1043,7 +1042,7 @@ sub Generic_AifBld {
 	}
 	&main::Output(
 		"\n",
-		"\tperl -w -S epocaif.pl -o\$\@ ",
+		"\tperl -S epocaif.pl -o\$\@ ",
 		"\"$$AifRef{Source}\" ",
 		"\\\n\t\t",
 		"-t\"$SavedBldPath\" ",

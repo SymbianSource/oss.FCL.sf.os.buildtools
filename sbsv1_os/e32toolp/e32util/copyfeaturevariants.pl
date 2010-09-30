@@ -15,7 +15,6 @@
 # 
 #
 
-use strict;
 
 my $source = shift;
 my $target = shift;

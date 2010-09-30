@@ -15,8 +15,6 @@
 # 
 #
 
-use strict;
-
 use FindBin;		# for FindBin::Bin
 use Getopt::Long;
 

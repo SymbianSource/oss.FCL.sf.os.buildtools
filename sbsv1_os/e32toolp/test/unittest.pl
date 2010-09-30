@@ -16,7 +16,6 @@
 
 # run unit tests for e32toolp
 
-use strict;
 use Test::Harness;
 $Test::Harness::Verbose = 1;
 

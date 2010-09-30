@@ -17,7 +17,6 @@
 
 package CheckGcc;
 
-use strict;
 use Preprocessor;
 
 

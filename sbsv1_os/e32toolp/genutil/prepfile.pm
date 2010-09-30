@@ -25,8 +25,6 @@ require Exporter;
 	Prepfile_SetVerbose Prepfile_SetUpperCase Prepfile_ProcessL Prepfile_SetCmdOptions
 );
 
-use strict;
-
 use Checkgcc;
 use Pathutl;
 use Preprocessor;

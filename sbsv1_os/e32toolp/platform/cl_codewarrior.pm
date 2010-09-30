@@ -56,7 +56,6 @@ require Exporter;
 	PMEndSrcList
 );
 
-use strict;
 use Winutl;
 use cl_generic;
 use E32Variant;
@@ -518,7 +517,7 @@ sub PMStartBldList($) {
 	if ($DefFile and $BasicTrgType!~/^IMPLIB$/io) {
 		&main::Output(
 #			call perl on the script here so nmake will die if there are errors - this doesn't happen if calling perl in a batch file
-			"\tperl -w -S efreeze.pl \$(EFREEZE_ALLOW_REMOVE) \"$DefFile\" \"\$(EPOCBLD)\\$ExportLibrary.def\" \n"
+			"\tperl -S efreeze.pl \$(EFREEZE_ALLOW_REMOVE) \"$DefFile\" \"\$(EPOCBLD)\\$ExportLibrary.def\" \n"
 		);
 	}
 	else {
@@ -680,7 +679,7 @@ sub PMBld {
 		"CLEAN$Bld : CLEANBUILD$Bld CLEANRELEASE$Bld\n",
 		"\n",
 		"CLEANBUILD$Bld : \n",
-		"\t\@perl -w -S ermdir.pl \"\$(EPOCBLD$Bld)\"\n",
+		"\t\@perl -S ermdir.pl \"\$(EPOCBLD$Bld)\"\n",
 		"\n",
 		"CLEANRELEASE$Bld : CLEANGENERIC\n",
 		"\n"
@@ -1083,7 +1082,7 @@ sub PMBld {
 #		call makedef to reorder the export information
 		&main::Output(
 #			call perl on the script here so nmake will die if there are errors - this doesn't happen if calling perl in a batch file
-			"\tperl -w -S makedef.pl $AbsentSubst -Inffile \"\$(EPOCBLD$Bld)\\$ExportLibrary.inf\""
+			"\tperl -S makedef.pl $AbsentSubst -Inffile \"\$(EPOCBLD$Bld)\\$ExportLibrary.inf\""
 		);
 		if (SysTrg()) {
     			&main::Output( "\t\t-SystemTargetType \\\n" );

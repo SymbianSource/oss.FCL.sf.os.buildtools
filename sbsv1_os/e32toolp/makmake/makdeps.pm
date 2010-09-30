@@ -36,7 +36,6 @@ require Exporter;
 	Deps_SetOSVariantFile
 );
 
-use strict;
 use Checkgcc;
 use Pathutl;
 use Preprocessor;

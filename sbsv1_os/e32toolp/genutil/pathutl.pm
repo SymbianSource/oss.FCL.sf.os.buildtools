@@ -29,7 +29,6 @@ require Exporter;
 	Path_MakeEAbs Path_Quote Path_MakeRltToBase Path_Norm Path_PrefixWithDrive Path_PrefixWithDriveAndQuote
 );
 
-use strict;
 use Cwd;
 use File::Path;                # for mkpath
 

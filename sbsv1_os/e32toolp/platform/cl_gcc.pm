@@ -55,7 +55,6 @@ require Exporter;
 	PMEndSrcList
 );
 
-use strict;
 use cl_generic;
 use Genutl;
 
@@ -464,7 +463,7 @@ sub PMStartBldList($) {
 	if ($DefFile and $BasicTrgType!~/^IMPLIB$/io) {
 		&main::Output(
 #			call perl on the script here so nmake will die if there are errors - this doesn't happen if calling perl in a batch file
-			"\tperl -w -S efreeze.pl \$(EFREEZE_ALLOW_REMOVE) \"$DefFile\" \"\$(EPOCBLDP)\\$ExportLibrary.def\" \n"
+			"\tperl -S efreeze.pl \$(EFREEZE_ALLOW_REMOVE) \"$DefFile\" \"\$(EPOCBLDP)\\$ExportLibrary.def\" \n"
 		);
 	}
 	&main::Output(
@@ -576,7 +575,7 @@ sub PMBld {
 		"CLEAN$Bld : CLEANBUILD$Bld CLEANRELEASE$Bld\n",
 		"\n",
 		"CLEANBUILD$Bld : \n",
-		"\t\@perl -w -S ermdir.pl \"\$(EPOCBLDP$Bld)\"\n",
+		"\t\@perl -S ermdir.pl \"\$(EPOCBLDP$Bld)\"\n",
 		"\n",
 		"CLEANRELEASE$Bld : CLEANGENERIC\n",
 		"\n"
@@ -710,7 +709,7 @@ sub PMBld {
 #		reorder the .DEF file taking frozen exports into account if there are any
 		&main::Output(
 #			call perl on the script here so nmake will die if there are errors - this doesn't happen if calling perl in a batch file
-			"\tperl -w -S makedef.pl -Deffile \"\$(EPOCBLDP$Bld)\\$ExportLibrary.inf\"$AbsentSubst"
+			"\tperl -S makedef.pl -Deffile \"\$(EPOCBLDP$Bld)\\$ExportLibrary.inf\"$AbsentSubst"
 		);
 		if (SystemTarget()) {
     			&main::Output( "\t\t-SystemTargetType \\\n" );

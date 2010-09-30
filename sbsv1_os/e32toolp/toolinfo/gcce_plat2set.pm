@@ -21,8 +21,6 @@
 #
 
 package gcce_plat2set;
-use strict;
-
 
 # Returns the GCCE version corresponding to the given build platform. The first
 # function returns the data as a string (e.g. "4.2.3"); the second function

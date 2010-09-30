@@ -14,7 +14,6 @@
 # Description:
 #
 
-use strict;
 use File::Basename;
 
 if (@ARGV <2)

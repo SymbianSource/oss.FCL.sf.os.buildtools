@@ -18,7 +18,6 @@
 no strict 'vars';
 use English;
 # Standard Symbian boilerplate to find and load E32env library
-use strict;
 use FindBin;		# for FindBin::Bin
 use Getopt::Long;
 

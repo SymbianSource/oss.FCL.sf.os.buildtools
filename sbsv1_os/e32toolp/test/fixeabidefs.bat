@@ -27,7 +27,6 @@ goto endofperl
 #!perl
 #line 14
 
-use strict;
 use Getopt::Long;
 
 my $toolVersion = 1.0;

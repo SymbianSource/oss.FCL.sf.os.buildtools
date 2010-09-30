@@ -54,7 +54,6 @@ require Exporter;
 );
 
 require Cl_bpabi;
-use strict;
 use BPABIutl;
 use E32Variant;
 use E32Plat; 
@@ -2198,7 +2197,7 @@ sub PMBld() {
 			$linkCommand = 'mwldsym2.exe -S -show only,'.$show_options.' -o "${target.data}\\'.$tempFilenameRoot.'.inf" "${target.data}\\${var:IMPORT_LIBRARY}"';
 			addLinkDescriptorCommand ($linkCommand);
 
-			$linkCommand = 'perl.exe -w -S makedef.pl '.$AbsentSubst.' -Inffile "${target.data}\\'.$tempFilenameRoot.'.inf"';
+			$linkCommand = 'perl.exe -S makedef.pl '.$AbsentSubst.' -Inffile "${target.data}\\'.$tempFilenameRoot.'.inf"';
 			if (-e $DefFile)
 				{
 				$linkCommand .= ' -Frzfile "'.$DefFile.'"';

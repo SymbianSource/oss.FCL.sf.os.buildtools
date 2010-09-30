@@ -25,7 +25,6 @@ require Exporter;
 	Def_ReadFileL Def_WriteFileL
 );
 
-use strict;
 use File::Path;
 use File::Basename;
 

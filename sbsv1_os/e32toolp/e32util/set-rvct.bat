@@ -27,7 +27,6 @@ goto endofperl
 @rem ';
 #!perl
 #line 15
-use strict;
 use FindBin;
 
 my $SELF_NAME = "set-rvct";

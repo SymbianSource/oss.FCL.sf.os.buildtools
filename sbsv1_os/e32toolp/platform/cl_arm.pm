@@ -75,7 +75,6 @@ use RVCT_plat2set;
 use cl_generic;
 use E32env;
 use Genutl;
-use strict;
 
 use constant NOCOMPRESSIONMETHOD => 0;
 use constant INFLATECOMPRESSIONMETHOD => 1;
@@ -460,7 +459,7 @@ sub PMStartBldList($) {
 	my $InterWorking = ($ABI eq 'ARMV4') ? "" : "--inter";
 
 	$Archive=$ToolPrefix.'armar';
-	$Link=$ToolPrefix."armlink ${oP}diag_suppress 6331,6780 ";
+	$Link=$ToolPrefix."armlink ${oP}diag_suppress 6331,6780,6319 --keep *(.init) --keep *(.fini) --keep *(.init_array) --keep *(.fini_array)";
 	$Objcopy=$ToolPrefix.'objcopy';
 
 	&Generic_Header(0,$Makecmd);	# define standard things using absolute paths

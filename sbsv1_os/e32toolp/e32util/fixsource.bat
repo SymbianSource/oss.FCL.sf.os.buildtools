@@ -28,7 +28,6 @@ goto endofperl
 #line 14
 
 
-use strict;
 use Getopt::Long;
 use File::Spec;
 use File::Copy;

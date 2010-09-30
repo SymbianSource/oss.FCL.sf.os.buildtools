@@ -27,7 +27,6 @@ require Exporter;
 	Load_ModuleL
 );
 
-use strict;
 
 use Pathutl;
 

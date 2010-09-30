@@ -12,11 +12,23 @@
 //
 // Description:
 //
+//      ******* IMPORTANT CHANGE TO THE CONTENTS OF THIS FILE (2010/07/27) ******* 
+// 
+//      Some of the content of this file has been moved to another bld.inf. 
+// 			  (this is in response to http://developer.symbian.org/bugs/show_bug.cgi?id=151) 
+//      The other bld.inf is #included here so the build behaviour remains the same. 
+//      If you were planning to edit the "buildsystem" exports, e.g. 
+//                  TEMPLATE EXTENSION MAKEFILES FOR ABLD 
+//      ...then you now need to go to the following bld.inf to make the change. 
+//  
+//      **** END OF IMPORTANT CHANGE TO THE CONTENTS OF THIS FILE (2010/07/27) **** 
 
 PRJ_PLATFORMS
 TOOLS2
 
 PRJ_EXPORTS
+
+// sbsv2
 
 ../e32util/defutl.pm 			/epoc32/tools/Defutl.pm
 ../e32util/e32tpver.pm 			/epoc32/tools/E32tpver.pm
@@ -131,9 +143,129 @@ PRJ_EXPORTS
 ../../../toolsandutils/buildsystem/shell/cmd.mk 				/epoc32/tools/shell/cmd.mk
 ../../../toolsandutils/buildsystem/shell/generic.mk 			/epoc32/tools/shell/generic.mk
 ../../../toolsandutils/buildsystem/shell/sh.mk				/epoc32/tools/shell/sh.mk
+../../../toolsandutils/buildsystem/extension/tools/bldex.meta			/epoc32/tools/makefile_templates/tools/bldex.meta
+../../../toolsandutils/buildsystem/extension/tools/bldex.mk			/epoc32/tools/makefile_templates/tools/bldex.mk
+../../../toolsandutils/buildsystem/extension/tools/jni_ant_launch.meta			/epoc32/tools/makefile_templates/tools/jni_ant_launch.meta
+../../../toolsandutils/buildsystem/extension/tools/jni_ant_launch.mk			/epoc32/tools/makefile_templates/tools/jni_ant_launch.mk
+../../../toolsandutils/buildsystem/extension/tools/py2exe.meta			/epoc32/tools/makefile_templates/tools/py2exe.meta
+../../../toolsandutils/buildsystem/extension/tools/py2exe.mk			/epoc32/tools/makefile_templates/tools/py2exe.mk
+../../../toolsandutils/buildsystem/extension/tools/raptor_linux_dist.meta			/epoc32/tools/makefile_templates/tools/raptor_linux_dist.meta
+../../../toolsandutils/buildsystem/extension/tools/raptor_linux_dist.mk			/epoc32/tools/makefile_templates/tools/raptor_linux_dist.mk
+../../../toolsandutils/buildsystem/extension/tools/ant_launch.meta			/epoc32/tools/makefile_templates/tools/ant_launch.meta
+../../../toolsandutils/buildsystem/extension/tools/ant_launch.mk			/epoc32/tools/makefile_templates/tools/ant_launch.mk
+../../../toolsandutils/buildsystem/bin/java/symbianant.jar			/epoc32/tools/java/symbianant.jar
+// SBSv1
 
+../bldmake/abld.pl       /epoc32/tools/abld.pl
+../bldmake/bldmake.bat   /epoc32/tools/bldmake.bat
+../bldmake/bldmake.pl    /epoc32/tools/bldmake.pl
+../bldmake/linkdeps.pl   /epoc32/tools/linkdeps.pl
+../bldmake/metabld.bat   /epoc32/tools/metabld.bat
+../bldmake/metabld.pl    /epoc32/tools/metabld.pl
+../bldmake/wrappermakefile.pm    /epoc32/tools/wrappermakefile.pm
 
-PRJ_TESTEXPORTS
+../e32util/_secure_e32env.pm        /epoc32/tools/E32env.pm
+../e32util/armasm2as.pl             /epoc32/tools/armasm2as.pl
+../e32util/checkgcc.pm              /epoc32/tools/Checkgcc.pm
+../e32util/checksource.pl           /epoc32/tools/CheckSource.pm
+../e32util/checksource.pm           /epoc32/tools/Checksource.pm
+../e32util/copyfeaturevariants.pl   /epoc32/tools/copyfeaturevariants.pl
+../e32util/deletefeaturevariants.pl /epoc32/tools/deletefeaturevariants.pl
+../e32util/efreeze.bat              /epoc32/tools/efreeze.bat
+../e32util/epocaif.pl               /epoc32/tools/epocaif.pl
+../e32util/epocmbm.pl               /epoc32/tools/epocmbm.pl
+../e32util/epocrc.bat               /epoc32/tools/epocrc.bat
+../e32util/epocrc.pl                /epoc32/tools/epocrc.pl
+../e32util/featurevariantmap.pm     /epoc32/tools/featurevariantmap.pm
+../e32util/featurevariantparser.pm  /epoc32/tools/featurevariantparser.pm
+../e32util/fixsource.bat            /epoc32/tools/fixsource.bat
+../e32util/genshimsrc.bat           /epoc32/tools/genshimsrc.bat
+../e32util/listfeaturevariants.pl   /epoc32/tools/listfeaturevariants.pl
+../e32util/preprocessor.pm          /epoc32/tools/Preprocessor.pm
+../e32util/selectbootmak.pl         /epoc32/tools/selectbootmak.pl
+
+../genutil/conv_khronos_hdr_to_cpp.pl         /epoc32/tools/conv_khronos_hdr_to_cpp.pl
+../genutil/conv_khronos_openvg_hdr_to_cpp.pl  /epoc32/tools/conv_khronos_openvg_hdr_to_cpp.pl
+../genutil/ecopyfile.pl     /epoc32/tools/ecopyfile.pl
+../genutil/emkdir.pl        /epoc32/tools/emkdir.pl
+../genutil/ermdir.pl        /epoc32/tools/ermdir.pl
+../genutil/err_formatter.pl /epoc32/tools/err_formatter.pl
+../genutil/genutl.pm        /epoc32/tools/Genutl.pm
+../genutil/modload.pm       /epoc32/tools/Modload.pm
+../genutil/output.pm        /epoc32/tools/Output.pm
+../genutil/prepfile.pm      /epoc32/tools/Prepfile.pm
+../makmake/_secure_trgtype.pm    /epoc32/tools/Trgtype.pm
+../makmake/makdeps.pm       /epoc32/tools/Makdeps.pm
+../makmake/makhelp.pm       /epoc32/tools/Makhelp.pm
+../makmake/makmake.bat      /epoc32/tools/makmake.bat
+../makmake/makmake.pl       /epoc32/tools/makmake.pl
+../makmake/mmp.pm           /epoc32/tools/Mmp.pm
+
+../memtrace/memtrace.bat    /epoc32/tools/memtrace.bat
+../memtrace/memtrace.pl     /epoc32/tools/memtrace.pl
+
+../platform/armutl.pm       /epoc32/tools/Armutl.pm
+../platform/armv6.bsf       /epoc32/tools/armv6.bsf
+../platform/armv6_abiv1.bsf /epoc32/tools/armv6_abiv1.bsf
+../platform/armv6t2.bsf     /epoc32/tools/armv6t2.bsf
+../platform/bpabiutl.pm     /epoc32/tools/BPABIutl.pm
+../platform/cl_arm.pm       /epoc32/tools/Cl_arm.pm
+../platform/cl_bpabi.pm     /epoc32/tools/Cl_bpabi.pm
+../platform/cl_codewarrior.pm    /epoc32/tools/Cl_codewarrior.pm
+../platform/cl_edg.pm       /epoc32/tools/Cl_edg.pm
+../platform/cl_gcc.pm       /epoc32/tools/Cl_gcc.pm
+../platform/cl_gccxml.pm    /epoc32/tools/Cl_gccxml.pm
+../platform/cl_generic.pm   /epoc32/tools/Cl_generic.pm
+../platform/cl_mingw.pm     /epoc32/tools/Cl_mingw.pm
+../platform/cl_tools.pm     /epoc32/tools/Cl_tools.pm
+../platform/cl_vscw.pm      /epoc32/tools/Cl_vscw.pm
+../platform/cl_win.pm       /epoc32/tools/Cl_win.pm
+../platform/cl_x86.pm       /epoc32/tools/Cl_x86.pm
+../platform/cw_link_descriptor_template.cwlink      /epoc32/tools/cw_link_descriptor_template.cwlink
+../platform/cw_link_descriptor_template_v2.cwlink   /epoc32/tools/cw_link_descriptor_template_v2.cwlink
+../platform/cw_project_template_v3.xml    /epoc32/tools/cw_project_template_v3.xml
+../platform/cw_project_template_v4.xml    /epoc32/tools/cw_project_template_v4.xml
+../platform/default_plats.txt     /epoc32/tools/default_plats.txt
+../platform/default_plats_v2.txt  /epoc32/tools/default_plats_v2.txt
+../platform/e32plat.pm      /epoc32/tools/E32Plat.pm
+../platform/e32variant.pm   /epoc32/tools/E32Variant.pm
+../platform/fcloggerutl.pm  /epoc32/tools/FCLoggerUTL.pm
+../platform/filenamepolicyexclusions.txt    /epoc32/tools/filenamepolicyexclusions.txt
+../platform/findimp.pl      /epoc32/tools/findimp.pl
+../platform/gccev6.bsf      /epoc32/tools/gccev6.bsf
+../platform/gccev6t2.bsf    /epoc32/tools/gccev6t2.bsf
+../platform/ide_cw.pm       /epoc32/tools/Ide_cw.pm
+../platform/ide_vc6.pm      /epoc32/tools/Ide_vc6.pm
+../platform/lockit_info.pm  /epoc32/tools/lockit_info.pm
+../platform/winutl.pm       /epoc32/tools/Winutl.pm
+
+../toolinfo/gcce_plat2set.pm	/epoc32/tools/gcce_plat2set.pm
+../toolinfo/rvct_plat2set.pm	/epoc32/tools/RVCT_plat2set.pm
+../toolinfo/rvct_ver2set.pm	/epoc32/tools/RVCT_ver2set.pm
+
+../platform/cl_x86gcc.pm	/epoc32/tools/Cl_x86gcc.pm
+../platform/armv7.bsf		/epoc32/tools/armv7.bsf
+../platform/armv6smp.bsf	/epoc32/tools/armv6smp.bsf
+../platform/gccev7.bsf		/epoc32/tools/gccev7.bsf
+../platform/armv5smp.bsf	/epoc32/tools/armv5smp.bsf
+
+../Docs/abld.rtf			/epoc32/EngDoc/E32toolp/abld.rtf
+../Docs/bldmake.rtf			/epoc32/EngDoc/E32toolp/bldmake.rtf
+../Docs/bld_changes_er5toer5u.rtf	/epoc32/EngDoc/E32toolp/bld_changes_er5toer5u.rtf
+../Docs/bld_changes_er5utov6.rtf	/epoc32/EngDoc/E32toolp/bld_changes_er5utov6.rtf
+../Docs/bld_changes_forv6.1.rtf		/epoc32/EngDoc/E32toolp/bld_changes_forv6.1.rtf
+../Docs/building_variants.txt		/epoc32/EngDoc/E32toolp/building_variants.txt
+../Docs/cedar-mostly-thumb.txt		/epoc32/EngDoc/E32toolp/cedar-mostly-thumb.txt
+../Docs/cpu_specific_builds.txt		/epoc32/EngDoc/E32toolp/cpu_specific_builds.txt
+../Docs/genshimsrc.txt			/epoc32/EngDoc/E32toolp/genshimsrc.txt
+../Docs/gt0063.changes			/epoc32/EngDoc/E32toolp/gt0063.changes
+../Docs/makmake.rtf			/epoc32/EngDoc/E32toolp/makmake.rtf
+../Docs/memtrace.rtf			/epoc32/EngDoc/E32toolp/memtrace.rtf
+../Docs/metabld.rtf			/epoc32/EngDoc/E32toolp/metabld.rtf
+../Docs/mmp_notes.txt			/epoc32/EngDoc/E32toolp/mmp_notes.txt
+../Docs/rcomp.doc			/epoc32/EngDoc/E32toolp/rcomp.doc
+../Docs/zephyr_buildrom_changes.txt	/epoc32/EngDoc/E32toolp/zephyr_buildrom_changes.txt
+
 
 ../../../toolsandutils/buildsystem/extension/app-services/tzlocaltestserver.meta	/epoc32/tools/makefile_templates/app-services/tzlocaltestserver.meta
 ../../../toolsandutils/buildsystem/extension/app-services/tzlocaltestserver.mk		/epoc32/tools/makefile_templates/app-services/tzlocaltestserver.mk
@@ -188,6 +320,3 @@ PRJ_TESTEXPORTS
 ../../../toolsandutils/buildsystem/extension/syslibs/word_template.meta			/epoc32/tools/makefile_templates/syslibs/word_template.meta
 ../../../toolsandutils/buildsystem/extension/syslibs/word_template.mk			/epoc32/tools/makefile_templates/syslibs/word_template.mk
 
-PRJ_EXTENSIONS
-START EXTENSION tools/abld_update
-END

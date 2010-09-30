@@ -23,8 +23,6 @@ require Exporter;
 	OutText
 );
 
-use strict;
-
 
 my $Len=80;
 my $PreWrap="\\";

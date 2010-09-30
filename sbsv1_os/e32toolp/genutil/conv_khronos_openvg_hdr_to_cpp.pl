@@ -62,11 +62,12 @@ sub generateStubImplementation()
   {
     @lines = <INFILE>;
     my $s = "";
-    foreach (@lines) {
+    foreach my $line (@lines) {
       # Find function prototype lines
-      if (/^VG[U]?_API_CALL/ || length($s) != 0) {
-	    $s = $s.$_;
-		if (/;/) {
+      if ($line =~ /^VG[U]?_API_CALL/ || length($s) != 0) {
+      		$line =~ s/^VG[U]?_API_CALL/EXPORT_C/;
+	   	$s = $s.$line;
+		if ($line =~ /;/) {
 		  # Convert the function prototype into a stub function definition
 		  $s =~ s/\;$/ { }/;
 		  # Record the stub functions.  There will be a stub implementation

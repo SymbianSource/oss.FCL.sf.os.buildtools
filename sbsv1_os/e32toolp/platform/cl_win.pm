@@ -46,7 +46,6 @@ require Exporter;
 	PMEndSrcList
 );
 
-use strict;
 use Winutl;
 use cl_generic;
 use Pathutl;
@@ -420,7 +419,7 @@ sub PMStartBldList($) {
 			"# REAL TARGET - LIBRARY\n",
 			"\n",
 			"\"\$(EPOCLIB)\\UDEB\\$ExportLibrary.lib\" : \"$DefFile\"\n",
-			"\tperl -w -S prepdef.pl \"$DefFile\" \"\$(EPOCBLD)\\$ExportLibrary.prep.def\"\n",
+			"\tperl -S prepdef.pl \"$DefFile\" \"\$(EPOCBLD)\\$ExportLibrary.prep.def\"\n",
 			"\tlib.exe /nologo /machine:i386 /nodefaultlib /name:\"$LibLinkAs\"    /def:\"\$(EPOCBLD)\\$ExportLibrary.prep.def\" /out:\"\$(EPOCLIB)\\UDEB\\$ExportLibrary.lib\"\n",
 			"\tdel \"\$(EPOCLIB)\\UDEB\\$ExportLibrary.exp\"\n"
 		);
@@ -433,7 +432,7 @@ sub PMStartBldList($) {
 	if ($DefFile and $BasicTrgType !~ /^IMPLIB$/io) {
 		&main::Output(
 #			call perl on the script here so nmake will die if there are errors - this doesn't happen if calling perl in a batch file
-			"\tperl -w -S efreeze.pl \$(EFREEZE_ALLOW_REMOVE) \"$DefFile\" \"\$(EPOCBLD)\\$ExportLibrary.def\" \n"
+			"\tperl -S efreeze.pl \$(EFREEZE_ALLOW_REMOVE) \"$DefFile\" \"\$(EPOCBLD)\\$ExportLibrary.def\" \n"
 		);
 	}
 	&main::Output(
@@ -573,7 +572,7 @@ sub PMBld {
 		"CLEAN$Bld : CLEANBUILD$Bld CLEANRELEASE$Bld\n",
 		"\n",
 		"CLEANBUILD$Bld : CLEANILK$Bld\n",
-		"\t\@perl -w -S ermdir.pl \"\$(EPOCBLD$Bld)\"\n",
+		"\t\@perl -S ermdir.pl \"\$(EPOCBLD$Bld)\"\n",
 		"\n",
 		"CLEANRELEASE$Bld : CLEANGENERIC CLEANILK$Bld\n",
 		"\n",
@@ -961,7 +960,7 @@ sub PMBld {
 #		call makedef to reorder the export information
 		&main::Output(
 #			call perl on the script here so nmake will die if there are errors - this doesn't happen if calling perl in a batch file
-			"\tperl -w -S makedef.pl $AbsentSubst -Inffile \"\$(EPOCBLD$Bld)\\$ExportLibrary.inf\""
+			"\tperl -S makedef.pl $AbsentSubst -Inffile \"\$(EPOCBLD$Bld)\\$ExportLibrary.inf\""
 		);
 		if (SysTrg()) {
     			&main::Output( "\t\t-SystemTargetType \\\n" );
@@ -1118,7 +1117,7 @@ sub PMAifBld {
 		my $file="\$(EPOCTRG$Bld)$TrgDir\\$$AifRef{Trg}";
 		&main::Output(
 			"\"$file\" : \"$$AifRef{GenericTrg}\"\n",
-			"\tperl -w -S ecopyfile.pl \$? \$\@\n",
+			"\tperl -S ecopyfile.pl \$? \$\@\n",
 			"\n"
 		);
 	}

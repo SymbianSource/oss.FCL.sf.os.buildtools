@@ -16,7 +16,7 @@
 @echo off
 
 
-perl -w -S epocrc.pl  %*
+perl -S epocrc.pl  %*
 if errorlevel==1 goto CheckPerl
 goto End
 

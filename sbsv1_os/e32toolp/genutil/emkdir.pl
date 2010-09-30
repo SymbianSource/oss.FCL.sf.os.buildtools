@@ -13,7 +13,6 @@
 # Description:
 #
 
-use strict;
 use File::Path;
 
 

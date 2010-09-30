@@ -51,7 +51,6 @@ require Exporter;
 	PMEndSrcList
 );
 
-use strict;
 use Winutl;
 use Pathutl;
 
@@ -194,7 +193,7 @@ sub PMStartBldList($) {
 			"\n",
 			"\"${LibPath}UDEB\" :\n"
 		);
-		$SupText.="\t\@perl -w -S emkdir.pl \"${LibPath}UDEB\"\n\n\n";
+		$SupText.="\t\@perl -S emkdir.pl \"${LibPath}UDEB\"\n\n\n";
 	}
 
 
@@ -888,7 +887,7 @@ sub PMBld {
 
 #		call makedef to reorder the export information
 #		call perl on the script here so nmake will die if there are errors - this doesn't happen if calling perl in a batch file
-		$SupText.="\tperl -w -S makedef.pl $AbsentSubst -Inffile \"\$(EPOCBLD$Bld)\\$ExportLibrary.inf\"";
+		$SupText.="\tperl -S makedef.pl $AbsentSubst -Inffile \"\$(EPOCBLD$Bld)\\$ExportLibrary.inf\"";
 		if (-e $DefFile) { # effectively "if project frozen ..."
 			$SupText.=" -Frzfile \"$DefFile\"";
 		}
@@ -1088,7 +1087,7 @@ sub PMResrcBld {
 				$SupText.="\techo this is a dummy output file > \"$ResrcTrgFullName$Lang.dummy\"\n";
 			}
 			$SupText.=join('',
-				"\tperl -w -S ecopyfile.pl \"$SrcPath$BaseResrc.rs~\" \"$ResrcHdr\"\n",
+				"\tperl -S ecopyfile.pl \"$SrcPath$BaseResrc.rs~\" \"$ResrcHdr\"\n",
 				"\tdel \"$SrcPath$BaseResrc.rs~\"\n",
 				"\n"
 			);
@@ -1214,7 +1213,7 @@ sub PMEndSrcList {
 		"\n",
 		"RECREATEWORKSPACE :\n",
 		'	cd ', &main::Path_Chop(&main::Path_WorkPath), "\n",
-		'	perl -w -S makmake.pl -D ', &main::MmpFile, ' ', &main::PlatName, "\n",
+		'	perl -S makmake.pl -D ', &main::MmpFile, ' ', &main::PlatName, "\n",
 		"\n"
 	);
 

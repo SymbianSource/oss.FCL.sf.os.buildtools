@@ -15,7 +15,6 @@
 # 
 #
 
-use strict;
 use File::Find;			# for find()
 use File::Basename;		# for fileparse()
 use Cwd;				# for getcwd()

@@ -30,7 +30,6 @@ require Exporter;
 	Genutl_NormaliseVersionedName
 );
 
-use strict;
 
 sub Genutl_AnyToHex ($) {
 # changes decimal and hexadecimal numbers to the required hexadecimal format

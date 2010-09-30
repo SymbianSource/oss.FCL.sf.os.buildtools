@@ -15,7 +15,7 @@
 @rem
 @echo off
 
-perl -w -S memtrace.pl %1 %2 %3 %4 %5 %6 %7 %8 %9
+perl -S memtrace.pl %1 %2 %3 %4 %5 %6 %7 %8 %9
 if errorlevel==1 goto CheckPerl
 goto End
 

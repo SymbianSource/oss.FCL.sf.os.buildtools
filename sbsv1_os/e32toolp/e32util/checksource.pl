@@ -15,7 +15,6 @@
 # 
 #
 
-use strict;
 use FindBin;
 use Cwd;
 use Getopt::Long qw(:config posix_default);		#permits "+" in arguments, rather than as an option identifier

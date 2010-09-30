@@ -15,8 +15,6 @@
 # 
 #
 
-use strict;
-
 my $source = shift;
 
 # delete invariant

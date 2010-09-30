@@ -18,7 +18,6 @@
 # 
 #
 
-use strict;
 use File::Basename;		# for fileparse()
 use File::Path;			# for mkpath
 use Cwd;				# for cwd

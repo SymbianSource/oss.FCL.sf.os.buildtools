@@ -14,9 +14,6 @@
 # Wrapper to support the EPOC AIF Compiler
 # 
 #
-
-use strict;
-
 use FindBin;		# for FindBin::Bin
 use File::Copy;		# for copy()
 use Cwd;		# for cwd

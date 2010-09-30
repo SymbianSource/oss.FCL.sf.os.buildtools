@@ -36,7 +36,6 @@ require Exporter;
 	Armutl_ArmLibDir
 );
 
-use strict;
 use RVCT_plat2set;
 
 my $ArmInc='';

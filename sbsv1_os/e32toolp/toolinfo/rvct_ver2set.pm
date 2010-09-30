@@ -29,7 +29,6 @@
 
 
 package RVCT_ver2set;
-use strict;
 
 #
 # PUBLIC FUNCTIONS

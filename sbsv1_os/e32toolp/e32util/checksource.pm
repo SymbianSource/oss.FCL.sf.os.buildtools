@@ -37,7 +37,6 @@ our $CheckSource_NoUserSystemDistinction = 1;
 	$CheckSource_NoUserSystemDistinction
 );
 
-use strict;
 use Cwd;
 use Pathutl;
 use Win32;
@@ -45,7 +44,7 @@ use Win32;
 my $exclusionsFile = $ENV{EPOCROOT}."epoc32\\tools\\filenamepolicyexclusions.txt";
 
 my $makefileWarningPrefix = "\@echo ";
-my $checksourcePrefix = "\@perl -w -S checksource.pl";
+my $checksourcePrefix = "\@perl -S checksource.pl";
 my $releaseLocationRoot = quotemeta ($ENV{EPOCROOT}."epoc32");
 
 

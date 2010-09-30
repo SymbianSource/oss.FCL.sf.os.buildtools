@@ -39,8 +39,6 @@
 # USAGE : The GetVariant method should only be called using featurevariantparser->GetVariant(var_name, directory(optional) );
 # If the directory for the VAR file is not supplied,the default directory will be searched for var_name.var
 
-use strict;
-
 package featurevariantparser;
 use File::Spec;
 

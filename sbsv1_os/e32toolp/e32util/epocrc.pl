@@ -16,7 +16,7 @@
 #
 
 use warnings;
-use strict;
+
 use Cwd;		# for cwd
 use FindBin;		# for FindBin::Bin
 use File::Copy;		# for copy()

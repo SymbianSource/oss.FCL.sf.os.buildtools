@@ -40,7 +40,6 @@ require Exporter;
 	PMEndSrcList
 );
 
-use strict;
 use Winutl;
 use cl_generic;
 
@@ -302,7 +301,7 @@ sub PMBld {
 		"CLEAN$Bld : CLEANBUILD$Bld CLEANRELEASE$Bld\n",
 		"\n",
 		"CLEANBUILD$Bld : \n",
-		"\t\@perl -w -S ermdir.pl \"\$(EPOCBLD$Bld)\"\n",
+		"\t\@perl -S ermdir.pl \"\$(EPOCBLD$Bld)\"\n",
 		"\n",
 		"CLEANRELEASE$Bld : CLEANGENERIC\n",
 		"\n"

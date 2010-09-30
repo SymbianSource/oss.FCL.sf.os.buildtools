@@ -21,7 +21,7 @@
 #
 
 use warnings;
-use strict;
+
 use IO::Handle;
 use File::Copy;
 

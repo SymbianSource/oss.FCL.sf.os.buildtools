@@ -18,7 +18,6 @@
 # 
 #
 
-use strict;
 use File::Copy;
 
 my ($dest, $old, $src) = @ARGV;

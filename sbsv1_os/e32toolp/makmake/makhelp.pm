@@ -23,8 +23,6 @@ require Exporter;
 	Help_Plat
 );
 
-use strict;
-
 use E32tpver;
 use featurevariantparser;
 # also requires main module to have loaded platform module(s) and Modload.pm and Trgtype.pm

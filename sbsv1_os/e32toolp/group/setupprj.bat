@@ -116,19 +116,20 @@ opendir CONFIGDIR, "..\\platform" or die "ERROR: Can't open dir \"..\\platform\"
 @ConfigFiles = grep /\.(mk|make)/i, readdir CONFIGDIR;
 
 closedir CONFIGDIR;
-
-opendir SUBDIR, "..\\Docs" or die "ERROR: Can't open dir \"..\\Docs\"\n";
-my @Docs = map lc $_, readdir SUBDIR;
-@Docs = grep /^[^\.].+\.(rtf|doc|changes|txt|html|htm)$/o, @Docs;
-	
-closedir SUBDIR;	
+my @Docs ;
+if(-d "..\\Docs") {
+	opendir SUBDIR, "..\\Docs" or die "ERROR: Can't open dir \"..\\Docs\"\n";
+	@Docs = map lc $_, readdir SUBDIR;
+	@Docs = grep /^[^\.].+\.(rtf|doc|changes|txt|html|htm)$/o, @Docs;	
+	closedir SUBDIR;	
+}
 
 open TEMPLATEFILESUBDIR, "\"dir \/s \/b \/a-d ..\\..\\..\\toolsandutils\\buildsystem\\extension\" |";
 my @TemplateFiles=();
 my %TemplateDirs;
 while (<TEMPLATEFILESUBDIR>)
 	{
-	next if ($_ !~ /\.(mk|meta)$/i);	
+	next if ($_ !~ /\.(mk|meta|flm|xml)$/i);	
 	$_ =~ s/^.*\\buildsystem\\extension\\//i;
 	chomp $_;
 	push @TemplateFiles, $_;
@@ -240,16 +241,22 @@ foreach (sort keys %BinDirs) {
  	"\n"
  	);
 }
-
+if(scalar @Docs) {
+	&Output(
+	"$DocsPath :\n",
+	"\t\@perl -w ..\\genutil\\emkdir.pl $DocsPath\n", 
+	"\n"
+	);
+}
+else {
+	$DocsPath = ""; # suppresses $DocsPath as a dependency in the main rules
+}
 &Output(
 	"$ShellFilePath :\n",
 	"\t\@perl -w ..\\genutil\\emkdir.pl $ShellFilePath\n", 
 	"\n",
 	"$EPOCToolsConfigFilePath :\n",
 	"\t\@perl -w ..\\genutil\\emkdir.pl $EPOCToolsConfigFilePath\n", 
-	"\n",
-	"$DocsPath :\n",
-	"\t\@perl -w ..\\genutil\\emkdir.pl $DocsPath\n", 
 	"\n",
 	"\n",
 	"deb : $EPOCToolsPath $EPOCToolsConfigFilePath $DocsPath $TemplateFilePath $ShellFilePath "
@@ -502,7 +509,7 @@ my $OldMRPText = "";
 sysread MRPFILE, $OldMRPText, 100000;	# assumes MRP file is less than 100,000 bytes
 close MRPFILE or die "\nERROR: Can't close MRP file \"$MRPFILE\"\n";
 
-if ($OldMRPText ne $NewMRPText) {
+if ( lc($OldMRPText) ne lc($NewMRPText)) {
 	print "REMARK: MRP file \"$MRPFILE\" differs from setupprj.bat generated content\n";
 	print "Creating suggested new MRP file \"$MRPFILE.new\"\n";
 	open MRPFILE,">$MRPFILE.new" or die "\nERROR: Can't open or create MRP file \"$MRPFILE.new\"\n";

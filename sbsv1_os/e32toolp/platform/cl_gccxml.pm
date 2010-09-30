@@ -34,7 +34,7 @@ require Exporter;
 	PMResrcBld
 
 );
-use strict;
+
 use cl_generic;
 use Genutl;
 use File::Path;

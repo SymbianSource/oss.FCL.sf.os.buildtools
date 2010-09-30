@@ -34,7 +34,6 @@ require Exporter;
 	Plat_SupportsFeatureVariants
 );
 
-use strict;
 use Winutl;
 use RVCT_plat2set;
 use BPABIutl;

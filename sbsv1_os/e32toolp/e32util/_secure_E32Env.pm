@@ -19,8 +19,6 @@
 
 package E32env;
 
-use strict;
-
 use vars qw(%Data);
 
 BEGIN {

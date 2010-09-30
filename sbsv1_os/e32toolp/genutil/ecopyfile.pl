@@ -13,7 +13,6 @@
 # Description:
 #
 
-use strict;
 use File::Copy;
 use File::Basename;
 use File::Path;

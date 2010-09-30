@@ -13,7 +13,6 @@
 # Description:
 #
 
-use strict;
 
 package		wrappermakefile;
 require Exporter;
