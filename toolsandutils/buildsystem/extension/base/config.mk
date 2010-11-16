@@ -29,6 +29,10 @@ ifndef SOURCE
 SOURCE := hal
 endif
 
+ifndef CONFIG_HCF_FILE
+CONFIG_HCF_FILE := config.hcf
+endif
+
 #MDIR := $(call generated,generatedcpp/hal) # abld
 #MDIR := $(call generated,base/lubbock) # raptor
 MDIR := $(call generatedcpp)
@@ -59,7 +63,7 @@ $(MDIR)/$(PREFIX)values.cpp : $(SOURCE)/values.hda $(EPOCROOT)epoc32/include/pla
 	-$(call createdir,"$(MDIR)")
 	perl $(HALPATH)/hal/halcfg.pl $(EPOCROOT)epoc32/include/platform/hal_data.h $(SOURCE)/values.hda $(MDIR)/$(PREFIX)values.cpp
 
-$(MDIR)/$(PREFIX)config.cpp : $(SOURCE)/config.hcf $(EPOCROOT)epoc32/include/platform/hal_data.h
+$(MDIR)/$(PREFIX)config.cpp : $(SOURCE)/$(CONFIG_HCF_FILE) $(EPOCROOT)epoc32/include/platform/hal_data.h
 	-$(call createdir,"$(MDIR)")
-	perl $(HALPATH)/hal/halcfg.pl -x $(EPOCROOT)epoc32/include/platform/hal_data.h $(SOURCE)/config.hcf $(MDIR)/$(PREFIX)config.cpp
+	perl $(HALPATH)/hal/halcfg.pl -x $(EPOCROOT)epoc32/include/platform/hal_data.h $(SOURCE)/$(CONFIG_HCF_FILE) $(MDIR)/$(PREFIX)config.cpp
 
