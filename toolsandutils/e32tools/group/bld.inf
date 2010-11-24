@@ -28,6 +28,7 @@ PRJ_EXPORTS
 ../dspec/romimage.rtf		/epoc32/engdoc/e32tools/romimage.rtf
 ../tranasm/tranasm.bat		/epoc32/tools/tranasm.bat
 ../tranasm/tranasm.pl		/epoc32/tools/tranasm.pl
+../rombuild/romnibus.pl     /epoc32/rom/tools/romnibus.pl
 ../tranasm/tranasm_x86.pl	/epoc32/tools/tranasm_x86.pl
 ../elftools/inc/elfdefs.h	SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(tools/elfdefs.h)
 ../inc/seclib.h				SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(seclib.h)
